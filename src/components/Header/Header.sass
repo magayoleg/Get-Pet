@@ -1,0 +1,141 @@
+@import ../../_variables.sass
+
+.header
+  position: relative
+  background-color: white
+  padding: 10px 0px
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 4px 2px
+  &__wrapper
+    display: flex
+    align-items: center
+  &__logo
+    padding-top: 5px
+    height: 60px
+    display: flex
+    align-items: center
+    width: 20%
+    img
+      width: 180px
+  &__nav-wrapper
+    width: 45%
+    display: flex
+    justify-content: flex-start
+    align-items: center
+  &__nav
+    width: 20%
+    padding-right: 20px
+    display: flex
+    button
+      font-family: $fontBold
+      font-size: $h5
+      border: none
+      background: none
+      position: relative
+      padding: 0
+      cursor: pointer
+  &__shelters
+    a
+      font-family: $fontBold
+      font-size: $h5
+      position: relative
+      padding: 20px 0
+      width: 240px
+      display: block
+      text-decoration: none
+      color: black
+      border-right: 1px solid $darkColor
+      &::after
+        content: ''
+        position: absolute
+        z-index: 10
+        transform: translateY(-30%)
+        width: 70px
+        height: 70px
+        background-image: url('../../../public/icons/navigate/animal-shelters.svg')
+        background-size: contain
+  &__auth
+    width: 15%
+    ul
+      padding-left: 10px
+      list-style: none
+      font-family: $fontRegular
+      font-size: $h4
+      display: flex
+      justify-content: space-evenly
+      a
+        text-decoration: none
+        color: black
+
+.nav
+  &__breeds
+    display: flex
+  &__arrow-breeds
+    position: relative
+    transition: all 500ms
+    &_active
+      transition: all 500ms
+      transform: rotateZ(180deg)
+  &__arrow-resources
+    position: relative
+    transition: all 500ms
+    &_active
+      transition: all 500ms
+      transform: rotateZ(180deg)
+
+.header
+  &__bg-breeds
+    display: none
+    &_active
+      position: absolute
+      background-color: $darkColor
+      height: 55px
+      width: 100vw
+      top: 80px
+      left: 0px
+      z-index: 5
+      ul
+        display: flex
+        justify-content: center
+        margin: 0
+        padding: 0
+        li
+          list-style: none
+          padding-right: 50px
+          font-size: $h6
+        li:nth-child(2)
+          border-left: 1px solid $secondaryColor
+        a
+          display: flex
+          align-items: center
+          text-decoration: none
+          font-family: $fontRegular
+          color: $secondaryColor
+        img
+          margin-top: -5px
+          width: 62px
+          height: 62px
+  &__bg-resources
+    display: none
+    &_active
+      position: absolute
+      background-color: $darkColor
+      height: 55px
+      width: 100vw
+      top: 80px
+      left: 0px
+      z-index: 5
+      ul
+        display: flex
+        justify-content: center
+        margin: 0
+        padding: 0
+        align-items: center
+        height: 100%
+        li
+          list-style: none
+          font-family: $fontRegular
+          font-size: $h6
+        a
+          color: $secondaryColor
+          padding-right: 50px
+          text-decoration: none
