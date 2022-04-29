@@ -53,17 +53,17 @@ const Header = () => {
             >
               <ul>
                 <li>
-                  <NavLink to="/">
+                  <NavLink to="/dog-breeds">
                     <img src="/icons/animals/dog-white.svg" alt="dog-white" />
                     DOG BREEDS
                   </NavLink>
                 </li>
                 <li></li>
                 <li>
-                  <a href="/">
+                  <NavLink to="/cat-breeds">
                     <img src="/icons/animals/cat-white.svg" alt="cat-white" />
                     CAT BREEDS
-                  </a>
+                  </NavLink>
                 </li>
               </ul>
             </div>
@@ -88,29 +88,29 @@ const Header = () => {
             >
               <ul>
                 <li>
-                  <NavLink to="/">ABOUT PET ADOPTION</NavLink>
+                  <NavLink to="/about-help-adoption">ABOUT PET ADOPTION</NavLink>
                 </li>
                 <li>
-                  <NavLink to="/">DOG CARE</NavLink>
+                  <NavLink to="/dog-care">DOG CARE</NavLink>
                 </li>
                 <li>
-                  <NavLink to="/">CAT CARE</NavLink>
+                  <NavLink to="/cat-care">CAT CARE</NavLink>
                 </li>
                 <li>
-                  <NavLink to="/">ALL PET CARE</NavLink>
+                  <NavLink to="/all-pet-care">ALL PET CARE</NavLink>
                 </li>
                 <li>
-                  <NavLink to="/">SHELTERS & RESCUES</NavLink>
+                  <NavLink to="/shelters">SHELTERS & RESCUES</NavLink>
                 </li>
                 <li>
-                  <NavLink to="/">HELPING PETS</NavLink>
+                  <NavLink to="/helping-pets">HELPING PETS</NavLink>
                 </li>
               </ul>
             </div>
           </nav>
         </div>
         <div className="header__shelters">
-          <NavLink to="/">ANIAML SHELTERS</NavLink>
+          <NavLink to="/shelters">ANIMAL SHELTERS</NavLink>
         </div>
         <div className="header__auth">
           <ul>

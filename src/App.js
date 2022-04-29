@@ -12,6 +12,14 @@ import SignUp from './components/Forms/SignUp/SignUp';
 import SignIn from './components/Forms/SignIn/SignIn';
 import { checkAuth } from './redux/actions/userAction';
 import Main from './components/Main/Main';
+import { AboutHelpAdoption } from './pages/AboutHelpAdoption';
+import { AllPetCare } from './pages/AllPetCare';
+import { CatCare } from './pages/CatCare';
+import { DogCare } from './pages/DogCare';
+import { HelpingPets } from './pages/HelpingPets';
+import { Shelters } from './pages/Shelters';
+import { DogBreeds } from './pages/DogBreeds';
+import { CatBreeds } from './pages/CatBreeds';
 
 function App() {
   const dispatch = useDispatch();
@@ -32,6 +40,14 @@ function App() {
           <Route path="/auth/signout" element={<PrivateRoute><SignOut /></PrivateRoute>} />
           <Route path="/auth/signup" element={<SignUp />} />
           <Route path="/auth/signin" element={<SignIn />} />
+          <Route path="/about-help-adoption" element={<AboutHelpAdoption />} />
+          <Route path="/all-pet-care" element={<AllPetCare />} />
+          <Route path="/cat-care" element={<CatCare />} />
+          <Route path="/dog-care" element={<DogCare />} />
+          <Route path="/helping-pets" element={<HelpingPets />} />
+          <Route path="/shelters" element={<Shelters />} />
+          <Route path="/dog-breeds" element={<DogBreeds />} />
+          <Route path="/cat-breeds" element={<CatBreeds />} />
         </Routes>
       </div>
     </>
