@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import './App.sass';
 import { useDispatch } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
+
 import PrivateRoute from './components/PrivateRouter/PrivateRouter';
 import UserList from './components/UserList/UserList';
 import UserDetail from './components/UserDetail/UserDetail';
@@ -11,7 +12,9 @@ import Header from './components/Header/Header';
 import SignUp from './components/Forms/SignUp/SignUp';
 import SignIn from './components/Forms/SignIn/SignIn';
 import { checkAuth } from './redux/actions/userAction';
-import Main from './components/Main/Main';
+
+// import Main from './components/Main/Main';
+import { Main } from './pages/Main';
 import { AboutHelpAdoption } from './pages/AboutHelpAdoption';
 import { AllPetCare } from './pages/AllPetCare';
 import { CatCare } from './pages/CatCare';
