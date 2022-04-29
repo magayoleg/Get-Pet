@@ -20,7 +20,9 @@ function SignIn() {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    let payload = Object.entries(userSignIn).filter((el) => (el[1] ? el[1].trim() : el[1]));
+    let payload = Object.entries(userSignIn).filter((el) =>
+      el[1] ? el[1].trim() : el[1]
+    );
     if (payload.length) {
       payload = Object.fromEntries(payload);
       dispatch(signIn(payload, navigate, from));
@@ -28,36 +30,39 @@ function SignIn() {
   };
 
   return (
-    <div className="d-flex justify-content-center">
-      <form
-        onSubmit={submitHandler}
-        className="d-flex flex-column align-items-center bg-light text-dark p-3 border rounded-3"
-      >
-        <legend className="text-center mb-4">User Sign In</legend>
-        <div className="mb-3">
+    <div className="signForm signUp-wrapper">
+      <form onSubmit={submitHandler} className="signUp-wrapper__form">
+        <legend>Sign In</legend>
+        <div className="mb-3 signForm__box">
+          <label htmlFor="email-input" className="signForm__lable">
+            Email
+          </label>
           <input
             onChange={changeHandler}
+            className="signForm__input"
             value={userSignIn.email}
-            className="form-control"
             type="email"
             name="email"
-            placeholder="Email"
+            id="email-input"
           />
         </div>
 
-        <div className="mb-3">
+        <div className="mb-3 signForm__box">
+          <label htmlFor="password-input" className="signForm__lable">
+            Password
+          </label>
           <input
             onChange={changeHandler}
+            className="signForm__input"
             value={userSignIn.password}
-            className="form-control"
             type="password"
             name="password"
-            placeholder="Password"
+            id="password-input"
           />
         </div>
 
-        <button type="submit" className="btn btn-primary">
-          Sign In
+        <button type="submit" className="signForm__submit">
+          SIGN IN
         </button>
       </form>
     </div>

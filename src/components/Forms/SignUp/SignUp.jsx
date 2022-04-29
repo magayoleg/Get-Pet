@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { signUp } from '../../../redux/actions/userAction';
+import './SignUp.sass';
 
 function SignUp() {
   const [userSignUp, setUserSignUp] = useState({
@@ -30,48 +31,56 @@ function SignUp() {
   };
 
   return (
-    <form
-      onSubmit={submitHandler}
-      className="d-flex flex-column align-items-center bg-light text-dark p-3 border rounded-3"
-    >
-      <legend className="text-center mb-4">User Sign Up</legend>
-      <div className="mb-3">
-        <input
-          onChange={changeHandler}
-          className="form-control"
-          value={userSignUp.email}
-          type="email"
-          name="email"
-          placeholder="Email"
-        />
-      </div>
+    <div className="signForm signUp-wrapper">
+      <form onSubmit={submitHandler} className="signUp-wrapper__form">
+        <legend>Sign Up</legend>
+        <div className="mb-3 signForm__box">
+          <label htmlFor="email-input" className="signForm__lable">
+            Email
+          </label>
+          <input
+            onChange={changeHandler}
+            className="signForm__input"
+            value={userSignUp.email}
+            type="email"
+            name="email"
+            id="email-input"
+          />
+        </div>
 
-      <div className="mb-3">
-        <input
-          onChange={changeHandler}
-          className="form-control"
-          value={userSignUp.userName}
-          type="text"
-          name="userName"
-          placeholder="Name"
-        />
-      </div>
+        <div className="mb-3 signForm__box">
+          <label htmlFor="name-input" className="signForm__lable">
+            Name
+          </label>
+          <input
+            onChange={changeHandler}
+            className="signForm__input"
+            value={userSignUp.userName}
+            type="text"
+            name="userName"
+            id="name-input"
+          />
+        </div>
 
-      <div className="mb-3">
-        <input
-          onChange={changeHandler}
-          className="form-control"
-          value={userSignUp.password}
-          type="password"
-          name="password"
-          placeholder="Password"
-        />
-      </div>
+        <div className="mb-3 signForm__box">
+          <label htmlFor="password-input" className="signForm__lable">
+            Password
+          </label>
+          <input
+            onChange={changeHandler}
+            className="signForm__input"
+            value={userSignUp.password}
+            type="password"
+            name="password"
+            id="password-input"
+          />
+        </div>
 
-      <button type="submit" className="btn btn-primary">
-        Sign Up
-      </button>
-    </form>
+        <button type="submit" className="signForm__submit">
+          SIGN UP
+        </button>
+      </form>
+    </div>
   );
 }
 

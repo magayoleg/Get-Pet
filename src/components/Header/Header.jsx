@@ -118,7 +118,7 @@ const Header = () => {
               <NavLink to="/auth/signup">Sign Up</NavLink>
             </li>
             <li>
-              <NavLink to="/auth/signin">Log In</NavLink>
+              <NavLink to="/auth/signin">Sign In</NavLink>
             </li>
           </ul>
         </div>
