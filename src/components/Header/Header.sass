@@ -69,73 +69,92 @@
 .nav
   &__breeds
     display: flex
+    button
+      margin-right: 7px
   &__arrow-breeds
     position: relative
     transition: all 500ms
+    font-size: $icon1
     &_active
       transition: all 500ms
       transform: rotateZ(180deg)
+      font-size: $icon1
+  &__resources
+    button
+      margin-right: 7px
   &__arrow-resources
     position: relative
     transition: all 500ms
+    font-size: $icon1
     &_active
       transition: all 500ms
       transform: rotateZ(180deg)
+      font-size: $icon1
 
 .header
   &__bg-breeds
-    display: none
-    &_active
-      position: absolute
-      background-color: $darkColor
-      height: 55px
-      width: 100vw
-      top: 80px
-      left: 0px
-      z-index: 5
-      ul
+    position: absolute
+    height: 55px
+    width: 100vw
+    top: 80px
+    left: 0px
+    z-index: 10
+    opacity: 0%
+    visibility: hidden
+    transition: all 500ms
+    ul
+      display: flex
+      justify-content: center
+      margin: 0
+      padding: 0
+      li
+        list-style: none
+        padding-right: 50px
+        font-size: $h6
+      li:nth-child(2)
+        border-left: 1px solid $secondaryColor
+      a
         display: flex
-        justify-content: center
-        margin: 0
-        padding: 0
-        li
-          list-style: none
-          padding-right: 50px
-          font-size: $h6
-        li:nth-child(2)
-          border-left: 1px solid $secondaryColor
-        a
-          display: flex
-          align-items: center
-          text-decoration: none
-          font-family: $fontRegular
-          color: $secondaryColor
-        img
-          margin-top: -5px
-          width: 62px
-          height: 62px
-  &__bg-resources
-    display: none
-    &_active
-      position: absolute
-      background-color: $darkColor
-      height: 55px
-      width: 100vw
-      top: 80px
-      left: 0px
-      z-index: 5
-      ul
-        display: flex
-        justify-content: center
-        margin: 0
-        padding: 0
         align-items: center
-        height: 100%
-        li
-          list-style: none
-          font-family: $fontRegular
-          font-size: $h6
-        a
-          color: $secondaryColor
-          padding-right: 50px
-          text-decoration: none
+        text-decoration: none
+        font-family: $fontRegular
+        color: $secondaryColor
+      img
+        margin-top: -5px
+        width: 62px
+          height: 62px
+    &_active
+      background-color: $darkColor
+      opacity: 100%
+      visibility: visible
+      transition: all 500ms
+  &__bg-resources
+    position: absolute
+    height: 55px
+    width: 100vw
+    top: 80px
+    left: 0px
+    z-index: 10
+    opacity: 0%
+    visibility: hidden
+    transition: all 500ms
+    ul
+      display: flex
+      justify-content: center
+      margin: 0
+      padding: 0
+      align-items: center
+      height: 100%
+      li
+        list-style: none
+        font-family: $fontRegular
+        font-size: $h6
+      a
+        color: $secondaryColor
+        padding-right: 50px
+        text-decoration: none
+    &_active
+      background-color: $darkColor
+      opacity: 100%
+      visibility: visible
+      transition: all 500ms

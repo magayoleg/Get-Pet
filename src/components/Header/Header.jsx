@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import './Header.sass';
 
 const Header = () => {
@@ -35,9 +37,8 @@ const Header = () => {
         <div className="header__nav-wrapper">
           <nav className="header__nav nav__breeds">
             <button onClick={breedsStyleChange}>BREEDS</button>
-            <img
-              src="/icons/navigate/arrow-down.png"
-              alt="arrow-down"
+            <FontAwesomeIcon
+              icon={faChevronDown}
               className={
                 !breedsStyle.condition
                   ? 'nav__arrow-breeds'
@@ -48,7 +49,7 @@ const Header = () => {
               className={
                 !breedsStyle.condition
                   ? 'header__bg-breeds'
-                  : 'header__bg-breeds_active'
+                  : 'header__bg-breeds header__bg-breeds_active'
               }
             >
               <ul>
@@ -70,9 +71,8 @@ const Header = () => {
           </nav>
           <nav className="header__nav nav__resources">
             <button onClick={resourcesStyleChange}>RESOURCES</button>
-            <img
-              src="/icons/navigate/arrow-down.png"
-              alt="arrow-down"
+            <FontAwesomeIcon
+              icon={faChevronDown}
               className={
                 !resourcesStyle.condition
                   ? 'nav__arrow-resources'
@@ -83,7 +83,7 @@ const Header = () => {
               className={
                 !resourcesStyle.condition
                   ? 'header__bg-resources'
-                  : 'header__bg-resources_active'
+                  : 'header__bg-resources header__bg-resources_active'
               }
             >
               <ul>
@@ -110,7 +110,7 @@ const Header = () => {
           </nav>
         </div>
         <div className="header__shelters">
-          <NavLink to="/">ANIAML SHELTERS</NavLink>
+          <NavLink to="/">ANIMAL SHELTERS</NavLink>
         </div>
         <div className="header__auth">
           <ul>
