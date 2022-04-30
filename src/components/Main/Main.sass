@@ -2,6 +2,9 @@
 
 .main
   .container
+    max-width: 1320px
+    margin: 0 auto
+  &__wrapper
     display: flex
     flex-direction: column
   &__bg
@@ -110,21 +113,21 @@
     font-family: $fontMedium
     font-size: $h3
     text-align: center
-    padding-top: 30px
-    padding-bottom: 40px
+    padding-bottom: 30px
   &-pet
     background-color: $secondaryColor
     box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 4px 2px
-    width: 85%
-    margin: 0 auto
-    padding: 40px 40px
-    margin-top: 50px
+    padding: 40px 30px
+    margin-top: 60px
     border-radius: 10px
     position: absolute
-    top: 350px
+    left: 50%
+    transform: translateX(-50%)
+    top: 330px
     visibility: hidden
     opacity: 0%
     transition: all 500ms
+    z-index: 15
     &_active
       visibility: visible
       opacity: 100%
@@ -150,18 +153,19 @@
       padding: 0
       margin: 0 auto
       li
-        max-width: 165px
-        max-height: 200px
+        max-width: 150px
+        max-height: 180px
         height: 100%
         background-color: $secondaryColor
         border-radius: 10px
         border: 1px solid $bgColor
         box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 4px 1px
+        margin: 0px 5px
         a
           text-decoration: none
           text-align: center
         img
-          width: 170px
+          width: 150px
           display: block
           margin: 0 auto
         span
@@ -171,3 +175,35 @@
           font-size: $h5
           color: black
           top: -15px
+
+.adoption
+  width: 78%
+  position: relative
+  top: 40px
+  &__title
+    font-family: $fontMedium
+    font-size: $h3
+    text-align: center
+    padding: 40px 0px
+  &__button-prev
+    position: absolute
+    background: none
+    border: none
+    cursor: pointer
+    top: 50%
+    left: -50px
+    width: 50px
+    height: 50px
+    font-size: $icon2
+  &__button-next
+    position: absolute
+    background: none
+    border: none
+    cursor: pointer
+    top: 50%
+    right: -50px
+    width: 50px
+    height: 50px
+    font-size: $icon2
+  .mySwiper
+    height: 350px

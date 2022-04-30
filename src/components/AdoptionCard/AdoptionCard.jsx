@@ -1,8 +1,11 @@
-const AdoptionCard = () => {
+import './AdoptionCard.sass';
+
+const AdoptionCard = ({ id, name, image }) => {
   return (
-    <div>
-      Enter
-    </div>
+    <a href='/' className="adoptCard" id={id}>
+      <img src={image} alt="image" className="adoptCard__image" />
+      <p className="adoptCard__title">{name}</p>
+    </a>
   );
 }
 
