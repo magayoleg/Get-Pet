@@ -23,6 +23,8 @@ import { HelpingPets } from './pages/HelpingPets';
 import { Shelters } from './pages/Shelters';
 import { DogBreeds } from './pages/DogBreeds';
 import { CatBreeds } from './pages/CatBreeds';
+import { Chat } from './pages/Chat';
+import { UserProfile } from './pages/UserProfile';
 
 function App() {
   const dispatch = useDispatch();
@@ -51,6 +53,8 @@ function App() {
           <Route path="/shelters" element={<Shelters />} />
           <Route path="/dog-breeds" element={<DogBreeds />} />
           <Route path="/cat-breeds" element={<CatBreeds />} />
+          <Route path="/chat" element={<Chat />} />
+          <Route path="/userprofile" element={<UserProfile />} />
         </Routes>
       </div>
     </>
