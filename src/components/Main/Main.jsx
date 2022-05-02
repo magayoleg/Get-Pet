@@ -1,17 +1,22 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faXmark, faChevronLeft, faChevronRight} from '@fortawesome/free-solid-svg-icons';
+import {
+  faXmark,
+  faChevronLeft,
+  faChevronRight,
+} from '@fortawesome/free-solid-svg-icons';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Mousewheel, Keyboard } from 'swiper';
+import { Navigation, Pagination } from 'swiper';
 import AdoptionCard from '../AdoptionCard/AdoptionCard';
+import AdviceCard from '../AdviceCard/AdviceCard';
 
 import './Main.sass';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-import { dbTest } from './dbTest';
+import { dbAdoption, dbAdvice } from './dbTest';
 
 function Main() {
   const [otherStyle, setOthersStyle] = useState({ condition: false });
@@ -131,41 +136,85 @@ function Main() {
       </section>
 
       <section className="container adoption">
-        <div className="adoption__title">Pets Available for Adoption</div>
-        <button className='adoption__button-prev'>
-          <FontAwesomeIcon icon={faChevronLeft} />
-        </button>
-        <button className='adoption__button-next'>
-          <FontAwesomeIcon icon={faChevronRight} />
-        </button>
-        <Swiper
-          slidesPerView={4}
-          spaceBetween={10}
-          slidesPerGroup={1}
-          loop={true}
-          loopFillGroupWithBlank={true}
-          pagination={{
-            clickable: true,
-          }}
-          navigation={{
-            prevEl: '.adoption__button-prev',
-            nextEl: '.adoption__button-next',
-          }}
-          modules={[Pagination, Navigation]}
-          className="mySwiper"
-        >
-          {dbTest.map((item) => {
-            return (
-              <SwiperSlide key={'key' + item.id}>
-                <AdoptionCard id={item.id}
-                  name={item.name} image={item.image}/>
-              </SwiperSlide>
-            );
-          })}
-        </Swiper>
+        <div className="slider">
+          <div className="slider__title">Pets Available for Adoption</div>
+          <button className="slider__button-prev adoption__button-prev">
+            <FontAwesomeIcon icon={faChevronLeft} />
+          </button>
+          <button className="slider__button-next adoption__button-next">
+            <FontAwesomeIcon icon={faChevronRight} />
+          </button>
+          <Swiper
+            slidesPerView={4}
+            spaceBetween={10}
+            slidesPerGroup={1}
+            loop={true}
+            loopFillGroupWithBlank={true}
+            pagination={{
+              clickable: true,
+            }}
+            navigation={{
+              prevEl: '.adoption__button-prev',
+              nextEl: '.adoption__button-next',
+            }}
+            modules={[Pagination, Navigation]}
+            className="mySwiper"
+          >
+            {dbAdoption.map((item) => {
+              return (
+                <SwiperSlide key={'key' + item.id}>
+                  <AdoptionCard
+                    id={item.id}
+                    name={item.name}
+                    image={item.image}
+                  />
+                </SwiperSlide>
+              );
+            })}
+          </Swiper>
+        </div>
       </section>
-      
-      <div style={{height: '500px'}}></div>
+
+      <section className="container advice">
+        <div className="advice__bg"></div>
+        <div className="slider">
+          <div className="slider__title">Planning to Adopt a Pet?</div>
+          <button className="slider__button-prev advice__button-prev">
+            <FontAwesomeIcon icon={faChevronLeft} />
+          </button>
+          <button className="slider__button-next advice__button-next">
+            <FontAwesomeIcon icon={faChevronRight} />
+          </button>
+          <Swiper
+            slidesPerView={3}
+            spaceBetween={10}
+            slidesPerGroup={1}
+            loop={true}
+            loopFillGroupWithBlank={true}
+            pagination={{
+              clickable: true,
+            }}
+            navigation={{
+              prevEl: '.advice__button-prev',
+              nextEl: '.advice__button-next',
+            }}
+            modules={[Pagination, Navigation]}
+            className="mySwiper"
+          >
+            {dbAdvice.map((item) => {
+              return (
+                <SwiperSlide key={'key' + item.id}>
+                  <AdviceCard
+                    id={item.id}
+                    title={item.title}
+                    content={item.content}
+                  />
+                </SwiperSlide>
+              );
+            })}
+          </Swiper>
+        </div>
+      </section>
     </main>
   );
 }

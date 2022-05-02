@@ -12,7 +12,7 @@ function SignUp() {
   });
 
   const navigate = useNavigate();
-
+  
   const changeHandler = (e) => {
     setUserSignUp((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
@@ -31,8 +31,8 @@ function SignUp() {
   };
 
   return (
-    <div className="signForm signUp-wrapper">
-      <form onSubmit={submitHandler} className="signUp-wrapper__form">
+    <div className="signUp-wrapper">
+      <form onSubmit={submitHandler} className="signForm  signUp-wrapper__form">
         <legend>Sign Up</legend>
         <div className="mb-3 signForm__box">
           <label htmlFor="email-input" className="signForm__lable">

@@ -8,7 +8,6 @@ function PrivateRoute({ children }) {
 
   return (
     auth ? children : <Navigate to="/auth/signin" />
-
   );
 }
 

@@ -1,42 +1,75 @@
-export const dbTest = [
+export const dbAdoption = [
   {
-    id: 1,
+    id: 'adopt1',
     name: 'Sandvik',
     image: './images/animals/1.jpg'
   },
   {
-    id: 2,
+    id: 'adopt2',
     name: 'Enel',
     image: './images/animals/2.jpg'
   },
   {
-    id: 3,
+    id: 'adopt3',
     name: 'Kuna',
     image: './images/animals/3.jpg'
   },
   {
-    id: 4,
+    id: 'adopt4',
     name: 'Scott',
     image: './images/animals/4.jpg'
   },
   {
-    id: 5,
+    id: 'adopt5',
     name: 'Ganni',
     image: './images/animals/5.jpeg'
   },
   {
-    id: 6,
+    id: 'adopt6',
     name: 'Hermes',
     image: './images/animals/6.webp'
   },
   {
-    id: 7,
+    id: 'adopt7',
     name: 'Bolt',
     image: './images/animals/7.jpg'
   },
   {
-    id: 8,
+    id: 'adopt8',
     name: 'Danone',
     image: './images/animals/8.jpg'
+  },
+];
+
+export const dbAdvice = [
+  {
+    id: 'advice1',
+    title: 'Lorem, ipsum dolor.',
+    content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+  },
+  {
+    id: 'advice2',
+    title: 'Lorem ipsum dolor sit amet.',
+    content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+  },
+  {
+    id: 'advice3',
+    title: 'Lorem ipsum dolor sit.',
+    content: 'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi magni excepturi quas nam quaerat veniam'
+  },
+  {
+    id: 'advice4',
+    title: 'Lorem ipsum dolor sit amet consectetur.',
+    content: 'Lorem ipsum, dolor sit amet consectetur adipisicing.'
+  },
+  {
+    id: 'advice5',
+    title: 'Lorem ipsum dolor sit amet consectetur.',
+    content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla quod cupiditate fugit vel excepturi id quaerat, modi minus quis nemo.'
+  },
+  {
+    id: 'advice6',
+    title: 'Lorem ipsum dolor sit amet consectetur adipisicing.',
+    content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi magni excepturi quas nam quaerat veniam'
   },
 ]

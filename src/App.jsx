@@ -10,7 +10,9 @@ import SignUp from './components/Forms/SignUp/SignUp';
 import SignIn from './components/Forms/SignIn/SignIn';
 import { checkAuth } from './redux/actions/userAction';
 import Main from './components/Main/Main';
+import Footer from './components/Footer/Footer';
 import './App.sass';
+import AddAdvertisement from './components/Forms/AddAdvertisement/AddAdvertisement';
 
 function App() {
   const dispatch = useDispatch();
@@ -30,8 +32,10 @@ function App() {
           <Route path="/user/edit" element={<PrivateRoute><UserEdit /></PrivateRoute>} />
           <Route path="/auth/signup" element={<SignUp />} />
           <Route path="/auth/signin" element={<SignIn />} />
+          <Route path='/addAdvert' element={<AddAdvertisement />} />
         </Routes>
       </div>
+      <Footer />
     </>
   );
 }

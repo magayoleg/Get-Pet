@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { faChevronDown, faBookmark } from '@fortawesome/free-solid-svg-icons';
+import AddAdvertisement from '../Forms/AddAdvertisement/AddAdvertisement';
 import './Header.sass';
 
 const Header = () => {
@@ -34,6 +35,7 @@ const Header = () => {
             <img src="/icons/logo.png" alt="logo" />
           </NavLink>
         </div>
+
         <div className="header__nav-wrapper">
           <nav className="header__nav nav__breeds">
             <button onClick={breedsStyleChange}>BREEDS</button>
@@ -109,9 +111,32 @@ const Header = () => {
             </div>
           </nav>
         </div>
+
+        <div className="header__add-advertisement">
+          <NavLink to="/addAdvert">
+            <button>Add advertisement</button>
+          </NavLink>
+        </div>
+
         <div className="header__shelters">
           <NavLink to="/">ANIMAL SHELTERS</NavLink>
         </div>
+
+        <div className="header__themes">
+          <div className="header__themes-change">
+            <span>Light</span>
+            <input type="checkbox" id="toggleTheme" />
+            <label htmlFor="toggleTheme"></label>
+            <span>Dark</span>
+          </div>
+        </div>
+
+        <div className="header__favourites">
+          <button>
+            <FontAwesomeIcon icon={faBookmark} />
+          </button>
+        </div>
+
         <div className="header__auth">
           <ul>
             <li>
