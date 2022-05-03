@@ -1,14 +1,16 @@
-export const ACTION_getAllAds = (allAdsArray) => ({
+import { ADD_AD, DELETE_AD, GET_ADS } from '../types/adsTypes';
+
+export const getAllAds = (allAdsArray) => ({
   type: GET_ADS,
   payload: allAdsArray,
 });
 
-export const ACTION_getNewAd = (allAdsArray) => ({
+export const addAd = (ad) => ({
   type: ADD_AD,
-  payload: allAdsArray,
+  payload: ad,
 });
 
-export const ACTION_deleteAd = (id) => ({
+export const deleteAd = (id) => ({
   type: DELETE_AD,
   payload: id,
 });
