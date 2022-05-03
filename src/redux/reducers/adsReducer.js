@@ -1,5 +1,5 @@
 import initialState from '../initialState/initialState';
-import { GET_ADS, ADD_AD } from '../types/adsTypes';
+import { ADD_AD, DELETE_AD, GET_ADS } from '../types/adsTypes';
 
 const adsReducer = ({ state = initialState, action }) => {
   const { type, payload } = action;
@@ -8,7 +8,8 @@ const adsReducer = ({ state = initialState, action }) => {
       return payload;
     case ADD_AD:
       return [payload, ...state];
-
+    case DELETE_AD:
+      return state.filter((el) => el.id !== payload);
     default:
       return state;
   }
