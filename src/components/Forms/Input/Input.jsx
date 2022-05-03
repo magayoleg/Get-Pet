@@ -1,4 +1,4 @@
-const Input = ({ placeholder, value, changeHandler }) => {
+const Input = ({ placeholder, value, changeHandler, name, type = 'text'}) => {
   const newPlaceholder = placeholder[0].toUpperCase() + placeholder.substr(1);
 
   return (
@@ -9,9 +9,9 @@ const Input = ({ placeholder, value, changeHandler }) => {
       <input
         onChange={changeHandler}
         className="signForm__input"
-        value={value}
-        type="text"
-        name={placeholder}
+        value={type === 'file' ? null : value}
+        type={type}
+        name={name}
         id={`${placeholder}-input`}
       />
     </div>

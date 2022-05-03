@@ -13,6 +13,7 @@ import Main from './components/Main/Main';
 import Footer from './components/Footer/Footer';
 import './App.sass';
 import AddAdvertisement from './components/Forms/AddAdvertisement/AddAdvertisement';
+import Advertisements from './pages/Advertisements/Advertisements';
 
 function App() {
   const dispatch = useDispatch();
@@ -27,12 +28,12 @@ function App() {
       <div className="container py-5">
         <Routes>
           <Route path="/" element={<Main />} />
-          <Route path="/users" element={<PrivateRoute><UserList /></PrivateRoute>} />
           <Route path="/users/:id" element={<PrivateRoute><UserDetail /></PrivateRoute>} />
           <Route path="/user/edit" element={<PrivateRoute><UserEdit /></PrivateRoute>} />
           <Route path="/auth/signup" element={<SignUp />} />
           <Route path="/auth/signin" element={<SignIn />} />
           <Route path='/addAdvert' element={<AddAdvertisement />} />
+          <Route path='/advertisements' element={<Advertisements />} />
         </Routes>
       </div>
       <Footer />

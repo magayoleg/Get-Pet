@@ -9,4 +9,4 @@ export const getAllUsers = () => `${host}/users`;
 export const editUser = (id) => `${host}/users/${id}`;
 export const getUser = (id) => `${host}/users/${id}`;
 
-export const addAdvertisement = () => `${host}/addAdvertisement`;
+export const addAdvertisementPoint = () => `${host}/posts`;
