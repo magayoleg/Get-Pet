@@ -1,6 +1,7 @@
 import { UserChat } from "../../components/UserChat";
 import { UserMessageInChat } from "../../components/UserMessageInChat";
 import { Button } from '../../components/Button';
+import { Button2 } from "../../components/Button2";
 
 import "./chat.css";
 
@@ -14,6 +15,7 @@ export function Chat() {
         </div>
         <div className='chat__chats_buttons'>
           <Button name={'Выйти'} />
+          {/* <Button2 name="ilya and max" /> */}
         </div>
       </div>
 
@@ -27,9 +29,9 @@ export function Chat() {
         <div className='chat__messages_buttons'>
           <Button name={'Очистить'} />
           <Button name={'Отправить'} />
-        </div>
-          
+        </div>   
       </div>
+      
     </div>
   );
 }

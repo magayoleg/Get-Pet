@@ -54,7 +54,7 @@ function App() {
           <Route path="/dog-breeds" element={<DogBreeds />} />
           <Route path="/cat-breeds" element={<CatBreeds />} />
           <Route path="/chat" element={<Chat />} />
-          <Route path="/userprofile" element={<UserProfile />} />
+          <Route path="/userprofile/:id" element={<UserProfile />} />
         </Routes>
       </div>
     </>

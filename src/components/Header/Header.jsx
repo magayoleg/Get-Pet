@@ -1,10 +1,22 @@
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
+import { setUser } from '../../redux/actions/userAction';
+
 import './Header.sass';
 
 const Header = () => {
   const [breedsStyle, setBreedsStyle] = useState({ condition: false });
   const [resourcesStyle, setResourcesStyle] = useState({ condition: false });
+
+  const user = useSelector(state => state.user);
+  const dispatch = useDispatch();
+
+  console.log('User =>', user);
+
+  const logoutHandler = () => {
+    dispatch(setUser(null));
+  };
 
   const breedsStyleChange = () => {
     if (resourcesStyle.condition) {
@@ -114,12 +126,26 @@ const Header = () => {
         </div>
         <div className="header__auth">
           <ul>
-            <li>
-              <NavLink to="/auth/signup">Sign Up</NavLink>
-            </li>
-            <li>
-              <NavLink to="/auth/signin">Sign In</NavLink>
-            </li>
+            {user ? (
+              <>
+                <li>
+                  <span>{user.name}</span>
+                </li>
+                <li>
+                  <NavLink to="/" onClick={logoutHandler}>Sign Out</NavLink>
+                </li>
+              </>
+            ) : (
+              <>
+                <li>
+                  <NavLink to="/auth/signup">Sign Up</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/auth/signin">Sign In</NavLink>
+                </li>
+              </>
+            )}
+
           </ul>
         </div>
       </div>
