@@ -1,7 +1,7 @@
-import initialState from '../initialState/initialState';
+import preloadedState from '../initialState/preloadedState';
 import { ADD_AD, DELETE_AD, GET_ADS } from '../types/adsTypes';
 
-const adsReducer = ({ state = initialState, action }) => {
+const adsReducer = ({ state = preloadedState, action }) => {
   const { type, payload } = action;
   switch (type) {
     case GET_ADS:

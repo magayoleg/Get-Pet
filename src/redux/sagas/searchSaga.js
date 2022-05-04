@@ -4,7 +4,7 @@ import {
 import { GET_ADS, SEARCH_AD } from '../types/adsTypes';
 
 const searchFetch = async (str) => {
-  const response = await fetch(`/filter/${str}`);
+  const response = await fetch(`/search/${str}`); // как на беке?
   return response.json();
 };
 
@@ -14,7 +14,7 @@ function* searchWorker(action) {
     const ads = yield call(searchFetch, action.payload);
     yield put({ type: GET_ADS, payload: ads });
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 }
 

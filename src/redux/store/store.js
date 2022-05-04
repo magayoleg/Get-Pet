@@ -4,13 +4,13 @@ import thunk from 'redux-thunk';
 import createSagaMiddleware from 'redux-saga';
 import rootReducer from '../reducers/rootReducer';
 import rootSaga from '../sagas/rootSaga';
-import initialState from '../initialState/initialState';
+import preloadedState from '../initialState/preloadedState';
 
 const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(
   rootReducer,
-  initialState,
+  preloadedState,
   composeWithDevTools(applyMiddleware(thunk, sagaMiddleware)),
 );
 

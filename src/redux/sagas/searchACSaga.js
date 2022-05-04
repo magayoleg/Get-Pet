@@ -1,8 +1,8 @@
 import { SEARCH_AD } from '../types/adsTypes';
 
-const searchAd = (ads) => ({
+const searchACSaga = (ads) => ({
   type: SEARCH_AD,
   payload: ads,
 });
 
-export default searchAd;
+export default searchACSaga;
