@@ -10,10 +10,8 @@ const Header = () => {
   const [breedsStyle, setBreedsStyle] = useState({ condition: false });
   const [resourcesStyle, setResourcesStyle] = useState({ condition: false });
 
-  const user = useSelector(state => state.user);
+  const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
-
-  console.log('User =>', user);
 
   const logoutHandler = () => {
     dispatch(setUser(null));
@@ -76,7 +74,7 @@ const Header = () => {
                   <NavLink to="/cat-breeds">
                     <img src="/icons/animals/cat-white.svg" alt="cat-white" />
                     ПОРОДЫ КОТОВ
-                  </a>
+                  </NavLink>
                 </li>
               </ul>
             </div>
@@ -155,7 +153,9 @@ const Header = () => {
                   <span>{user.name}</span>
                 </li>
                 <li>
-                  <NavLink to="/" onClick={logoutHandler}>Выйти</NavLink>
+                  <NavLink to="/" onClick={logoutHandler}>
+                    Выйти
+                  </NavLink>
                 </li>
               </>
             ) : (
@@ -168,7 +168,6 @@ const Header = () => {
                 </li>
               </>
             )}
-
           </ul>
         </div>
       </div>
