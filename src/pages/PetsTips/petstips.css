@@ -1,0 +1,15 @@
+.PetsTips__container {
+  min-height: 70vh;
+}
+
+.PetsTips__select {
+  width: 350px;
+  margin: 75px auto;
+}
+
+.PetsTips__content_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 60px;
+}
