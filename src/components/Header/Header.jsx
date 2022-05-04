@@ -1,13 +1,23 @@
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faBookmark } from '@fortawesome/free-solid-svg-icons';
-import AddAdvertisement from '../Forms/AddAdvertisement/AddAdvertisement';
+import { setUser } from '../../redux/actions/userAction';
 import './Header.sass';
 
 const Header = () => {
   const [breedsStyle, setBreedsStyle] = useState({ condition: false });
   const [resourcesStyle, setResourcesStyle] = useState({ condition: false });
+
+  const user = useSelector(state => state.user);
+  const dispatch = useDispatch();
+
+  console.log('User =>', user);
+
+  const logoutHandler = () => {
+    dispatch(setUser(null));
+  };
 
   const breedsStyleChange = () => {
     if (resourcesStyle.condition) {
@@ -56,14 +66,14 @@ const Header = () => {
             >
               <ul>
                 <li>
-                  <NavLink to="/">
+                  <NavLink to="/dog-breeds">
                     <img src="/icons/animals/dog-white.svg" alt="dog-white" />
                     ПОРОДЫ СОБАК
                   </NavLink>
                 </li>
                 <li></li>
                 <li>
-                  <a href="/">
+                  <NavLink to="/cat-breeds">
                     <img src="/icons/animals/cat-white.svg" alt="cat-white" />
                     ПОРОДЫ КОТОВ
                   </a>
@@ -139,12 +149,26 @@ const Header = () => {
 
         <div className="header__auth">
           <ul>
-            <li>
-              <NavLink to="/auth/signup">РЕГИСТРАЦИЯ</NavLink>
-            </li>
-            <li>
-              <NavLink to="/auth/signin">Войти</NavLink>
-            </li>
+            {user ? (
+              <>
+                <li>
+                  <span>{user.name}</span>
+                </li>
+                <li>
+                  <NavLink to="/" onClick={logoutHandler}>Выйти</NavLink>
+                </li>
+              </>
+            ) : (
+              <>
+                <li>
+                  <NavLink to="/auth/signup">Регистрация</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/auth/signin">Войти</NavLink>
+                </li>
+              </>
+            )}
+
           </ul>
         </div>
       </div>
