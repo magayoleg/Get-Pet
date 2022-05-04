@@ -49,7 +49,7 @@ function Main() {
           />
         </div>
         <div className="main__slogan">
-          Find your new friend with
+          Найди своего нового друга с
           <span className="main__slogan-sub"> getPet</span>
         </div>
         <div className="main__category">
@@ -57,25 +57,25 @@ function Main() {
             <li>
               <NavLink to="/">
                 <img src="./icons/animals/dog.svg" alt="dog" />
-                <span>Dogs</span>
+                <span>Собаки</span>
               </NavLink>
             </li>
             <li>
               <NavLink to="/">
                 <img src="./icons/animals/cat.svg" alt="cat" />
-                <span>Cats</span>
+                <span>Коты</span>
               </NavLink>
             </li>
             <li>
               <NavLink to="/">
                 <img src="./icons/animals/hamster.svg" alt="hamster" />
-                <span>Small & Furry</span>
+                <span>Мелкие грызуны</span>
               </NavLink>
             </li>
             <li>
               <button className="main__category-btn" onClick={otherStyleChange}>
                 <img src="./icons/animals/others.svg" alt="hamster" />
-                <span>Other Animals</span>
+                <span>Другие животные</span>
               </button>
             </li>
           </ul>
@@ -92,43 +92,43 @@ function Main() {
             <FontAwesomeIcon icon={faXmark} />
           </button>
           <div className="main__other-title">
-            What type of pet are you searching for?
+            Какого домашнего животного вы ищете?
           </div>
           <ul>
             <li>
               <NavLink to="/">
                 <img src="./icons/animals/rabbit.svg" alt="rabbit" />
-                <span>Rabbits</span>
+                <span>Кролики</span>
               </NavLink>
             </li>
             <li>
               <NavLink to="/">
                 <img src="./icons/animals/lizard.svg" alt="lizard" />
-                <span>Lizards</span>
+                <span>Ящерицы, змеи</span>
               </NavLink>
             </li>
             <li>
               <NavLink to="/">
                 <img src="./icons/animals/fish.svg" alt="fish" />
-                <span>Pisces</span>
+                <span>Рыбы</span>
               </NavLink>
             </li>
             <li>
               <NavLink to="/">
                 <img src="./icons/animals/bird.svg" alt="bird" />
-                <span>Birds</span>
+                <span>Птицы</span>
               </NavLink>
             </li>
             <li>
               <NavLink to="/">
                 <img src="./icons/animals/bug.svg" alt="bug" />
-                <span>Bugs</span>
+                <span>Жуки, пауки</span>
               </NavLink>
             </li>
             <li>
               <NavLink to="/">
                 <img src="./icons/animals/cow.svg" alt="cow" />
-                <span>Barnyard</span>
+                <span>Скотный двор</span>
               </NavLink>
             </li>
           </ul>
@@ -137,7 +137,7 @@ function Main() {
 
       <section className="container adoption">
         <div className="slider">
-          <div className="slider__title">Pets Available for Adoption</div>
+          <div className="slider__title">Домашние животные которые ищут новый дом</div>
           <button className="slider__button-prev adoption__button-prev">
             <FontAwesomeIcon icon={faChevronLeft} />
           </button>
@@ -178,7 +178,7 @@ function Main() {
       <section className="container advice">
         <div className="advice__bg"></div>
         <div className="slider">
-          <div className="slider__title">Planning to Adopt a Pet?</div>
+          <div className="slider__title">Планируете завести домашнее животное?</div>
           <button className="slider__button-prev advice__button-prev">
             <FontAwesomeIcon icon={faChevronLeft} />
           </button>

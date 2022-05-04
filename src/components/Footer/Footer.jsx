@@ -5,56 +5,56 @@ const Footer = () => {
     <footer className="footer">
       <div className='container'>
         <div className="footer__about">
-          <p>ABOUT PETFINDER</p>
+          <p>О GETPET</p>
           <ul>
             <li>
-              <a href="/">About Petfinder</a>
+              <a href="/">О GETPET</a>
             </li>
             <li>
-              <a href="/">Partnerships</a>
+              <a href="/">Принципы GETPET</a>
             </li>
             <li>
-              <a href="/">Terms of Service</a>
+              <a href="/">Партнерские отношения</a>
             </li>
             <li>
-              <a href="/">Petfinder Foundation</a>
+              <a href="/">Условия обслуживания</a>
             </li>
             <li>
-              <a href="/">For Developers</a>
+              <a href="/">Для разработчиков</a>
             </li>
           </ul>
         </div>
         <div className="footer__adoption">
-          <p>PET ADOPTION</p>
+          <p>О ПРИНЯТИИ ДОМАШНИХ ЖИВОТНЫХ </p>
           <ul>
             <li>
-              <a href="/">Dog Adoption</a>
+              <a href="/">О принятии собак</a>
             </li>
             <li>
-              <a href="/">Cat Adoption</a>
+              <a href="/">О принятии кошек</a>
             </li>
             <li>
-              <a href="/">Search Adoption Organizations</a>
+              <a href="/">Поиск Организаций По Усыновлению</a>
             </li>
             <li>
-              <a href="/">Happy Tails Pet Adoption Stories</a>
+              <a href="/">Счастливые истории домашних животных</a>
             </li>
           </ul>
         </div>
         <div className="footer__care">
-          <p>PET CARE TOPICS</p>
+          <p>ТЕМЫ ПО УХОДУ ЗА ДОМАШНИМИ ЖИВОТНЫМИ</p>
           <ul>
             <li>
-              <a href="/">Dog Care</a>
+              <a href="/">Уход за собаками</a>
             </li>
             <li>
-              <a href="/">Cat Care</a>
+              <a href="/">Уход за кошками</a>
             </li>
             <li>
-              <a href="/">All Pet Care</a>
+              <a href="/">Уход за другими животными</a>
             </li>
             <li>
-              <a href="/">Helping Pets</a>
+              <a href="/">Животные нуждающиеся в помощи</a>
             </li>
           </ul>
         </div>

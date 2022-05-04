@@ -41,7 +41,7 @@
       border: none
       padding: 15px 20px
       font-size: $h5
-      font-family: $fontRegular
+      @include primaryFont
       color: $darkColor
       &:nth-child(1)
         border-top-left-radius: 10px
@@ -65,6 +65,7 @@
     font-family: $fontBold
     font-size: $h2
     color: $secondaryColor
+    letter-spacing: 1px
     text-align: center
     &-sub
       font-family: $logoFont
@@ -97,7 +98,7 @@
         span
           display: block
           position: relative
-          font-family: $fontRegular
+          @include primaryFont
           font-size: $h5
           color: black
           top: -20px
@@ -110,7 +111,7 @@
 
 .main__other
   &-title
-    font-family: $fontMedium
+    @include titleFont
     font-size: $h3
     text-align: center
     padding-bottom: 30px
@@ -171,7 +172,7 @@
         span
           display: block
           position: relative
-          font-family: $fontRegular
+          @include primaryFont
           font-size: $h5
           color: black
           top: -15px
@@ -218,3 +219,5 @@
     width: 100vw
     position: absolute
     left: 0px
+  &-card__content
+    @include primaryFont

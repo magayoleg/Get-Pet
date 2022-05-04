@@ -38,7 +38,7 @@ const Header = () => {
 
         <div className="header__nav-wrapper">
           <nav className="header__nav nav__breeds">
-            <button onClick={breedsStyleChange}>BREEDS</button>
+            <button onClick={breedsStyleChange}>ПОРОДЫ</button>
             <FontAwesomeIcon
               icon={faChevronDown}
               className={
@@ -58,21 +58,21 @@ const Header = () => {
                 <li>
                   <NavLink to="/">
                     <img src="/icons/animals/dog-white.svg" alt="dog-white" />
-                    DOG BREEDS
+                    ПОРОДЫ СОБАК
                   </NavLink>
                 </li>
                 <li></li>
                 <li>
                   <a href="/">
                     <img src="/icons/animals/cat-white.svg" alt="cat-white" />
-                    CAT BREEDS
+                    ПОРОДЫ КОТОВ
                   </a>
                 </li>
               </ul>
             </div>
           </nav>
           <nav className="header__nav nav__resources">
-            <button onClick={resourcesStyleChange}>RESOURCES</button>
+            <button onClick={resourcesStyleChange}>РЕСУРСЫ</button>
             <FontAwesomeIcon
               icon={faChevronDown}
               className={
@@ -90,22 +90,22 @@ const Header = () => {
             >
               <ul>
                 <li>
-                  <NavLink to="/">ABOUT PET ADOPTION</NavLink>
+                  <NavLink to="/">О ПРИНЯТИИ ДОМАШНИХ ЖИВОТНЫХ</NavLink>
                 </li>
                 <li>
-                  <NavLink to="/">DOG CARE</NavLink>
+                  <NavLink to="/">УХОД ЗА СОБАКОЙ</NavLink>
                 </li>
                 <li>
-                  <NavLink to="/">CAT CARE</NavLink>
+                  <NavLink to="/">УХОД ЗА КОШКОЙ</NavLink>
                 </li>
                 <li>
-                  <NavLink to="/">ALL PET CARE</NavLink>
+                  <NavLink to="/">ВСЕ ДЛЯ УХОДА ЗА ЖИВОТНЫМИ</NavLink>
                 </li>
                 <li>
-                  <NavLink to="/">SHELTERS & RESCUES</NavLink>
+                  <NavLink to="/">ПРИЮТЫ</NavLink>
                 </li>
                 <li>
-                  <NavLink to="/">HELPING PETS</NavLink>
+                  <NavLink to="/">ПОМОЩЬ ДОМАШНИМ ЖИВОТНЫМИ</NavLink>
                 </li>
               </ul>
             </div>
@@ -114,12 +114,12 @@ const Header = () => {
 
         <div className="header__add-advertisement">
           <NavLink to="/addAdvert">
-            <button>Add advertisement</button>
+            <button>Добавить объявление</button>
           </NavLink>
         </div>
 
         <div className="header__shelters">
-          <NavLink to="/">ANIMAL SHELTERS</NavLink>
+          <NavLink to="/">ПРИЮТЫ ДЛЯ ЖИВОТНЫХ</NavLink>
         </div>
 
         <div className="header__themes">
@@ -140,10 +140,10 @@ const Header = () => {
         <div className="header__auth">
           <ul>
             <li>
-              <NavLink to="/auth/signup">Sign Up</NavLink>
+              <NavLink to="/auth/signup">РЕГИСТРАЦИЯ</NavLink>
             </li>
             <li>
-              <NavLink to="/auth/signin">Sign In</NavLink>
+              <NavLink to="/auth/signin">Войти</NavLink>
             </li>
           </ul>
         </div>

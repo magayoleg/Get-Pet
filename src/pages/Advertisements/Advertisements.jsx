@@ -3,7 +3,7 @@ import './Advertisements.sass';
 const Advertisements = () => {
   return (
     <section className="container advertisement cards-pet">
-      <div className="cards-pet__sort">
+      <div className="cards-pet__filter">
         <div className="cards-pet__species">
           <span>Тип животного:</span>
           <select>
@@ -19,7 +19,7 @@ const Advertisements = () => {
           </select>
         </div>
         <div className="cards-pet__breed">
-          <span> Порода животного:</span>
+          <span>Порода животного:</span>
           <input type='text' />
         </div>
 
@@ -59,7 +59,17 @@ const Advertisements = () => {
           </select>
         </div>
       </div>
-      <div className="cards-pet__cards"></div>
+      <div className="cards-pet__cards">
+        <div className="cards-pet__sort">
+          <span>Сортировать по:</span>
+          <select>
+            <option value="city1">По дате объявления	&#8595;</option>
+            <option value="city1">По дате объявления	&#8593;</option>
+            <option value="city1">По возрасту	&#8595;</option>
+            <option value="city1">По возрасту	&#8593;</option>
+          </select>
+        </div>
+      </div>
     </section>
   );
 };

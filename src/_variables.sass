@@ -1,20 +1,21 @@
 @font-face
   font-family: "Pacifico"
   src: url('./fonts/Pacifico-Regular.ttf')
+
 @font-face
-  font-family: "Nexa-Regular"
-  src: url('./fonts/Nexa-Regular.woff2')
+  font-family: "BuyanThin"
+  src: url('./fonts/BuyanThin.ttf')
 @font-face
-  font-family: "Nexa-Bold"
-  src: url('./fonts/Nexa-Bold.woff2')
+  font-family: "BuyanRegular"
+  src: url('./fonts/BuyanRegular.ttf')
 @font-face
-  font-family: "Nexa-Heavy"
-  src: url('./fonts/Nexa-Heavy.woff2')
+  font-family: "BuyanBold"
+  src: url('./fonts/BuyanBold.ttf')
 
 $logoFont: 'Pacifico', 'sans-serif'
-$fontRegular: 'Nexa-Regular', 'sans-serif' 
-$fontMedium: 'Nexa-Bold', 'sans-serif'
-$fontBold: 'Nexa-Heavy', 'sans-serif'
+$fontRegular: 'BuyanThin', 'sans-serif' 
+$fontMedium: 'BuyanRegular', 'sans-serif'
+$fontBold: 'BuyanBold', 'sans-serif'
 
 $primaryColor: #88746c
 $secondaryColor: #f8f8f8
@@ -33,3 +34,10 @@ $h6: 14px
 $icon1: 16px
 $icon2: 22px
 $icon3: 30px
+
+@mixin primaryFont
+  font-family: $fontMedium
+  letter-spacing: 0.5px
+@mixin titleFont
+  font-family: $fontBold
+  letter-spacing: 0.5px

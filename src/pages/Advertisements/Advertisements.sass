@@ -1,12 +1,33 @@
+@import ../../_variables.sass
+
 .cards-pet
+  padding-top: 50px
   display: flex
   justify-content: center
+  @include primaryFont
+  font-size: $h5
   &__species
     display: flex
     flex-direction: column
-  &__sort
-    width: 20%
+  &__filter
+    width: 15%
+    margin-top: 30px
     display: flex
     flex-direction: column
   &__cards
     width: 80%
+  select, input
+    height: 30px
+    width: 100%
+    padding: 15px
+    @include primaryFont
+    font-size: $h5
+
+.cards-pet
+  &__cards
+    
+  &__sort
+    display: flex
+    justify-content: center
+    @include primaryFont
+    font-size: $h5
