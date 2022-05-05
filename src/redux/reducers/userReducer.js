@@ -1,6 +1,7 @@
 import { DELETE_USER, SET_USER } from '../types/userTypes';
+import initialState from '../initialState/initialState';
 
-const userReducer = ({ state = null, action }) => {
+const userReducer = (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
     case SET_USER:

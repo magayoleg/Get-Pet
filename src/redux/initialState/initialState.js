@@ -1,8 +1,9 @@
-const preloadedState = {
+const initialState = {
   user: null,
   loader: false,
   ads: [],
   favorite: [],
+
 };
 
-export default preloadedState;
+export default initialState;

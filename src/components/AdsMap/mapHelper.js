@@ -16,3 +16,4 @@ const mapHelper = (speciesId) => {
 };
 
 export default mapHelper;
+// готов

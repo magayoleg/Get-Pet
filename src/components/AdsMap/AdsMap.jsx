@@ -10,7 +10,8 @@ import {
 } from 'react-yandex-maps';
 
 import { useDispatch, useSelector } from 'react-redux';
-import './styleMap.css';
+import './style.css';
+import { Link } from 'react-router-dom';
 import AdsThunk from '../../redux/thunk/getAdsACThunk';
 import mapHelper from './mapHelper';
 
@@ -30,13 +31,19 @@ function AdsMap() {
   };
 
   useEffect(() => {
+    fetch('http://localhost:4000/species') // нужен endpoint?
+      .then((response) => response.json())
+      .then((data) => setAllAnimalTypes(data));
+  }, []);
+
+  useEffect(() => {
     dispatch(AdsThunk());
   }, []);
 
   const DBO = useSelector((store) => store.ad);
 
   return (
-    <YMaps>
+    <YMaps id="map">
       <section id="blog" className="blog">
         <div className="container" data-aos="fade-up">
           <div className="sidebar">
@@ -48,9 +55,9 @@ function AdsMap() {
                     <a onClick={() => sortedMarks(el.id)}>{el.title}</a>
                   </li>
                 ))}
-                <li><a href="src/components/XYandexMap/AdsMap#">Cats</a></li>
-                <li><a href="src/components/XYandexMap/AdsMap#">Dogs</a></li>
-                <li><a href="src/components/XYandexMap/AdsMap#">Other</a></li>
+                <li><Link to="src/components/AdsMap/AdsMap#">Cats</Link></li>
+                <li><Link to="src/components/AdsMap/AdsMap#">Dogs</Link></li>
+                <li><Link to="src/components/AdsMap/AdsMap#">Other</Link></li>
               </ul>
             </div>
           </div>
@@ -80,7 +87,7 @@ function AdsMap() {
             }
           }}
         >
-          {DBO.filter((el) => el.available === true)
+          {DBO
             .filter((el) => {
               if (animalType === null) {
                 return true;
@@ -91,7 +98,7 @@ function AdsMap() {
               <Placemark
                 key={el.id}
                 modules={['geoObject.addon.balloon']}
-                geometry={[el.coordinatesX, el.coordinatesY]}
+                geometry={[el.Latitude, el.Longitude]}
                 properties={{
                   balloonContentHeader: el.title,
                   balloonContent: el.description,
