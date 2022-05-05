@@ -1,4 +1,8 @@
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import CardAdvert from './components/CardAdvert';
+import { THUNK_getAllPets } from '../../redux/thunks/getAllPetsThunk';
+
 import './Advertisements.sass';
 
 const cards = [
@@ -75,7 +79,29 @@ const cards = [
   },
 ];
 
+
+
 const Advertisements = () => {
+
+  const [species, setSpecies] = useState('');
+  const [breed, setBreed] = useState('');
+  const [age, setAge] = useState(null);
+  const [city, setCity] = useState('');
+
+  const dispatch = useDispatch();
+
+  const handleGetPets = () => {
+    dispatch(THUNK_getAllPets({
+      species,
+      breed,
+      age,
+      city
+    }))
+  };
+
+  const state = useSelector(state => state.getAllPets);
+  console.log('---------------state----------------', state)
+
   return (
     <section className="container advertisement cards-pet">
       <div className="cards-pet__filter">
@@ -135,7 +161,7 @@ const Advertisements = () => {
           </select>
         </div>
 
-        <button>Поиск</button>
+        <button onClick={handleGetPets}>Поиск</button>
       </div>
 
       <div className="cards-pet__cards">
