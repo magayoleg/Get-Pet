@@ -2,7 +2,11 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown, faBookmark } from '@fortawesome/free-solid-svg-icons';
+import {
+  faChevronDown,
+  faBookmark,
+  faHandHoldingHeart,
+} from '@fortawesome/free-solid-svg-icons';
 import { setUser } from '../../redux/actions/userAction';
 import './Header.sass';
 
@@ -127,7 +131,10 @@ const Header = () => {
         </div>
 
         <div className="header__shelters">
-          <NavLink to="/">ПРИЮТЫ ДЛЯ ЖИВОТНЫХ</NavLink>
+          <NavLink to="/">
+            ПРИЮТЫ ДЛЯ ЖИВОТНЫХ
+            <FontAwesomeIcon icon={faHandHoldingHeart} />
+          </NavLink>
         </div>
 
         <div className="header__themes">

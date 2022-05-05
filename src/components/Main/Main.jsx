@@ -30,23 +30,41 @@ function Main() {
       <div className="main__bg"></div>
       <section className="container main__wrapper">
         <div className="main__search">
-          <input
-            id="search-pet"
-            type="text"
-            className="main__search-pet"
-            placeholder="Search pet"
-          />
-          <input
-            id="search-city"
-            type="text"
-            className="main__search-city"
-            placeholder="Search city"
-          />
-          <img
-            src="./icons/navigate/search.png"
-            alt="search"
-            className="main__search-img"
-          />
+          <div className="cards-pet__species cards-pet__input">
+            <select>
+              <option value="dog">Собаки</option>
+              <option value="cat">Кошки</option>
+              <option value="small&furry">Мелкие грызуны</option>
+              <option value="rabbits">Кролики</option>
+              <option value="lizard">Ящерицы, змеи</option>
+              <option value="pisces">Рыбы</option>
+              <option value="birds">Птицы</option>
+              <option value="bugs">Жуки, пауки</option>
+              <option value="barnyard">Скотный двор</option>
+            </select>
+          </div>
+          <div className="cards-pet__city cards-pet__input">
+            <select>
+              <option value="city1">Москва</option>
+              <option value="city2">Санкт-Петербург</option>
+              <option value="city3">Новосибирск</option>
+              <option value="city4">Екатеринбург</option>
+              <option value="city5">Казань</option>
+              <option value="city6">Нижний Новгород</option>
+              <option value="city7">Челябинск</option>
+              <option value="city8">Самара</option>
+              <option value="city9">Ростов-на-Дону</option>
+              <option value="city10">Уфа</option>
+              <option value="city11">Омск</option>
+              <option value="city12">Красноярск</option>
+              <option value="city13">Воронеж</option>
+              <option value="city14">Пермь</option>
+              <option value="city15">Волгоград</option>
+            </select>
+          </div>
+          <button className='main__search-btn'>
+            <img src="./icons/navigate/search.png" alt="search" className="main__search-img"/>
+          </button>
         </div>
         <div className="main__slogan">
           Найди своего нового друга с
@@ -137,7 +155,9 @@ function Main() {
 
       <section className="container adoption">
         <div className="slider">
-          <div className="slider__title">Домашние животные которые ищут новый дом</div>
+          <div className="slider__title">
+            Домашние животные которые ищут новый дом
+          </div>
           <button className="slider__button-prev adoption__button-prev">
             <FontAwesomeIcon icon={faChevronLeft} />
           </button>
@@ -178,7 +198,9 @@ function Main() {
       <section className="container advice">
         <div className="advice__bg"></div>
         <div className="slider">
-          <div className="slider__title">Планируете завести домашнее животное?</div>
+          <div className="slider__title">
+            Планируете завести домашнее животное?
+          </div>
           <button className="slider__button-prev advice__button-prev">
             <FontAwesomeIcon icon={faChevronLeft} />
           </button>

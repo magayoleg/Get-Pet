@@ -29,37 +29,6 @@
     top: 0
     left: 0
     z-index: 5
-  &__search
-    width: 50%
-    margin: 0 auto
-    position: relative
-    top: 70px
-    input
-      width: 50%
-      height: 50px
-      position: relative
-      border: none
-      padding: 15px 20px
-      font-size: $h5
-      @include primaryFont
-      color: $darkColor
-      &:nth-child(1)
-        border-top-left-radius: 10px
-        border-bottom-left-radius: 10px
-        border: 1px solid $primaryColor
-      &:nth-child(2)
-        border-top-right-radius: 10px
-        border-bottom-right-radius: 10px
-        border: 1px solid $primaryColor
-    &-img
-      width: 35px
-      height: 35px
-      background-color: $darkColor
-      border-radius: 10px
-      position: absolute
-      right: 10px
-      top: 8px
-      z-index: 15
   &__slogan
     margin-top: 110px
     font-family: $fontBold
@@ -72,6 +41,58 @@
       font-size: $h1
       color: $sloganColor
 
+.main
+  &__search
+    width: 50%
+    margin: 0 auto
+    position: relative
+    top: 70px
+    display: flex
+    justify-content: space-between
+    align-content: center
+    span
+      width: 100%
+    select
+      height: 50px
+      position: relative
+      border: none
+      padding: 15px 20px
+      font-size: $h5
+      @include primaryFont
+      color: $darkColor
+    .cards-pet__species
+      display: flex
+      flex-direction: column
+      width: 50%
+      span
+        margin-left: 15px
+      select
+        border-top-left-radius: 10px
+        border-bottom-left-radius: 10px
+        border: 1px solid $primaryColor
+    .cards-pet__city
+      display: flex
+      flex-direction: column
+      width: 50%
+      span
+        margin-left: 15px
+      select
+        border-top-right-radius: 10px
+        border-bottom-right-radius: 10px
+        border: 1px solid $primaryColor
+    &-btn
+      background: none
+      border: none
+      width: 50px
+      height: 50px
+      cursor: pointer
+      margin-top: 20px
+    &-img
+      width: 45px
+      height: 45px
+      background-color: $primaryColor
+      border-radius: 10px
+      
 .main
   &__category
     ul
