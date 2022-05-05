@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import './App.sass';
 import { useDispatch } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
 
@@ -25,6 +24,9 @@ import { DogBreeds } from './pages/DogBreeds';
 import { CatBreeds } from './pages/CatBreeds';
 import { Chat } from './pages/Chat';
 import { UserProfile } from './pages/UserProfile';
+import { PetsTips } from './pages/PetsTips';
+
+import './App.sass';
 
 function App() {
   const dispatch = useDispatch();
@@ -69,6 +71,7 @@ function App() {
           <Route path="/cat-breeds" element={<CatBreeds />} />
           <Route path="/chat" element={<Chat />} />
           <Route path="/userprofile/:id" element={<UserProfile />} />
+          <Route path="/pets-tips" element={<PetsTips />} />
         </Routes>
       </div>
       <Footer />

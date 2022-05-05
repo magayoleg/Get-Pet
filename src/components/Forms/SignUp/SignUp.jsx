@@ -33,7 +33,7 @@ function SignUp() {
   return (
     <div className="signUp-wrapper">
       <form onSubmit={submitHandler} className="signForm  signUp-wrapper__form">
-        <legend>Sign Up</legend>
+        <legend>Зарегистрироваться</legend>
         <div className="mb-3 signForm__box">
           <label htmlFor="email-input" className="signForm__lable">
             Email
@@ -50,7 +50,7 @@ function SignUp() {
 
         <div className="mb-3 signForm__box">
           <label htmlFor="name-input" className="signForm__lable">
-            Name
+            Имя
           </label>
           <input
             onChange={changeHandler}

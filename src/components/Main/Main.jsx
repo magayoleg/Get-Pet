@@ -10,6 +10,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper';
 import AdoptionCard from '../AdoptionCard/AdoptionCard';
 import AdviceCard from '../AdviceCard/AdviceCard';
+import {getAllDogs} from '../../config/endPoints'
 
 import './Main.sass';
 import 'swiper/css';
@@ -73,10 +74,10 @@ function Main() {
         <div className="main__category">
           <ul>
             <li>
-              <NavLink to="/">
+              <a href={getAllDogs()}>
                 <img src="./icons/animals/dog.svg" alt="dog" />
                 <span>Собаки</span>
-              </NavLink>
+              </a>
             </li>
             <li>
               <NavLink to="/">

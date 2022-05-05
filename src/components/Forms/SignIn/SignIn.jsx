@@ -33,7 +33,7 @@ function SignIn() {
   return (
     <div className="signIn-wrapper">
       <form onSubmit={submitHandler} className="signForm signIn-wrapper__form">
-        <legend>Sign In</legend>
+        <legend>Войти</legend>
         <div className="mb-3 signForm__box">
           <label htmlFor="email-input" className="signForm__lable">
             Email
