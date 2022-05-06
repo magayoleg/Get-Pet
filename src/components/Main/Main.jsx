@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+
+import AdoptionCard from '../AdoptionCard/AdoptionCard';
+import AdviceCard from '../AdviceCard/AdviceCard';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faXmark,
@@ -9,9 +12,6 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper';
-import AdoptionCard from '../AdoptionCard/AdoptionCard';
-import AdviceCard from '../AdviceCard/AdviceCard';
-import { getAllPetsAction } from '../../redux/actions/getAllPetsAction';
 
 import './Main.sass';
 import 'swiper/css';
@@ -85,13 +85,13 @@ function Main() {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/">
+              <NavLink to="/advertisements/?species=Кошки">
                 <img src="./icons/animals/cat.svg" alt="cat" />
                 <span>Коты</span>
               </NavLink>
             </li>
             <li>
-              <NavLink to="/">
+              <NavLink to="/advertisements/?species=Грызуны">
                 <img src="./icons/animals/hamster.svg" alt="hamster" />
                 <span>Мелкие грызуны</span>
               </NavLink>

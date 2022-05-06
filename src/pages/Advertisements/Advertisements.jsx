@@ -1,9 +1,12 @@
-import CardAdvert from './components/CardAdvert';
-import './Advertisements.sass';
-import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { getAllPetsAction } from '../../redux/actions/getAllPetsAction';
+import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import CardAdvert from './components/CardAdvert';
+import { getAllPetsAction } from '../../redux/actions/getAllPetsAction';
+
+import './Advertisements.sass';
+
+
 
 const Advertisements = () => {
   const query = useLocation().search.slice(useLocation().search.indexOf("=") + 1);

@@ -57,7 +57,7 @@ function SignUp() {
             className="signForm__input"
             value={userSignUp.name}
             type="text"
-            name="userName"
+            name="name"
             id="name-input"
           />
         </div>
