@@ -15,7 +15,7 @@ import Footer from './components/Footer/Footer';
 
 import Advertisements from './pages/Advertisements/Advertisements';
 import { AboutHelpAdoption } from './pages/AboutHelpAdoption/AboutHelpAdoption';
-import { AllPetCare } from './pages/AllPetCare/AllPetCare';
+import { AllPetsCare } from './pages/AllPetsCare/AllPetsCare';
 import { CatCare } from './pages/CatCare/CatCare';
 import { DogCare } from './pages/DogCare/DogCare';
 import { HelpingPets } from './pages/HelpingPets/HelpingPets';
@@ -62,7 +62,7 @@ function App() {
           <Route path="/addAdvert" element={<AddAdvertisement />} />
           <Route path="/advertisements" element={<Advertisements />} />
           <Route path="/about-help-adoption" element={<AboutHelpAdoption />} />
-          <Route path="/all-pet-care" element={<AllPetCare />} />
+          <Route path="/all-pets-care" element={<AllPetsCare />} />
           <Route path="/cat-care" element={<CatCare />} />
           <Route path="/dog-care" element={<DogCare />} />
           <Route path="/helping-pets" element={<HelpingPets />} />

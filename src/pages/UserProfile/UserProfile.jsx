@@ -39,9 +39,9 @@ export function UserProfile() {
             <img className='userprofile__avatar_image' src={'https://e7.pngegg.com/pngimages/349/288/png-clipart-teacher-education-student-course-school-avatar-child-face.png'}></img>
           </div>
           <div className='userprofile__info'>
-            <p>Name: {user?.userName}</p>
+            <p>Name: {user?.name}</p>
             <p>E-mail: {user?.email}</p>
-            <p>Phone: {user?.phone}</p>
+            <p>Phone: {user?.phoneNumber}</p>
           </div>
         </div>
         <div className='userprofile__button'>
@@ -53,6 +53,7 @@ export function UserProfile() {
       <div className='userprofile__description_block'>
         <div className='userprofile__desription'>
           <p>О себе:</p>
+          <p>{user?.AboutUser}</p>
         </div>
         <div className='userprofile__photos'><p>Фото питомцев:</p></div>
         <div className='userprofile__posts'><p>Последние 5 постов:</p></div>

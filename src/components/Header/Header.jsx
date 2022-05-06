@@ -102,22 +102,22 @@ const Header = () => {
             >
               <ul>
                 <li>
-                  <NavLink to="/">О ПРИНЯТИИ ДОМАШНИХ ЖИВОТНЫХ</NavLink>
+                  <NavLink to="/about-help-adoption">О ПРИНЯТИИ ДОМАШНИХ ЖИВОТНЫХ</NavLink>
                 </li>
                 <li>
-                  <NavLink to="/">УХОД ЗА СОБАКОЙ</NavLink>
+                  <NavLink to="/dog-care">УХОД ЗА СОБАКОЙ</NavLink>
                 </li>
                 <li>
-                  <NavLink to="/">УХОД ЗА КОШКОЙ</NavLink>
+                  <NavLink to="/cat-care">УХОД ЗА КОШКОЙ</NavLink>
                 </li>
                 <li>
-                  <NavLink to="/">ВСЕ ДЛЯ УХОДА ЗА ЖИВОТНЫМИ</NavLink>
+                  <NavLink to="/all-pets-care">ВСЕ ДЛЯ УХОДА ЗА ЖИВОТНЫМИ</NavLink>
                 </li>
                 <li>
-                  <NavLink to="/">ПРИЮТЫ</NavLink>
+                  <NavLink to="/shelters">ПРИЮТЫ</NavLink>
                 </li>
                 <li>
-                  <NavLink to="/">ПОМОЩЬ ДОМАШНИМ ЖИВОТНЫМИ</NavLink>
+                  <NavLink to="/helping-pets">ПОМОЩЬ ДОМАШНИМ ЖИВОТНЫМИ</NavLink>
                 </li>
               </ul>
             </div>
