@@ -1,7 +1,7 @@
-import { PetsTipsCard } from "../../components/PetsTipsCard";
+import { PetsTipsCard } from "../../components/PetsTipsCard/PetstipsCard.";
 import { SelectUI } from "../../components/SelectUI";
 
-import "./petstips.css";
+import "./PetsTips.sass";
 
 export function PetsTips() {
   return (

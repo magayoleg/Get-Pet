@@ -8,7 +8,7 @@ function SignUp() {
   const [userSignUp, setUserSignUp] = useState({
     email: '',
     password: '',
-    userName: '',
+    name: '',
   });
 
   const navigate = useNavigate();
@@ -55,9 +55,9 @@ function SignUp() {
           <input
             onChange={changeHandler}
             className="signForm__input"
-            value={userSignUp.userName}
+            value={userSignUp.name}
             type="text"
-            name="userName"
+            name="name"
             id="name-input"
           />
         </div>

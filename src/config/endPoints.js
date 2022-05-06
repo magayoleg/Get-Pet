@@ -9,6 +9,6 @@ export const getAllUsers = () => `${host}/users`;
 export const editUser = (id) => `${host}/users/${id}`;
 export const getUser = (id) => `${host}/users/${id}`;
 
-export const addAdvertisementPoint = () => `${host}/posts`;
+export const addAdvert = () => `${host}/posts`;
 
-export const getAllDogs = () => `${host}/posts/?species=Собаки`;
+export const getAllPets = (animal) => `${host}/posts/?species=${animal}`;

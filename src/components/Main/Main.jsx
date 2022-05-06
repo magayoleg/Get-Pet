@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import {  useDispatch} from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faXmark,
@@ -11,7 +11,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper';
 import AdoptionCard from '../AdoptionCard/AdoptionCard';
 import AdviceCard from '../AdviceCard/AdviceCard';
-import { THUNK_getAllPets } from '../../redux/thunks/getAllPetsThunk';
+import { getAllPetsAction } from '../../redux/actions/getAllPetsAction';
 
 import './Main.sass';
 import 'swiper/css';
@@ -70,8 +70,12 @@ function Main() {
               <option value="city15">Волгоград</option>
             </select>
           </div>
-          <button className='main__search-btn'>
-            <img src="./icons/navigate/search.png" alt="search" className="main__search-img"/>
+          <button className="main__search-btn">
+            <img
+              src="./icons/navigate/search.png"
+              alt="search"
+              className="main__search-img"
+            />
           </button>
         </div>
         <div className="main__slogan">
@@ -81,11 +85,9 @@ function Main() {
         <div className="main__category">
           <ul>
             <li>
-              <NavLink to="/advertisements/?species=Собаки" onClick={(e) => handleGetAllPets(e.target.dataset.type)}>
-              {/* <a href={getAllDogs()}> */}
-                <img src="./icons/animals/dog.svg" alt="dog" data-type='собаки'/>
+              <NavLink to="/advertisements/?species=Собаки">
+                <img src="./icons/animals/dog.svg" alt="dog" />
                 <span>Собаки</span>
-              {/* </a> */}
               </NavLink>
             </li>
             <li>

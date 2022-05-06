@@ -1,106 +1,26 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import CardAdvert from './components/CardAdvert';
-import { THUNK_getAllPets } from '../../redux/thunks/getAllPetsThunk';
+import { getAllPetsAction } from '../../redux/actions/getAllPetsAction';
 
 import './Advertisements.sass';
-
-const cards = [
-  {
-    animal_name: 'Домашнее животное',
-    animal_description: 'Мини пиг, торг уместен',
-    speciesId: 9,
-    userId: 1,
-    locationId: 1,
-    price: 10000,
-    number: 89105010854,
-    images: [
-      './images/animals/1.jpg',
-      './images/animals/2.jpg',
-      './images/animals/3.jpg',
-    ],
-    createdAt: new Date(),
-    updatedAt: new Date(),
-  },
-  {
-    animal_name: 'Кошка в дар',
-    animal_description:
-      'Ищу дом и хорошие заботливые руки для кошки со всем приданым (паспорт, переноска, лотки, корм, наполнитель, когтерез, фурминатор, стронгхолд). Маленькая, вес около 3кг. Возраст примерно 3-4 года',
-    speciesId: 2,
-    userId: 2,
-    locationId: 2,
-    number: 89660433241,
-    age: 3,
-    images: [
-      './images/animals/4.jpg',
-      './images/animals/5.jpeg',
-      './images/animals/6.webp',
-    ],
-    createdAt: new Date(),
-    updatedAt: new Date(),
-  },
-  {
-    animal_name: 'Собака в дар',
-    animal_description:
-      'Отдадим в добрые руки тому, кто любит животных и знает как за ними ухаживать. Собака воспитанная, знает команды, любит людей. Стерилизованная. Осталась без хозяина и поэтому ищет себе новый дом. Собака сама домашняя! Зовут Джесси, девочка:)',
-    speciesId: 1,
-    userId: 3,
-    locationId: 3,
-    number: 89852376219,
-    images: ['./images/animals/2.jpg'],
-    createdAt: new Date(),
-    updatedAt: new Date(),
-  },
-  {
-    animal_name: 'Домашние животные грызуны',
-    animal_description:
-      'Удивительные белочки Дегу. Доброжелательные и ручные, без неприятных запахов. Продаются вместе с клеткой.',
-    speciesId: 3,
-    userId: 4,
-    price: 3500,
-    locationId: 4,
-    number: 89660436275,
-    images: ['./images/animals/8.jpg'],
-    createdAt: new Date(),
-    updatedAt: new Date(),
-  },
-  {
-    animal_name: 'Домашние животные грызуны',
-    animal_description:
-      'Удивительные белочки Дегу. Доброжелательные и ручные, без неприятных запахов. Продаются вместе с клеткой.',
-    speciesId: 3,
-    userId: 4,
-    price: 3500,
-    locationId: 4,
-    number: 89660436175,
-    images: ['./images/animals/7.jpg'],
-    createdAt: new Date(),
-    updatedAt: new Date(),
-  },
-];
 
 
 
 const Advertisements = () => {
-
-  const [species, setSpecies] = useState('');
-  const [breed, setBreed] = useState('');
-  const [age, setAge] = useState(null);
-  const [city, setCity] = useState('');
+  // useEffect(() => {
+  //   dispatch(getAllPetsAction(pet));
+  // });
+  const query = useLocation().search.slice(useLocation().search.indexOf("=") + 1);
 
   const dispatch = useDispatch();
 
-  const handleGetPets = () => {
-    dispatch(THUNK_getAllPets({
-      species,
-      breed,
-      age,
-      city
-    }))
-  };
-
-  const state = useSelector(state => state.getAllPets);
-  console.log('---------------state----------------', state)
+  useEffect(() => {
+    dispatch(getAllPetsAction(decodeURIComponent(query)));
+  }, []);
+  
+  const cards = useSelector((state) => state.getAllPets)
 
   return (
     <section className="container advertisement cards-pet">
@@ -161,7 +81,7 @@ const Advertisements = () => {
           </select>
         </div>
 
-        <button onClick={handleGetPets}>Поиск</button>
+        <button>Поиск</button>
       </div>
 
       <div className="cards-pet__cards">
@@ -176,15 +96,15 @@ const Advertisements = () => {
         </div>
 
         <div className="cards-pet__row">
-          {cards.map((card) => (
-            <CardAdvert
-              key={`card${card.number}`}
-              name={card.animal_name}
-              description={card.animal_description}
+          {cards.map((card, index) => {
+            return <CardAdvert
+              key={`card-${index}`}
+              name={card.name}
+              description={card.description}
               price={card.price}
               images={card.images}
-            />
-          ))}
+            />;
+          })}
         </div>
       </div>
     </section>

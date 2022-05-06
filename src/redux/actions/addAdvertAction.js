@@ -1,12 +1,12 @@
-import { ADD_ADVERTISEMENT } from '../types/advertisementTypes';
+import { ADD_ADVERTISEMENT } from '../types/addAdvertTypes';
 import * as endPoints from '../../config/endPoints';
 
-export const addAdvertisement = (formData) => async (dispatch) => {
-  const response = await fetch(endPoints.addAdvertisementPoint(), {
+export const addAdvertAction = (formData) => async (dispatch) => {
+  const response = await fetch(endPoints.addAdvert(), {
     method: 'POST',
     body: formData
   });
-  
+
   if (response.status === 200) {
     const newResponse = await response.json();
     dispatch({ type: ADD_ADVERTISEMENT, payload: newResponse });

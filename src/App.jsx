@@ -14,17 +14,17 @@ import Main from './components/Main/Main';
 import Footer from './components/Footer/Footer';
 
 import Advertisements from './pages/Advertisements/Advertisements';
-import { AboutHelpAdoption } from './pages/AboutHelpAdoption';
-import { AllPetCare } from './pages/AllPetCare';
-import { CatCare } from './pages/CatCare';
-import { DogCare } from './pages/DogCare';
-import { HelpingPets } from './pages/HelpingPets';
-import { Shelters } from './pages/Shelters';
-import { DogBreeds } from './pages/DogBreeds';
-import { CatBreeds } from './pages/CatBreeds';
-import { Chat } from './pages/Chat';
-import { UserProfile } from './pages/UserProfile';
-import { PetsTips } from './pages/PetsTips';
+import { AboutHelpAdoption } from './pages/AboutHelpAdoption/AboutHelpAdoption';
+import { AllPetCare } from './pages/AllPetCare/AllPetCare';
+import { CatCare } from './pages/CatCare/CatCare';
+import { DogCare } from './pages/DogCare/DogCare';
+import { HelpingPets } from './pages/HelpingPets/HelpingPets';
+import { Shelters } from './pages/Shelters/Shelters';
+import { DogBreeds } from './pages/DogBreeds/DogBreeds';
+import { CatBreeds } from './pages/CatBreeds/CatBreeds';
+import { Chat } from './pages/Chat/Chat';
+import { UserProfile } from './pages/UserProfile/UserProfile';
+import { PetsTips } from './pages/PetsTips/PetsTips';
 
 import './App.sass';
 
