@@ -36,7 +36,7 @@ export function UserProfile() {
       <div className='userprofile__avatar_block'>
         <div className='userprofile__avatar_info_block'>
           <div className='userprofile__avatar'>
-            <img className='userprofile__avatar_image' src={'https://e7.pngegg.com/pngimages/349/288/png-clipart-teacher-education-student-course-school-avatar-child-face.png'}></img>
+            <img className='userprofile__avatar_image' src={user.avatarPath ? user.avatarPath : '/defaultAvatar.jpg'}></img>
           </div>
           <div className='userprofile__info'>
             <p>Name: {user?.name}</p>
