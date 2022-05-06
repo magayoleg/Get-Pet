@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faXmark,
@@ -10,7 +11,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper';
 import AdoptionCard from '../AdoptionCard/AdoptionCard';
 import AdviceCard from '../AdviceCard/AdviceCard';
-import {getAllDogs} from '../../config/endPoints'
+import { getAllPetsAction } from '../../redux/actions/getAllPetsAction';
 
 import './Main.sass';
 import 'swiper/css';
@@ -63,8 +64,12 @@ function Main() {
               <option value="city15">Волгоград</option>
             </select>
           </div>
-          <button className='main__search-btn'>
-            <img src="./icons/navigate/search.png" alt="search" className="main__search-img"/>
+          <button className="main__search-btn">
+            <img
+              src="./icons/navigate/search.png"
+              alt="search"
+              className="main__search-img"
+            />
           </button>
         </div>
         <div className="main__slogan">
@@ -74,10 +79,10 @@ function Main() {
         <div className="main__category">
           <ul>
             <li>
-              <a href={getAllDogs()}>
+              <NavLink to="/advertisements/?species=Собаки">
                 <img src="./icons/animals/dog.svg" alt="dog" />
                 <span>Собаки</span>
-              </a>
+              </NavLink>
             </li>
             <li>
               <NavLink to="/">

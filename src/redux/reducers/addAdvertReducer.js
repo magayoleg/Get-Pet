@@ -1,7 +1,7 @@
-import { ADD_ADVERTISEMENT } from '../types/advertisementTypes';
+import { ADD_ADVERTISEMENT } from '../types/addAdvertTypes';
 
 // eslint-disable-next-line default-param-last
-const advertisementReducer = (state = [], action) => {
+const addAdvertReducer = (state = [], action) => {
   switch (action.type) {
     case ADD_ADVERTISEMENT:
       return [...state, action.payload];
@@ -11,4 +11,4 @@ const advertisementReducer = (state = [], action) => {
   }
 };
 
-export default advertisementReducer;
+export default addAdvertReducer;

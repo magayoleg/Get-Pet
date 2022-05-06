@@ -24,7 +24,7 @@ import { DogBreeds } from './pages/DogBreeds';
 import { CatBreeds } from './pages/CatBreeds';
 import { Chat } from './pages/Chat';
 import { UserProfile } from './pages/UserProfile';
-import { PetsTips } from './pages/PetsTips';
+import { PetsTips } from './pages/PetsTips/PetsTips';
 
 import './App.sass';
 

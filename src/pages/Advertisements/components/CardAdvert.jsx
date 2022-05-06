@@ -5,6 +5,7 @@ import 'swiper/css/pagination';
 import './CardAdvert.sass';
 
 const CardAdvert = ({ name, description, price, images }) => {
+  
   return (
     <div className="cards-pet__card card-advert">
       <div className="card-advert__slider">
@@ -15,8 +16,8 @@ const CardAdvert = ({ name, description, price, images }) => {
           }}
           modules={[Pagination]}
           className="card-advert__swiper"
-        >
-          {images.map((img, index) => {
+        > 
+          {images?.map((img, index) => {
             return (
               <SwiperSlide key={`img${index}`}>
                 <img src={img} alt={img} />

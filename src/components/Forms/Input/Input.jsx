@@ -4,7 +4,7 @@ const Input = ({ placeholder, value, changeHandler, name, type = 'text'}) => {
   return (
     <div className="mb-3 signForm__box">
       <label htmlFor={`${placeholder}-input`} className="signForm__lable">
-        {placeholder === 'age' ? `${newPlaceholder} pet (template: 1 year and 3 months)` : `${newPlaceholder} pet`}
+        {placeholder === 'age' ? `${newPlaceholder} (Пример: 1 год и 3 месяца)` : `${newPlaceholder}`}
       </label>
       <input
         onChange={changeHandler}

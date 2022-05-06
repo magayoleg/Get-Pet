@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addAdvertisement } from '../../../redux/actions/advertisementAction';
+import { addAdvertAction } from '../../../redux/actions/addAdvertAction';
 import Input from '../Input/Input';
 import './AddAdvertisement.sass';
 
@@ -12,7 +12,8 @@ function AddAdvertisement() {
     breed: '',
     age: '',
     price: '',
-    location: '',
+    city: '',
+    adress: '',
     file: '',
   });
   const changeHandler = (e) => {
@@ -31,7 +32,7 @@ function AddAdvertisement() {
     );
     if (payload.length) {
       payload = Object.fromEntries(payload);
-      dispatch(addAdvertisement(formData));
+      dispatch(addAdvertAction(formData));
     }
   };
 
@@ -46,45 +47,45 @@ function AddAdvertisement() {
         encType="multipart/form-data"
         onSubmit={submitHandler}
       >
-        <legend>Add Advertisement</legend>
+        <legend>Добавить объявление</legend>
         <Input
-          placeholder="name"
+          placeholder="Имя животного"
           value={addAdvert.animal_name}
           changeHandler={changeHandler}
           name="animal_name"
         />
         <Input
-          placeholder="species"
+          placeholder="Тип животного"
           value={addAdvert.species}
           changeHandler={changeHandler}
           name="species"
         />
         <Input
-          placeholder="breed"
+          placeholder="Порода животного"
           value={addAdvert.breed}
           changeHandler={changeHandler}
           name="breed"
         />
         <Input
-          placeholder="age"
+          placeholder="Возраст животного"
           value={addAdvert.age}
           changeHandler={changeHandler}
           name="age"
         />
         <Input
-          placeholder="price"
+          placeholder="Цена животного"
           value={addAdvert.price}
           changeHandler={changeHandler}
           name="price"
         />
         <Input
-          placeholder="location"
+          placeholder="Город"
           value={addAdvert.location}
           changeHandler={changeHandler}
           name="location"
         />
         <Input
-          placeholder="description"
+          placeholder="Описание объяления"
           value={addAdvert.animal_description}
           changeHandler={changeHandler}
           name="animal_description"
@@ -101,7 +102,7 @@ function AddAdvertisement() {
           />
         </div>
         <button type="submit" className="signForm__submit">
-          ADD ADVERTISEMENT
+          ДОБАВИТЬ ОБЪЯВЛЕНИЕ
         </button>
       </form>
     </div>
