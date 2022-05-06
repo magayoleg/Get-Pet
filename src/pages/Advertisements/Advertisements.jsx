@@ -6,9 +6,6 @@ import { getAllPetsAction } from '../../redux/actions/getAllPetsAction';
 import { useLocation } from 'react-router-dom';
 
 const Advertisements = () => {
-  // useEffect(() => {
-  //   dispatch(getAllPetsAction(pet));
-  // });
   const query = useLocation().search.slice(useLocation().search.indexOf("=") + 1);
 
   const dispatch = useDispatch();

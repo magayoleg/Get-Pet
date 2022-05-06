@@ -5,5 +5,5 @@ export function HelpingPets() {
     <div className='helping_pets__container'>
       HELPING PETS
     </div>
-   );
+  );
 }
