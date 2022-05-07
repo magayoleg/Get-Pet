@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import searchACSaga from '../../redux/sagas/searchACSaga';
 import searchACThunk from '../../redux/thunk/searchACThunk';
@@ -22,16 +22,15 @@ function Search() {
   };
 
   return (// переделать стиль ?
-    <form onSubmit={submitHandler} className="d-flex py-4">
+    <form onSubmit={submitHandler}>
       <input
         onChange={inputHandler}
-        className="form-control me-2"
         type="search"
         placeholder="Search"
         aria-label="Search"
         value={input}
       />
-      <button className="btn btn-outline-success" type="submit">
+      <button type="submit">
         Search
       </button>
     </form>

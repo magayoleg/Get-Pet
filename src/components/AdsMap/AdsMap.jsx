@@ -9,11 +9,11 @@ import {
   ZoomControl,
 } from 'react-yandex-maps';
 
-import { useDispatch, useSelector } from 'react-redux';
 import './style.css';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import AdsThunk from '../../redux/thunk/getAdsACThunk';
-import mapHelper from './mapHelper';
+import assignAnimalLabel from '../../helpers/mapHelperFront';
 
 const mapState = {
   center: [55.751574, 37.573856],
@@ -23,8 +23,8 @@ const mapState = {
 function AdsMap() {
   const [cluster, setCluster] = useState(null);
   const dispatch = useDispatch();
-  const [animalType, setAnimalType] = useState(null);
-  const [allAninalTypes, setAllAnimalTypes] = useState([]);
+  const [animalSpecies, setAnimalSpecies] = useState(null);
+  const [allAnimalSpecies, setAllAnimalSpecies] = useState([]);
 
   const sortedMarks = (id) => {
     setAnimalType(id);
@@ -40,7 +40,7 @@ function AdsMap() {
     dispatch(AdsThunk());
   }, []);
 
-  const DBO = useSelector((store) => store.ad);
+  const DBO = useSelector((store) => store.ads);
 
   return (
     <YMaps id="map">
@@ -49,10 +49,10 @@ function AdsMap() {
           <div className="sidebar">
             <div className="sidebar-item tags">
               <ul>
-                <li><a onClick={() => sortedMarks(null)}> All animals </a></li>
+                <li onClick={() => sortedMarks(null)}> All animals</li>
                 {allAninalTypes.map((el) => (
-                  <li>
-                    <a onClick={() => sortedMarks(el.id)}>{el.title}</a>
+                  <li onClick={() => sortedMarks(el.id)}>
+                    {el.animalName}
                   </li>
                 ))}
                 <li><Link to="src/components/AdsMap/AdsMap#">Cats</Link></li>
@@ -69,7 +69,7 @@ function AdsMap() {
         height="60vh"
         instanceRef={(ref) => {
           if (ref) {
-            ref.events.add('click', (event) => {
+            ref.events.add('click', () => {
               ref.balloon.close();
             });
           }
@@ -88,24 +88,24 @@ function AdsMap() {
           }}
         >
           {DBO
-            .filter((el) => {
-              if (animalType === null) {
+            ?.filter((el) => {
+              if (animalSpecies === null) {
                 return true;
               }
-              return el.category_id === animalType;
+              return el.speciesId === animalSpecies;
             })
-            .map((el) => (
+            ?.map((el) => (
               <Placemark
                 key={el.id}
                 modules={['geoObject.addon.balloon']}
-                geometry={[el.Latitude, el.Longitude]}
+                geometry={[el.latitude, el.longitude]}
                 properties={{
                   balloonContentHeader: el.title,
-                  balloonContent: el.description,
-                  balloonContentFooter: `<a href='/ad/${el.id}'> See who's it </a href='/' >`,
+                  balloonContent: el.animalDescription,
+                  balloonContentFooter: `<a href='/ad/${el.id}'> Подробнее </a>`,
                 }}
                 options={{
-                  preset: [mapHelper(el.speciesId)],
+                  preset: [assignAnimalLabel(el.species)],
                 }}
               />
             ))}

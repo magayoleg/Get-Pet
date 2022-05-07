@@ -1,28 +1,29 @@
 import React, { useEffect } from 'react';
 import './App.sass';
 import { useDispatch } from 'react-redux';
-import { Routes, Route } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
-import PrivateRoute from './components/PrivateRouter/PrivateRouter';
-import UserList from './components/UserList/UserList';
-import UserDetail from './components/UserDetail/UserDetail';
-import UserEdit from './components/UserEdit/UserEdit';
-import SignOut from './components/Forms/SignOut/SignOut';
-import Header from './components/Header/Header';
-import SignUp from './components/Forms/SignUp/SignUp';
-import SignIn from './components/Forms/SignIn/SignIn';
-import { checkAuth } from './redux/actions/userAction';
+import PrivateRoute from '../components/PrivateRouter/PrivateRouter';
+import UserList from '../components/UserList/UserList';
+import UserDetail from '../components/UserDetail/UserDetail';
+import UserEdit from '../components/UserEdit/UserEdit';
+import SignOut from '../components/Forms/SignOut/SignOut';
+import Header from '../components/Header/Header';
+import SignUp from '../components/Forms/SignUp/SignUp';
+import SignIn from '../components/Forms/SignIn/SignIn';
+import { checkAuth } from '../redux/actions/userAction';
 
 // import Main from './components/Main/Main';
-import { Main } from './pages/Main';
-import { AboutHelpAdoption } from './pages/AboutHelpAdoption';
-import { AllPetCare } from './pages/AllPetCare';
-import { CatCare } from './pages/CatCare';
-import { DogCare } from './pages/DogCare';
-import { HelpingPets } from './pages/HelpingPets';
-import { Shelters } from './pages/Shelters';
-import { DogBreeds } from './pages/DogBreeds';
-import { CatBreeds } from './pages/CatBreeds';
+import { Main } from '../pages/Main';
+import { AboutHelpAdoption } from '../pages/AboutHelpAdoption';
+import { AllPetCare } from '../pages/AllPetCare';
+import { CatCare } from '../pages/CatCare';
+import { DogCare } from '../pages/DogCare';
+import { HelpingPets } from '../pages/HelpingPets';
+import { Shelters } from '../pages/Shelters';
+import { DogBreeds } from '../pages/DogBreeds';
+import { CatBreeds } from '../pages/CatBreeds';
+import MapPage from '../pages/MapPage/MapPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -51,6 +52,7 @@ function App() {
           <Route path="/shelters" element={<Shelters />} />
           <Route path="/dog-breeds" element={<DogBreeds />} />
           <Route path="/cat-breeds" element={<CatBreeds />} />
+          <Route path="/map" element={<MapPage />} />
         </Routes>
       </div>
     </>
