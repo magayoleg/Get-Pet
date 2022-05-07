@@ -3,7 +3,7 @@ import { getAllAds } from '../actions/adsAction';
 
 const getAdsACThunk = () => async (dispatch) => {
   try {
-    const response = await axios.get('http://localhost:4000/'); // переписать порт?
+    const response = await axios.get('http://localhost:4000/ads'); // переписать порт?
     dispatch(getAllAds(response.data.results)); // какой ответ приходит?
   } catch (error) {
     console.error(error); // переписать?

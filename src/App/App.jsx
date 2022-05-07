@@ -24,6 +24,7 @@ import { Shelters } from '../pages/Shelters';
 import { DogBreeds } from '../pages/DogBreeds';
 import { CatBreeds } from '../pages/CatBreeds';
 import MapPage from '../pages/MapPage/MapPage';
+import AdMap from '../components/AdMap/AdMap';
 
 function App() {
   const dispatch = useDispatch();
@@ -53,6 +54,7 @@ function App() {
           <Route path="/dog-breeds" element={<DogBreeds />} />
           <Route path="/cat-breeds" element={<CatBreeds />} />
           <Route path="/map" element={<MapPage />} />
+          <Route path="/ad/:id" element={<AdMap />} />
         </Routes>
       </div>
     </>

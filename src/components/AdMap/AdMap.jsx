@@ -1,16 +1,13 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Map, Placemark, YMaps } from 'react-yandex-maps';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import assignAnimalLabel from '../../helpers/mapHelperFront';
+import assignAdLabel from '../../helpers/mapHelperFront';
 
 function AdMap() {
   const DBO = useSelector((store) => store.ads);
   const id = useParams();
   console.log(DBO);
-  useEffect(() => {
-
-  }, []);
 
   const theAd = DBO.filter((el) => el.id === Number(id.id));
   const theAdCoordinates = [theAd[0]?.latitude, theAd[0]?.longitude];
@@ -29,7 +26,7 @@ function AdMap() {
               balloonContent: theAdDescription,
             }}
             options={{
-              preset: [assignAnimalLabel(theAd[0]?.species)],
+              preset: [assignAdLabel(theAd[0]?.species)],
             }}
           />
         </Map>
