@@ -6,7 +6,7 @@ const getAdsACThunk = () => async (dispatch) => {
     const response = await axios.get('http://localhost:4000/'); // переписать порт?
     dispatch(getAllAds(response.data.results)); // какой ответ приходит?
   } catch (error) {
-    console.error(error);
+    console.error(error); // переписать?
   }
 };
 

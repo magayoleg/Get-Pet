@@ -6,7 +6,7 @@ const searchACThunk = (str) => async (dispatch) => {
     const included = await response.json();
     dispatch(getAllAds(included));
   } catch (error) {
-    console.error(error);
+    console.error(error);// переписать?
   }
 };
 

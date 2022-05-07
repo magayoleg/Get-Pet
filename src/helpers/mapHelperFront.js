@@ -10,11 +10,11 @@ const strToArr = (arr, params) => {
       } else if (Number(el)) {
         homeNum = el;
       } else {
-        console.log(
+        console.error(
           'Косяк в формате строки или столбца:',
           el,
           'и не текст, и не число О_о',
-        );
+        );// переписать?
       }
     });
   } else {

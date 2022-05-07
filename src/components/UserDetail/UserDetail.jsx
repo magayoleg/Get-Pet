@@ -17,7 +17,7 @@ function UserDetail() {
     fetch(`${endPoints.getUser(id)}`, { credentials: 'include' })
       .then((response) => response.json())
       .then((user) => setCurrentUser(user))
-      .catch((e) => console.error(e))
+      .catch((error) => console.error(error))// переписать?
       .finally(() => {
         dispatch(disableLoader());
       });

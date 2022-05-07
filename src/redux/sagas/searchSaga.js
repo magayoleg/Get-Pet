@@ -14,7 +14,7 @@ function* searchWorker(action) {
     const ads = yield call(searchFetch, action.payload);
     yield put({ type: GET_ADS, payload: ads });
   } catch (error) {
-    console.error(error);
+    console.error(error); // переписать?
   }
 }
 
