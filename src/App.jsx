@@ -10,7 +10,7 @@ import SignUp from './components/Forms/SignUp/SignUp';
 import SignIn from './components/Forms/SignIn/SignIn';
 import { checkAuth } from './redux/actions/userAction';
 import AddAdvertisement from './components/Forms/AddAdvertisement/AddAdvertisement';
-import Main from './components/Main/Main';
+import Main from './pages/Main/Main';
 import Footer from './components/Footer/Footer';
 
 import Advertisements from './pages/Advertisements/Advertisements';
@@ -25,6 +25,7 @@ import { CatBreeds } from './pages/CatBreeds/CatBreeds';
 import { Chat } from './pages/Chat/Chat';
 import { UserProfile } from './pages/UserProfile/UserProfile';
 import { PetsTips } from './pages/PetsTips/PetsTips';
+import DescriptAdvert from './pages/DescriptAdvert/DescriptAdvert';
 
 import './App.sass';
 
@@ -72,6 +73,7 @@ function App() {
           <Route path="/chat" element={<Chat />} />
           <Route path="/userprofile" element={<UserProfile />} />
           <Route path="/pets-tips" element={<PetsTips />} />
+          <Route path="/advertisements/descriptadvert" element={<DescriptAdvert />} />
         </Routes>
       </div>
       <Footer />

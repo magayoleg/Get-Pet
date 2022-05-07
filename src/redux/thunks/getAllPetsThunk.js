@@ -1,11 +1,12 @@
-// import axios from "axios";
-import { ACTION_getAllPets } from "../actions/getAllPetsAction.js";
+import * as endPoints from '../../config/endPoints';
+import { getAllPetsAction } from "../actions/getAllPetsAction";
 
-export const THUNK_getAllPets = (pets) => async (dispatch) => {
-  // console.log('data----------------------------->', pets)
-  const url = `http://localhost:3000/posts/?species=${pets}`;
-  const r = await fetch(url);
-  const result = await r.json();
-  console.log('result ---------------------> ', result)
-  dispatch(ACTION_getAllPets(result.data));
+export const getAllPetsThunk = () => async (dispatch) => {
+  try {
+    const response = await fetch(endPoints.getAllPets());
+    const result = await response.json();
+    dispatch(getAllPetsAction(result));
+  } catch (error) {
+    console.log(error);
+  }
 };

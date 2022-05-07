@@ -2,10 +2,11 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/pagination';
+import * as endPoints from '../../../config/endPoints';
 import './CardAdvert.sass';
 
 const CardAdvert = ({ name, description, price, images }) => {
-  
+
   return (
     <div className="cards-pet__card card-advert">
       <div className="card-advert__slider">
@@ -18,9 +19,10 @@ const CardAdvert = ({ name, description, price, images }) => {
           className="card-advert__swiper"
         > 
           {images?.map((img, index) => {
+            console.log(endPoints.getImagePet(img));
             return (
               <SwiperSlide key={`img${index}`}>
-                <img src={img} alt={img} />
+                <img src={endPoints.getImagePet(img)} alt={img} />
               </SwiperSlide>
             );
           })}

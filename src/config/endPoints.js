@@ -11,4 +11,7 @@ export const getUser = (id) => `${host}/users/${id}`;
 
 export const addAdvert = () => `${host}/posts`;
 
-export const getAllPets = (animal) => `${host}/posts/?species=${animal}`;
+export const getAllSpeciesPets = (animal) => `${host}/posts/?species=${animal}`;
+export const getImagePet = (img) => `${host}${img}`;
+export const getAllPets = () => `${host}/posts/`;
+

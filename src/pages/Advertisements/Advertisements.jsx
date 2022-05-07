@@ -1,24 +1,21 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import CardAdvert from './components/CardAdvert';
-import { getAllPetsAction } from '../../redux/actions/getAllPetsAction';
+import CardAdvert from './CardAdvert/CardAdvert';
+import { getAllSpeciesPetsThunk } from '../../redux/thunks/getAllSpeciesPetsThunk';
 
 import './Advertisements.sass';
 
-
-
 const Advertisements = () => {
   const query = useLocation().search.slice(useLocation().search.indexOf("=") + 1);
-
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAllPetsAction(decodeURIComponent(query)));
+    const result = dispatch(getAllSpeciesPetsThunk(decodeURIComponent(query)));
+    console.log(result);
   }, []);
-  
-  const cards = useSelector((state) => state.getAllPets)
-
+  const cards = useSelector((state) => state.getAllSpeciesPets);
+  console.log(cards);
   return (
     <section className="container advertisement cards-pet">
       <div className="cards-pet__filter">
@@ -93,11 +90,11 @@ const Advertisements = () => {
         </div>
 
         <div className="cards-pet__row">
-          {cards.map((card, index) => {
+          {cards?.map((card, index) => {
             return <CardAdvert
               key={`card-${index}`}
-              name={card.name}
-              description={card.description}
+              name={card.title}
+              description={card.animalDescription}
               price={card.price}
               images={card.images}
             />;
