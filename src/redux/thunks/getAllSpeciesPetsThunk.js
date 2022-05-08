@@ -1,5 +1,5 @@
 import * as endPoints from '../../config/endPoints';
-import { getAllSpeciesPetsAction } from "../actions/getAllSpeciesPetsAction";
+import { getAllSpeciesPetsAction } from '../actions/getAllSpeciesPetsAction';
 
 export const getAllSpeciesPetsThunk = (pets) => async (dispatch) => {
   try {

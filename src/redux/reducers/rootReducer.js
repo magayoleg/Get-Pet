@@ -10,7 +10,7 @@ const rootReducer = combineReducers({
   loader: loaderReducer,
   addAdvert: addAdvertReducer,
   getAllSpeciesPets: getAllSpeciesPetsReducer,
-  getAllPets: getAllPetsReducer
+  getAllPets: getAllPetsReducer,
 });
 
 export default rootReducer;

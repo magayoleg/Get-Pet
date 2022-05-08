@@ -9,7 +9,7 @@ import {
   ZoomControl,
 } from 'react-yandex-maps';
 import { useDispatch, useSelector } from 'react-redux';
-import getAdsACThunk from '../../redux/thunk/getAdsACThunk';
+import { getAllPetsThunk } from '../../redux/thunks/getAllPetsThunk';
 import { assignAdLabel } from '../../helpers/assignAdLabel';
 import './style.css';
 
@@ -27,7 +27,7 @@ function AdsMap() {
       .then((data) => setAllSpecies(data));
   }, []);
 
-  useEffect(() => { dispatch(getAdsACThunk()); }, []);
+  useEffect(() => { dispatch(getAllPetsThunk()); }, []);
   const DBO = useSelector((store) => store.ads);
   const mapState = { center: [55.751574, 37.573856], zoom: 9 };
   return (

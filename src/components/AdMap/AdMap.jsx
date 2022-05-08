@@ -11,7 +11,7 @@ function AdMap() {
   const dispatch = useDispatch();
   useEffect(() => { dispatch(getAdsACThunk()); }, []);
   // перенести в родительский элемент?
-  const DBO = useSelector((store) => store.ads);
+  const DBO = useSelector((store) => store.getAllPets);
   const id = useParams();
 
   const theAd = DBO.filter((el) => el.id === Number(id.id));

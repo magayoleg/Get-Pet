@@ -1,30 +1,34 @@
 import React, { useEffect } from 'react';
-import './App.sass';
 import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 
 import PrivateRoute from '../components/PrivateRouter/PrivateRouter';
-import UserList from '../components/UserList/UserList';
 import UserDetail from '../components/UserDetail/UserDetail';
 import UserEdit from '../components/UserEdit/UserEdit';
-import SignOut from '../components/Forms/SignOut/SignOut';
 import Header from '../components/Header/Header';
 import SignUp from '../components/Forms/SignUp/SignUp';
 import SignIn from '../components/Forms/SignIn/SignIn';
 import { checkAuth } from '../redux/actions/userAction';
+import AddAdvertisement from '../components/Forms/AddAdvertisement/AddAdvertisement';
+import Main from '../pages/Main/Main';
+import Footer from '../components/Footer/Footer';
 
-// import Main from './components/Main/Main';
-import { Main } from '../pages/Main';
-import { AboutHelpAdoption } from '../pages/AboutHelpAdoption';
-import { AllPetCare } from '../pages/AllPetCare';
-import { CatCare } from '../pages/CatCare';
-import { DogCare } from '../pages/DogCare';
-import { HelpingPets } from '../pages/HelpingPets';
-import { Shelters } from '../pages/Shelters';
-import { DogBreeds } from '../pages/DogBreeds';
-import { CatBreeds } from '../pages/CatBreeds';
+import Advertisements from '../pages/Advertisements/Advertisements';
+import { AboutHelpAdoption } from '../pages/AboutHelpAdoption/AboutHelpAdoption';
+import { AllPetsCare } from '../pages/AllPetsCare/AllPetsCare';
+import { CatCare } from '../pages/CatCare/CatCare';
+import { DogCare } from '../pages/DogCare/DogCare';
+import { HelpingPets } from '../pages/HelpingPets/HelpingPets';
+import { Shelters } from '../pages/Shelters/Shelters';
+import { DogBreeds } from '../pages/DogBreeds/DogBreeds';
+import { CatBreeds } from '../pages/CatBreeds/CatBreeds';
+import { Chat } from '../pages/Chat/Chat';
+import { UserProfile } from '../pages/UserProfile/UserProfile';
+import { PetsTips } from '../pages/PetsTips/PetsTips';
+import DescriptAdvert from '../pages/DescriptAdvert/DescriptAdvert';
+
+import './App.sass';
 import MapPage from '../pages/MapPage/MapPage';
-import AdMap from '../components/AdMap/AdMap';
 
 function App() {
   const dispatch = useDispatch();
@@ -39,24 +43,42 @@ function App() {
       <div className="container">
         <Routes>
           <Route path="/" element={<Main />} />
-          <Route path="/users" element={<PrivateRoute><UserList /></PrivateRoute>} />
-          <Route path="/users/:id" element={<PrivateRoute><UserDetail /></PrivateRoute>} />
-          <Route path="/user/edit" element={<PrivateRoute><UserEdit /></PrivateRoute>} />
-          <Route path="/auth/signout" element={<PrivateRoute><SignOut /></PrivateRoute>} />
+          <Route
+            path="/users/:id"
+            element={(
+              <PrivateRoute>
+                <UserDetail />
+              </PrivateRoute>
+            )}
+          />
+          <Route
+            path="/user/edit"
+            element={(
+              <PrivateRoute>
+                <UserEdit />
+              </PrivateRoute>
+            )}
+          />
           <Route path="/auth/signup" element={<SignUp />} />
           <Route path="/auth/signin" element={<SignIn />} />
+          <Route path="/addAdvert" element={<AddAdvertisement />} />
+          <Route path="/advertisements" element={<Advertisements />} />
           <Route path="/about-help-adoption" element={<AboutHelpAdoption />} />
-          <Route path="/all-pet-care" element={<AllPetCare />} />
+          <Route path="/all-pets-care" element={<AllPetsCare />} />
           <Route path="/cat-care" element={<CatCare />} />
           <Route path="/dog-care" element={<DogCare />} />
           <Route path="/helping-pets" element={<HelpingPets />} />
           <Route path="/shelters" element={<Shelters />} />
           <Route path="/dog-breeds" element={<DogBreeds />} />
           <Route path="/cat-breeds" element={<CatBreeds />} />
+          <Route path="/chat" element={<Chat />} />
+          <Route path="/userprofile" element={<UserProfile />} />
+          <Route path="/pets-tips" element={<PetsTips />} />
+          <Route path="/advertisements/descriptadvert/:id" element={<DescriptAdvert />} />
           <Route path="/map" element={<MapPage />} />
-          <Route path="/ad/:id" element={<AdMap />} />
         </Routes>
       </div>
+      <Footer />
     </>
   );
 }
