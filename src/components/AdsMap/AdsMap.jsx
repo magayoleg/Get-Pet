@@ -8,33 +8,30 @@ import {
   YMaps,
   ZoomControl,
 } from 'react-yandex-maps';
-
 import { useDispatch, useSelector } from 'react-redux';
-import AdsThunk from '../../redux/thunk/getAdsACThunk';
-import assignAdLabel from '../../helpers/mapHelperFront';
+import getAdsACThunk from '../../redux/thunk/getAdsACThunk';
+import { assignAdLabel } from '../../helpers/assignAdLabel';
 import './style.css';
 
-const mapState = { center: [55.751574, 37.573856], zoom: 9 };
-
 function AdsMap() {
-  const [cluster, setCluster] = useState(null);
+  const [, setCluster] = useState(null);
   const dispatch = useDispatch();
-  const [animalSpecies, setAnimalSpecies] = useState(null);
-  const [allAnimalSpecies, setAllAnimalSpecies] = useState([]);
+  const [AdsSpecies, setAdsSpecies] = useState(null);
+  const [allSpecies, setAllSpecies] = useState([]);
 
-  const sortedMarks = (id) => { setAnimalSpecies(id); };
+  const sortedMarks = (species) => { setAdsSpecies(species); };
 
   useEffect(() => {
     fetch('http://localhost:4000/ads/species')
       .then((response) => response.json())
-      .then((data) => setAllAnimalSpecies(data.species));
+      .then((data) => setAllSpecies(data));
   }, []);
 
-  useEffect(() => { dispatch(AdsThunk()); }, []);
-
+  useEffect(() => { dispatch(getAdsACThunk()); }, []);
   const DBO = useSelector((store) => store.ads);
-  console.log(DBO);
+  const mapState = { center: [55.751574, 37.573856], zoom: 9 };
   return (
+    // необходим дизайн?
     <>
       <section id="above map" className="breadcrumbs">
         <p>
@@ -45,15 +42,21 @@ function AdsMap() {
       </section>
       <YMaps id="map">
         <section className="species_switcher">
-          <ul>
-            <li onClick={() => sortedMarks(null)}> Все виды животных:</li>
-            {allAnimalSpecies.map((el) => (<li onClick={() => sortedMarks(el.id)}>{el.species}</li>))}
-          </ul>
+          <button type="button" onClick={() => sortedMarks(null)}> Все</button>
+          {allSpecies?.map((el) => (
+            <button type="button" onClick={() => sortedMarks(el.species)}>
+              {' '}
+              {el.species}
+              {' '}
+            </button>
+          ))}
+
         </section>
         <Map
           defaultState={mapState}
           width="100%"
           height="60vh"
+          // необходим дизайн?
           instanceRef={(ref) => { if (ref) { ref.events.add('click', () => { ref.balloon.close(); }); } }}
         >
           <GeolocationControl />
@@ -65,13 +68,12 @@ function AdsMap() {
             instanceRef={(ref) => { if (ref) { setCluster(ref); } }}
           >
             {DBO
-              // .filter((el) => {
-              //   if (animalSpecies === null) {
-              //     return true;
-              //   } else {
-              //     return el.category_id === animalSpecies;
-              //   }
-              // })
+              .filter((el) => {
+                if (AdsSpecies === null) {
+                  return true;
+                }
+                return el.species === AdsSpecies;
+              })
               ?.map((el) => (
                 <Placemark
                   key={el.id}

@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Map, Placemark, YMaps } from 'react-yandex-maps';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import assignAdLabel from '../../helpers/mapHelperFront';
+
+import getAdsACThunk from '../../redux/thunk/getAdsACThunk';
+import { assignAdLabel } from '../../helpers/assignAdLabel';
 
 function AdMap() {
+  // перенести в родительский элемент?
+  const dispatch = useDispatch();
+  useEffect(() => { dispatch(getAdsACThunk()); }, []);
+  // перенести в родительский элемент?
   const DBO = useSelector((store) => store.ads);
   const id = useParams();
-  console.log(DBO);
 
   const theAd = DBO.filter((el) => el.id === Number(id.id));
   const theAdCoordinates = [theAd[0]?.latitude, theAd[0]?.longitude];
@@ -16,7 +21,9 @@ function AdMap() {
   return (
     <YMaps>
       <div>
+        {/* необходим дизайн? */}
         <Map defaultState={{ center: theAdCoordinates, zoom: 9 }} width="100%">
+          {/* необходим дизайн? */}
           <Placemark
             key={Number(id.id)}
             modules={['geoObject.addon.balloon']}
