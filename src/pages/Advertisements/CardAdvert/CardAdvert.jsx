@@ -19,7 +19,6 @@ const CardAdvert = ({ name, description, price, images }) => {
           className="card-advert__swiper"
         > 
           {images?.map((img, index) => {
-            console.log(endPoints.getImagePet(img));
             return (
               <SwiperSlide key={`img${index}`}>
                 <img src={endPoints.getImagePet(img)} alt={img} />

@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import CardAdvert from './CardAdvert/CardAdvert';
 import { getAllSpeciesPetsThunk } from '../../redux/thunks/getAllSpeciesPetsThunk';
@@ -7,15 +7,14 @@ import { getAllSpeciesPetsThunk } from '../../redux/thunks/getAllSpeciesPetsThun
 import './Advertisements.sass';
 
 const Advertisements = () => {
-  const query = useLocation().search.slice(useLocation().search.indexOf("=") + 1);
-  const dispatch = useDispatch();
+  let [searchParams, setSearchParams] = useSearchParams();
 
+  const dispatch = useDispatch();
   useEffect(() => {
-    const result = dispatch(getAllSpeciesPetsThunk(decodeURIComponent(query)));
-    console.log(result);
+    dispatch(getAllSpeciesPetsThunk(searchParams.get("species")));
   }, []);
   const cards = useSelector((state) => state.getAllSpeciesPets);
-  console.log(cards);
+  
   return (
     <section className="container advertisement cards-pet">
       <div className="cards-pet__filter">

@@ -32,12 +32,23 @@ function Main() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAllPetsThunk())
+    dispatch(getAllPetsThunk());
   }, []);
 
   const cards = useSelector((state) => state.getAllPets);
-  console.log(cards);
 
+  const randomIndexArray = (array, quantityNumbers) => {
+    const arrayNumbers = [];
+    while (arrayNumbers.length < quantityNumbers) {
+      const randomNumber = Math.floor(Math.random() * array);
+      if (!arrayNumbers.includes(randomNumber)) {
+        arrayNumbers.push(randomNumber);
+      }
+    }
+    return arrayNumbers;
+  };
+
+  const randomNumber = randomIndexArray(10, 5);
   return (
     <main className="main">
       <div className="main__bg"></div>
@@ -98,7 +109,7 @@ function Main() {
             <li>
               <NavLink to="/advertisements/?species=Кошки">
                 <img src="./icons/animals/cat.svg" alt="cat" />
-                <span>Коты</span>
+                <span>Кошки</span>
               </NavLink>
             </li>
             <li>
@@ -197,16 +208,18 @@ function Main() {
             modules={[Pagination, Navigation]}
             className="mySwiper"
           >
-            {cards.map((card) => {
-              return (
-                <SwiperSlide key={'key' + card.id}>
-                  <AdoptionCard
-                    id={card.id}
-                    name={card.title}
-                    image={card.images[0]}
-                  />
-                </SwiperSlide>
-              );
+            {cards?.map((card, index) => {
+              if (randomNumber.includes(index)) {
+                return (
+                  <SwiperSlide key={'key' + card.id}>
+                    <AdoptionCard
+                      id={card.id}
+                      name={card.title}
+                      img={card.images[0]}
+                    />
+                  </SwiperSlide>
+                );
+              }
             })}
           </Swiper>
         </div>

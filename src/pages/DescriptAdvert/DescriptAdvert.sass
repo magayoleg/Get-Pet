@@ -1,0 +1,28 @@
+@import ../../_variables
+  
+.advert
+  padding-top: 30px
+  &__wrapper
+    display: flex
+    justify-content: space-between
+  &__slider
+    max-width: 600px
+    width: 50%
+    img
+      max-width: 600px
+      display: block
+      margin: 0 auto
+      @include boxShadow($primaryColor)
+  &__content
+    width: 50%
+
+.title
+  font-family: $fontMedium
+  font-size: $h3
+  &__navigate
+    font-size: $h4
+    a
+      text-decoration: none
+      color: $darkColor
+  &__text
+    padding: 15px 0px

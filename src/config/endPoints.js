@@ -15,3 +15,5 @@ export const getAllSpeciesPets = (animal) => `${host}/posts/?species=${animal}`;
 export const getImagePet = (img) => `${host}${img}`;
 export const getAllPets = () => `${host}/posts/`;
 
+export const getOneAdvert = (id) => `${host}/posts/${id}`;
+

@@ -73,7 +73,7 @@ function App() {
           <Route path="/chat" element={<Chat />} />
           <Route path="/userprofile" element={<UserProfile />} />
           <Route path="/pets-tips" element={<PetsTips />} />
-          <Route path="/advertisements/descriptadvert" element={<DescriptAdvert />} />
+          <Route path="/posts/:id" element={<DescriptAdvert />} />
         </Routes>
       </div>
       <Footer />
