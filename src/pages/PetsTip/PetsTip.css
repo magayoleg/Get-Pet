@@ -1,23 +1,43 @@
-.PetsTip__image {
-  max-width: 1320px;
-  opacity: 0.5;
+.PetsTip__image_wrapper {
+  position: relative;
   margin-top: 70px;
 }
 
-.PetsTip__image_wrapper {
-  position: relative;
+.PetsTip__image {
+  width: 100%;
 }
 
 .PetsTip__icons_wrapper {
   position: absolute;
-  bottom: 30px;
-  left: 10px;
+  top: 0;
+  left: 0;
+  height: 99.2%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  display: flex;
+  align-items: flex-end;
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+.PetsTip__icons_wrapper:hover {
+  opacity: 1;
+}
+
+.PetsTip__icons_wrapper > * {
+  transform: translateY(20px);
+  transition: transform 0.25s;
+}
+
+.PetsTip__icons_wrapper:hover > * {
+  transform: translateY(0);
 }
 
 .PetsTip__svg {
   fill: white;
   height: 30px;
-  margin-left: 20px;
+  margin: 0 0 20px 20px;
   transition: 0.3s;
 }
 
@@ -34,13 +54,15 @@
 }
 
 h1 {
+  color: #3d527d;
   font-style: italic;
   text-align: center;
-  margin: 15px auto;
+  margin: 20px auto;
 }
 
 h2 {
+  color: #3d527d;
   font-style: italic;
   text-align: center;
-  margin: 10px auto;
+  margin: 15px auto;
 }
