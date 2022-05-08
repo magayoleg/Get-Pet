@@ -25,6 +25,7 @@ import { CatBreeds } from './pages/CatBreeds/CatBreeds';
 import { Chat } from './pages/Chat/Chat';
 import { UserProfile } from './pages/UserProfile/UserProfile';
 import { PetsTips } from './pages/PetsTips/PetsTips';
+import { PetsTip } from './pages/PetsTip/PetsTip';
 
 import './App.sass';
 
@@ -72,6 +73,7 @@ function App() {
           <Route path="/chat" element={<Chat />} />
           <Route path="/userprofile/:id" element={<UserProfile />} />
           <Route path="/pets-tips" element={<PetsTips />} />
+          <Route path="/pets-tip/:id" element={<PetsTip />} />
         </Routes>
       </div>
       <Footer />
