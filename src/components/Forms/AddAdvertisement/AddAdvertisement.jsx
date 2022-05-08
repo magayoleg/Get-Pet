@@ -6,14 +6,14 @@ import './AddAdvertisement.sass';
 
 function AddAdvertisement() {
   const [addAdvert, setAddAdvert] = useState({
-    animal_name: '',
-    animal_description: '',
+    title: '',
+    animalDescription: '',
     species: '',
     breed: '',
     age: '',
     price: '',
     city: '',
-    adress: '',
+    address: '',
     file: '',
   });
   const changeHandler = (e) => {
@@ -27,9 +27,7 @@ function AddAdvertisement() {
     const { addAdvertForm } = document.forms;
     const formData = new FormData(addAdvertForm);
 
-    let payload = Object.entries(addAdvert).filter((el) =>
-      el[1] ? el[1].trim() : el[1]
-    );
+    let payload = Object.entries(addAdvert).filter((el) => (el[1] ? el[1].trim() : el[1]));
     if (payload.length) {
       payload = Object.fromEntries(payload);
       dispatch(addAdvertAction(formData));
@@ -50,9 +48,9 @@ function AddAdvertisement() {
         <legend>Добавить объявление</legend>
         <Input
           placeholder="Имя животного"
-          value={addAdvert.animal_name}
+          value={addAdvert.title}
           changeHandler={changeHandler}
-          name="animal_name"
+          name="title"
         />
         <Input
           placeholder="Тип животного"
@@ -80,24 +78,30 @@ function AddAdvertisement() {
         />
         <Input
           placeholder="Город"
-          value={addAdvert.location}
+          value={addAdvert.city}
           changeHandler={changeHandler}
-          name="location"
+          name="city"
+        />
+        <Input
+          placeholder="Адрес"
+          value={addAdvert.address}
+          changeHandler={changeHandler}
+          name="address"
         />
         <Input
           placeholder="Описание объяления"
-          value={addAdvert.animal_description}
+          value={addAdvert.animalDescription}
           changeHandler={changeHandler}
-          name="animal_description"
+          name="animalDescription"
         />
         <div className="mb-3 signForm__box">
-          <label htmlFor={'photo-input'} className="signForm__lable"></label>
+          <label htmlFor="photo-input" className="signForm__lable" />
           <input
             onChange={changeHandler}
             className="signForm__input"
             type="file"
             name="file"
-            id={'photo-input'}
+            id="photo-input"
             // multiple
           />
         </div>

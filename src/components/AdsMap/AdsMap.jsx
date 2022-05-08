@@ -28,7 +28,7 @@ function AdsMap() {
   }, []);
 
   useEffect(() => { dispatch(getAllPetsThunk()); }, []);
-  const DBO = useSelector((store) => store.ads);
+  const DBO = useSelector((store) => store.getAllPets);
   const mapState = { center: [55.751574, 37.573856], zoom: 9 };
   return (
     // необходим дизайн?
@@ -42,9 +42,9 @@ function AdsMap() {
       </section>
       <YMaps id="map">
         <section className="species_switcher">
-          <button type="button" onClick={() => sortedMarks(null)}> Все</button>
+          <button type="button" className="button2" onClick={() => sortedMarks(null)}> Все</button>
           {allSpecies?.map((el) => (
-            <button type="button" onClick={() => sortedMarks(el.species)}>
+            <button type="button" className="Button" onClick={() => sortedMarks(el.species)}>
               {' '}
               {el.species}
               {' '}
