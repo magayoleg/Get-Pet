@@ -3,7 +3,9 @@ const initialState = {
   loader: false,
   ads: [],
   favorite: [],
-
+  addAdvert: [],
+  getAllSpeciesPets: [],
+  getAllPets: [],
 };
 
 export default initialState;

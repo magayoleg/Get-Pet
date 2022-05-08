@@ -1,7 +1,7 @@
 import { GET_ALL_PETS } from '../types/getPetsTypes';
+import initialState from '../initialState/initialState';
 
-// eslint-disable-next-line default-param-last
-const getAllPetsReducer = (state = [], action) => {
+const getAllPetsReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_ALL_PETS:
       return action.payload;
