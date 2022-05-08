@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { signIn } from '../../../redux/actions/userAction';
+import './SignIn.sass';
 
 function SignIn() {
   const [userSignIn, setUserSignIn] = useState({
@@ -30,9 +31,9 @@ function SignIn() {
   };
 
   return (
-    <div className="signForm signUp-wrapper">
-      <form onSubmit={submitHandler} className="signUp-wrapper__form">
-        <legend>Sign In</legend>
+    <div className="signIn-wrapper">
+      <form onSubmit={submitHandler} className="signForm signIn-wrapper__form">
+        <legend>Войти</legend>
         <div className="mb-3 signForm__box">
           <label htmlFor="email-input" className="signForm__lable">
             Email

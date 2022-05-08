@@ -9,4 +9,9 @@ export const getAllUsers = () => `${host}/users`;
 export const editUser = (id) => `${host}/users/${id}`;
 export const getUser = (id) => `${host}/users/${id}`;
 
-console.log(process.env)
+export const addAdvert = () => `${host}/posts`;
+
+export const getAllSpeciesPets = (animal) => `${host}/posts/?species=${animal}`;
+export const getImagePet = (img) => `${host}${img}`;
+export const getAllPets = () => `${host}/posts/`;
+

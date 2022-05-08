@@ -8,21 +8,23 @@
   &__wrapper
     display: flex
     align-items: center
+    align-content: center
   &__logo
     padding-top: 5px
     height: 60px
     display: flex
     align-items: center
-    width: 20%
+    width: 15%
     img
       width: 180px
   &__nav-wrapper
-    width: 45%
+    width: 15%
     display: flex
     justify-content: flex-start
     align-items: center
+    margin-right: 70px
   &__nav
-    width: 20%
+    width: 50%
     padding-right: 20px
     display: flex
     button
@@ -33,32 +35,54 @@
       position: relative
       padding: 0
       cursor: pointer
+  &__add-advertisement
+    button
+      height: 40px
+      background-color: $sloganColor
+      border-radius: 10px
+      border-color: $darkColor
+      cursor: pointer
+      @include primaryFont
+      font-size: $h5
   &__shelters
+    margin-left: 70px
     a
       font-family: $fontBold
       font-size: $h5
       position: relative
       padding: 20px 0
-      width: 240px
+      width: 170px
       display: block
       text-decoration: none
       color: black
-      border-right: 1px solid $darkColor
-      &::after
-        content: ''
+      svg
         position: absolute
         z-index: 10
         transform: translateY(-30%)
-        width: 70px
-        height: 70px
-        background-image: url('../../../public/icons/navigate/animal-shelters.svg')
-        background-size: contain
+        width: 40px
+        height: 40px
+        right: 0
+        color: $primaryColor
+  &__favourites
+    border-right: 1px solid $darkColor
+    border-left: 1px solid $darkColor
+    height: 60px
+    width: 70px
+    button
+      display: block
+      margin: 0 auto
+      background: none
+      border: none
+      font-size: $icon3
+      color: $iconColor
+      cursor: pointer
+      line-height: 60px
   &__auth
     width: 15%
     ul
       padding-left: 10px
       list-style: none
-      font-family: $fontRegular
+      @include primaryFont
       font-size: $h4
       display: flex
       justify-content: space-evenly
@@ -69,73 +93,139 @@
 .nav
   &__breeds
     display: flex
+    button
+      margin-right: 7px
   &__arrow-breeds
     position: relative
     transition: all 500ms
+    font-size: $icon1
     &_active
       transition: all 500ms
       transform: rotateZ(180deg)
+      font-size: $icon1
+  &__resources
+    button
+      margin-right: 7px
   &__arrow-resources
     position: relative
     transition: all 500ms
+    font-size: $icon1
     &_active
       transition: all 500ms
       transform: rotateZ(180deg)
+      font-size: $icon1
 
 .header
   &__bg-breeds
-    display: none
-    &_active
-      position: absolute
-      background-color: $darkColor
-      height: 55px
-      width: 100vw
-      top: 80px
-      left: 0px
-      z-index: 5
-      ul
+    position: absolute
+    height: 55px
+    width: 100vw
+    top: 80px
+    left: 0px
+    z-index: 10
+    opacity: 0%
+    visibility: hidden
+    transition: all 500ms
+    ul
+      display: flex
+      justify-content: center
+      margin: 0
+      padding: 0
+      li
+        list-style: none
+        padding-right: 50px
+        font-size: $h6
+      li:nth-child(2)
+        border-left: 1px solid $secondaryColor
+      a
         display: flex
-        justify-content: center
-        margin: 0
-        padding: 0
-        li
-          list-style: none
-          padding-right: 50px
-          font-size: $h6
-        li:nth-child(2)
-          border-left: 1px solid $secondaryColor
-        a
-          display: flex
-          align-items: center
-          text-decoration: none
-          font-family: $fontRegular
-          color: $secondaryColor
-        img
-          margin-top: -5px
-          width: 62px
-          height: 62px
-  &__bg-resources
-    display: none
-    &_active
-      position: absolute
-      background-color: $darkColor
-      height: 55px
-      width: 100vw
-      top: 80px
-      left: 0px
-      z-index: 5
-      ul
-        display: flex
-        justify-content: center
-        margin: 0
-        padding: 0
         align-items: center
-        height: 100%
-        li
-          list-style: none
-          font-family: $fontRegular
-          font-size: $h6
-        a
-          color: $secondaryColor
-          padding-right: 50px
-          text-decoration: none
+        text-decoration: none
+        @include primaryFont
+        font-size: $h6
+        color: $secondaryColor
+      img
+        margin-top: -5px
+        width: 62px
+        height: 62px
+    &_active
+      background-color: $darkColor
+      opacity: 100%
+      visibility: visible
+      transition: all 500ms
+  &__bg-resources
+    position: absolute
+    height: 55px
+    width: 100vw
+    top: 80px
+    left: 0px
+    z-index: 10
+    opacity: 0%
+    visibility: hidden
+    transition: all 500ms
+    ul
+      display: flex
+      justify-content: center
+      margin: 0
+      padding: 0
+      align-items: center
+      align-content: center
+      height: 100%
+      text-align: center
+      li
+        list-style: none
+        @include primaryFont
+        font-size: $h6
+      a
+        color: $secondaryColor
+        padding: 0px 25px
+        text-decoration: none
+    &_active
+      background-color: $darkColor
+      opacity: 100%
+      visibility: visible
+      transition: all 500ms
+
+.header__themes
+  width: 10%
+  margin: 0 auto
+  margin-left: 50px
+  &-change
+    margin: 0 auto
+    display: flex
+    align-items: center
+    span
+      @include primaryFont
+      font-size: $h6
+    span:last-child
+      padding-left: 13px
+    input
+      visibility: hidden
+      &:checked + label
+        transform: rotate(360deg)
+        background-color: #000
+        &:before
+          transform: translateX(20px)
+          background-color: #FFF
+    label
+      display: flex
+      width: 40px
+      height: 20px
+      border: 3px solid
+      border-radius: 99em
+      position: relative
+      transition: transform .75s ease-in-out
+      transform-origin: 50% 50%
+      cursor: pointer
+      &:before
+        transition: transform .75s ease
+        transition-delay: .5s
+        content: ""
+        display: block
+        position: absolute
+        width: 12px
+        height: 12px
+        background-color: #000
+        border-radius: 50%
+        top: 1px
+        left: 2px

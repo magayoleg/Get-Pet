@@ -1,4 +1,4 @@
-@import ../variables
+@import ./_variables.sass
 
 html, *
   margin: 0
@@ -8,7 +8,11 @@ body
   background-color: $secondaryColor
   margin: 0
   box-sizing: border-box
+  position: relative
 
 .container
   max-width: 1320px
   margin: 0 auto
+
+.elem__shadow_border
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 4px 1px

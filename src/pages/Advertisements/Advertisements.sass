@@ -1,0 +1,55 @@
+@import ../../_variables.sass
+
+.cards-pet
+  padding-top: 50px
+  display: flex
+  justify-content: center
+  @include primaryFont
+  color: $darkColor
+  font-size: $h5
+  &__species
+    display: flex
+    flex-direction: column
+  &__filter
+    width: 15%
+    margin-top: 30px
+    display: flex
+    flex-direction: column
+  &__cards
+    width: 80%
+  &__input
+    margin-top: 20px
+  select, input
+    height: 40px
+    width: 100%
+    padding: 10px
+    border-radius: 5px
+    background-color: $bgColor
+    @include primaryFont
+    font-size: $h5
+  button
+    height: 50px
+    width: 100%
+    padding: 10px
+    margin-top: 30px
+    border-radius: 5px
+    background-color: $bgColor
+    cursor: pointer
+    @include primaryFont
+    font-size: $h5
+
+.cards-pet
+  &__sort
+    display: flex
+    justify-content: center
+    @include primaryFont
+    font-size: $h5
+    flex-direction: column
+    width: 250px
+    padding-left: 50px
+  &__row
+    display: grid
+    grid-template-columns: 1fr 1fr 1fr
+    grid-column-gap: 20px
+    grid-row-gap: 20px
+    padding: 20px 30px

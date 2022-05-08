@@ -8,11 +8,11 @@ function SignUp() {
   const [userSignUp, setUserSignUp] = useState({
     email: '',
     password: '',
-    userName: '',
+    name: '',
   });
 
   const navigate = useNavigate();
-
+  
   const changeHandler = (e) => {
     setUserSignUp((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
@@ -31,9 +31,9 @@ function SignUp() {
   };
 
   return (
-    <div className="signForm signUp-wrapper">
-      <form onSubmit={submitHandler} className="signUp-wrapper__form">
-        <legend>Sign Up</legend>
+    <div className="signUp-wrapper">
+      <form onSubmit={submitHandler} className="signForm  signUp-wrapper__form">
+        <legend>Зарегистрироваться</legend>
         <div className="mb-3 signForm__box">
           <label htmlFor="email-input" className="signForm__lable">
             Email
@@ -50,14 +50,14 @@ function SignUp() {
 
         <div className="mb-3 signForm__box">
           <label htmlFor="name-input" className="signForm__lable">
-            Name
+            Имя
           </label>
           <input
             onChange={changeHandler}
             className="signForm__input"
-            value={userSignUp.userName}
+            value={userSignUp.name}
             type="text"
-            name="userName"
+            name="name"
             id="name-input"
           />
         </div>

@@ -1,0 +1,244 @@
+@import ../../_variables.sass
+
+.main
+  .container
+    max-width: 1320px
+    margin: 0 auto
+  &__wrapper
+    display: flex
+    flex-direction: column
+  &__bg
+    background-image: url('../../../public/images/main-bg.jpg')
+    background-position: center
+    background-repeat: no-repeat
+    background-size: 100vw
+    position: absolute
+    left: 0px
+    width: 100%
+    height: 500px
+    z-index: -1
+  &__bg::after
+    content: ''
+    background-color: rgba(55, 57, 78, 0.562)
+    background-position: center
+    background-repeat: no-repeat
+    background-size: 100vw
+    position: absolute
+    width: 100%
+    height: 500px
+    top: 0
+    left: 0
+    z-index: 5
+  &__slogan
+    margin-top: 110px
+    font-family: $fontBold
+    font-size: $h2
+    color: $secondaryColor
+    letter-spacing: 1px
+    text-align: center
+    &-sub
+      font-family: $logoFont
+      font-size: $h1
+      color: $sloganColor
+
+.main
+  &__search
+    width: 50%
+    margin: 0 auto
+    position: relative
+    top: 70px
+    display: flex
+    justify-content: space-between
+    align-content: center
+    span
+      width: 100%
+    select
+      height: 50px
+      position: relative
+      border: none
+      padding: 15px 20px
+      font-size: $h5
+      @include primaryFont
+      color: $darkColor
+    .cards-pet__species
+      display: flex
+      flex-direction: column
+      width: 50%
+      span
+        margin-left: 15px
+      select
+        border-top-left-radius: 10px
+        border-bottom-left-radius: 10px
+        border: 1px solid $primaryColor
+    .cards-pet__city
+      display: flex
+      flex-direction: column
+      width: 50%
+      span
+        margin-left: 15px
+      select
+        border-top-right-radius: 10px
+        border-bottom-right-radius: 10px
+        border: 1px solid $primaryColor
+    &-btn
+      background: none
+      border: none
+      width: 50px
+      height: 50px
+      cursor: pointer
+      margin-top: 20px
+    &-img
+      width: 45px
+      height: 45px
+      background-color: $primaryColor
+      border-radius: 10px
+      
+.main
+  &__category
+    ul
+      display: flex
+      justify-content: space-between
+      width: 60%
+      list-style: none
+      padding: 0
+      margin: 0 auto
+      margin-top: 130px
+      li
+        width: 180px
+        height: 170px
+        background-color: $secondaryColor
+        border-radius: 10px
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 4px 2px
+        a
+          text-decoration: none
+          text-align: center
+        img
+          width: 150px
+          display: block
+          margin: 0 auto
+        span
+          display: block
+          position: relative
+          @include primaryFont
+          font-size: $h5
+          color: black
+          top: -20px
+    &-btn
+      border: none
+      background-color: $secondaryColor
+      width: 180px
+      border-radius: 10px
+      cursor: pointer
+
+.main__other
+  &-title
+    @include titleFont
+    font-size: $h3
+    text-align: center
+    padding-bottom: 30px
+  &-pet
+    background-color: $secondaryColor
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 4px 2px
+    padding: 40px 30px
+    margin-top: 60px
+    border-radius: 10px
+    position: absolute
+    left: 50%
+    transform: translateX(-50%)
+    top: 330px
+    visibility: hidden
+    opacity: 0%
+    transition: all 500ms
+    z-index: 15
+    &_active
+      visibility: visible
+      opacity: 100%
+      transition: all 500ms
+    button
+      width: 40px
+      height: 40px
+      font-size: $icon2
+      border: none
+      border-radius: 5px
+      background: none
+      padding: 0
+      cursor: pointer
+      float: right
+      &:hover
+        color: $secondaryColor
+        background-color: $darkColor
+    ul
+      display: flex
+      justify-content: space-between
+      align-items: flex-end
+      list-style: none
+      padding: 0
+      margin: 0 auto
+      li
+        max-width: 150px
+        max-height: 180px
+        height: 100%
+        background-color: $secondaryColor
+        border-radius: 10px
+        border: 1px solid $bgColor
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 4px 1px
+        margin: 0px 5px
+        a
+          text-decoration: none
+          text-align: center
+        img
+          width: 150px
+          display: block
+          margin: 0 auto
+        span
+          display: block
+          position: relative
+          @include primaryFont
+          font-size: $h5
+          color: black
+          top: -15px
+
+.main .adoption
+  width: 78%
+  margin-top: 40px
+.slider
+  position: relative
+  &__title
+    font-family: $fontMedium
+    font-size: $h3
+    text-align: center
+    padding: 40px 0px
+  &__button-prev
+    position: absolute
+    background: none
+    border: none
+    cursor: pointer
+    top: 50%
+    left: -50px
+    width: 50px
+    height: 50px
+    font-size: $icon2
+  &__button-next
+    position: absolute
+    background: none
+    border: none
+    cursor: pointer
+    top: 50%
+    right: -50px
+    width: 50px
+    height: 50px
+    font-size: $icon2
+  .mySwiper
+    height: 350px
+
+.main .advice
+  width: 75%
+  margin-top: 10px
+  &__bg
+    height: 500px
+    background-color: $bgColor
+    width: 100vw
+    position: absolute
+    left: 0px
+  &-card__content
+    @include primaryFont

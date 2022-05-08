@@ -1,0 +1,71 @@
+.userprofile__container {
+  display: flex;
+  height: 80vh;
+  margin-top: 100px;
+  border-radius: 15px;
+  background-color: white;
+}
+
+.userprofile__avatar_block {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 25%;
+  margin-top: 30px;
+}
+
+.userprofile__avatar_info_block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userprofile__avatar_image {
+  width: 280px;
+}
+
+.userprofile__info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userprofile__info > p {
+  font-size: 22px;
+  margin-top: 7px;
+  text-align: center;
+}
+
+.userprofile__button {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  margin-bottom: 30px;
+  font-size: 24px;
+}
+
+.userprofile__desription, .userprofile__photos, .userprofile__posts {
+  width: 950px;
+  background-color: #F8F8F8;
+  border-radius: 10px;
+  margin: 30px auto;
+}
+
+.userprofile__desription {
+  height: 200px;
+}
+
+.userprofile__photos {
+  height: 400px;
+}
+
+.userprofile__posts {
+  height: 100px;
+}
+
+.userprofile__desription > p, .userprofile__photos > p, .userprofile__posts > p {
+  font-size: 22px;
+  text-align: center;
+  padding-top: 4px;
+}
