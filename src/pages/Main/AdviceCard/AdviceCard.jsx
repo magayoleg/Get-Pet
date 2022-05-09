@@ -8,7 +8,7 @@ const AdviceCard = ({ id, title, content, link }) => {
       </span>
       <p className="advice-card__content">{content}</p>
       <a id={id} href={link} className="advice-card__link" target="_blank">
-        LEARN MORE
+        ПОДРОБНЕЕ
       </a>
     </div>
   );

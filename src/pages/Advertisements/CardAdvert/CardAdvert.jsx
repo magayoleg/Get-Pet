@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper';
 import 'swiper/css';
@@ -38,7 +39,7 @@ const CardAdvert = ({ id, name, description, price, images }) => {
         </li>
         <li>
           <button>
-            <a href={`/posts/${id}`}>ПОДРОБНЕЕ</a>
+            <Link to={`/posts/${id}`}>ПОДРОБНЕЕ</Link>
           </button>
         </li>
       </ul>
