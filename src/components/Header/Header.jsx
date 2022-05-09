@@ -1,24 +1,26 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+
+import { signOut } from '../../redux/actions/userAction';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faChevronDown,
   faBookmark,
   faHandHoldingHeart,
 } from '@fortawesome/free-solid-svg-icons';
-import { setUser } from '../../redux/actions/userAction';
 import './Header.sass';
 
 const Header = () => {
   const [breedsStyle, setBreedsStyle] = useState({ condition: false });
   const [resourcesStyle, setResourcesStyle] = useState({ condition: false });
 
-  const user = useSelector((state) => state.user);
+  const user = useSelector((store) => store.user);
   const dispatch = useDispatch();
 
-  const logoutHandler = () => {
-    dispatch(setUser(null));
+  const logoutHandler = async () => {
+    dispatch(signOut());
   };
 
   const breedsStyleChange = () => {
@@ -125,13 +127,13 @@ const Header = () => {
         </div>
 
         <div className="header__add-advertisement">
-          <NavLink to="/addAdvert">
-            <button>Добавить объявление</button>
+          <NavLink to={user ? "/addAdvert" : '/auth/signin'}>
+            <button className='header__add-post-btn'>Добавить объявление</button>
           </NavLink>
         </div>
 
         <div className="header__shelters">
-          <NavLink to="/">
+          <NavLink to="/shelters">
             ПРИЮТЫ ДЛЯ ЖИВОТНЫХ
             <FontAwesomeIcon icon={faHandHoldingHeart} />
           </NavLink>
@@ -157,7 +159,9 @@ const Header = () => {
             {user ? (
               <>
                 <li>
-                  <span>{user.name}</span>
+                  <NavLink to={`/userprofile/${user.id}`}>
+                    <span className='header__user-name'>{user.name}</span>
+                  </NavLink>
                 </li>
                 <li>
                   <NavLink to="/" onClick={logoutHandler}>

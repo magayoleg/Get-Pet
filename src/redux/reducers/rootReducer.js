@@ -6,6 +6,8 @@ import getAllSpeciesPetsReducer from './getAllSpeciesPetsReducer';
 import getAllPetsReducer from './getAllPetsReducer';
 import getOneAdvertReducer from './getOneAdvertReducer';
 import getAllTipsReducer from './getAllTipsReducer';
+import modalReducer from './modalReducer';
+
 
 const rootReducer = combineReducers({
   user: userReducer,
@@ -14,7 +16,8 @@ const rootReducer = combineReducers({
   getAllSpeciesPets: getAllSpeciesPetsReducer,
   getAllPets: getAllPetsReducer,
   getOneAdvert: getOneAdvertReducer,
-  getAllTips: getAllTipsReducer
+  getAllTips: getAllTipsReducer,
+  modal: modalReducer,
 });
 
 export default rootReducer;

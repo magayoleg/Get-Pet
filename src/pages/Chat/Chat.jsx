@@ -54,6 +54,15 @@ export function Chat({ style, changeStyle }) {
             <FontAwesomeIcon icon={faCircleChevronRight} />
           </button>
         </div>
+        <form name='chat' className="chat-form">
+          <input
+            className="chat-form__input"
+            placeholder="Сообщение"
+          />
+          <button className='chat-form__submit'>
+            <FontAwesomeIcon icon={faCircleChevronRight} />
+          </button>
+        </form>
       </div>
     </div>
   );

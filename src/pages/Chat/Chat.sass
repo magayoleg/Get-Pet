@@ -1,44 +1,29 @@
 @import ../../_variables
 
 .chat
-  &__enable
-    display: flex
-    padding: 50px 0px
-    height: 60vh
-    position: absolute
-    z-index: 20
-    right: 3%
-    transition: all 500ms
-  &__disable
-    display: flex
-    padding: 50px 0px
-    height: 60vh
-    position: absolute
-    z-index: 20
-    right: -50%
-    transition: all 500ms
+  display: flex
+  padding: 50px 0px
+  height: 80vh
   &__rooms
     width: 30%
     list-style: none
     padding: 0
   &__area
-    width: 300px
+    width: 70%
     background-color: white
     border-radius: 10px
     display: flex
     flex-direction: column
     margin-left: 20px
-    opacity: 0.95
     @include boxShadowInner
   &__messages
     height: 80vh
 
 .messages-area
   @include primaryFont
-  position: relative
   &__list
     list-style: none
-    padding: 30px
+    padding: 30px 70px
     li
       padding: 20px 0px
   &__left
@@ -72,16 +57,3 @@
       background-color: $primaryColor
       border-bottom-right-radius: 10px
       color: white
-  &__close
-    position: absolute
-    border: none
-    padding: 0
-    cursor: pointer
-    top: 15px
-    right: 10px
-    background: none
-    svg
-      width: 40px
-      height: 40px
-      border-bottom-right-radius: 10px
-      color: $primaryColor

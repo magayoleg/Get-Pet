@@ -12,6 +12,7 @@ import { checkAuth } from './redux/actions/userAction';
 import AddAdvertisement from './components/Forms/AddAdvertisement/AddAdvertisement';
 import Main from './pages/Main/Main';
 import Footer from './components/Footer/Footer';
+import { ModalFeedback } from './components/ModalFeedback/ModalFeedback';
 
 import Advertisements from './pages/Advertisements/Advertisements';
 import { AboutHelpAdoption } from './pages/AboutHelpAdoption/AboutHelpAdoption';
@@ -43,17 +44,13 @@ function App() {
       <div className="container">
         <Routes>
           <Route path="/" element={<Main />} />
-          <Route
-            path="/users/:id"
-            element={
+          <Route path="/users/:id" element={
               <PrivateRoute>
                 <UserDetail />
               </PrivateRoute>
             }
           />
-          <Route
-            path="/user/edit"
-            element={
+          <Route path="/user/edit" element={
               <PrivateRoute>
                 <UserEdit />
               </PrivateRoute>
@@ -72,13 +69,13 @@ function App() {
           <Route path="/dog-breeds" element={<DogBreeds />} />
           <Route path="/cat-breeds" element={<CatBreeds />} />
           <Route path="/chat" element={<Chat />} />
-          <Route path="/userprofile" element={<UserProfile />} />
-          <Route path="/tips" element={<PetsTips />} />
-          <Route path="/posts/:id" element={<DescriptAdvert />} />
-          {/* <Route path="/map" element={<MapPage />} /> */}
+          <Route path="/userprofile/:id" element={<UserProfile />} />
+          <Route path="/pets-tips" element={<PetsTips />} />
+          <Route path="/pets-tip/:id" element={<PetsTip />} />
         </Routes>
       </div>
       <Footer />
+      <ModalFeedback />
     </>
   );
 }
