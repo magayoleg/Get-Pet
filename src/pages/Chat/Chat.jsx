@@ -1,37 +1,48 @@
-import { UserChat } from "../../components/UserChat";
-import { UserMessageInChat } from "../../components/UserMessageInChat";
-import { Button } from '../../components/Button';
-import { Button2 } from "../../components/Button2";
+import { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleChevronRight } from '@fortawesome/free-solid-svg-icons';
+import ChatRoom from './ChatRoom/ChatRoom';
 
-import "./chat.css";
+import './Chat.sass';
 
 export function Chat() {
+  const [activeRoom, setActiveRoom] = useState({});
   return (
-    <div className="chat__container">
+    <div className="chat">
+      <ul className="chat__rooms">
+        <li>
+          <ChatRoom name="Иванов Дмитрий" />
+        </li>
+        <li>
+          <ChatRoom name="Смирнов Максим" />
+        </li>
+        <li>
+          <ChatRoom name="Кузнецов Олег" />
+        </li>
+      </ul>
 
-      <div className='chat__chats_group'>
-        <div className='chat__chats'>
-          <UserChat className='chat__chats' name={'Ivanov I.W.'}/>
+      <div className="chat__area">
+        <div className="chat__messages messages-area">
+          <ChatRoom name="Иванов Дмитрий" style={{margin: '0px', boxShadow: 'none', boxShadow: '0 5px 5px -5px rgba(5, 4, 4, 0.2)'}} />
+          <ul className='messages-area__list'>
+            <li className='messages-area__left'>
+              Привет
+            </li>
+            <li className='messages-area__right'>
+              Привет!
+            </li>
+          </ul>
         </div>
-        <div className='chat__chats_buttons'>
-          <Button name={'Выйти'} />
-          {/* <Button2 name="ilya and max" /> */}
-        </div>
+        <form name='chat' className="chat-form">
+          <input
+            className="chat-form__input"
+            placeholder="Сообщение"
+          />
+          <button className='chat-form__submit'>
+            <FontAwesomeIcon icon={faCircleChevronRight} />
+          </button>
+        </form>
       </div>
-
-      <div className='chat__messages_area'>
-        <div className='chat__messages'>
-          <UserMessageInChat id={1} name={'Max'} message={'Hello'} image={'https://www.freepngimg.com/thumb/facebook/62681-flat-icons-face-computer-design-avatar-icon.png'} createdAt={'17:05:21, 02.05.22'} />
-        </div>
-        <div className='chat__messages_input_container'>
-          <input className='chat__messages_input' placeholder='Enter your message here ...' />
-        </div>
-        <div className='chat__messages_buttons'>
-          <Button name={'Очистить'} />
-          <Button name={'Отправить'} />
-        </div>   
-      </div>
-      
     </div>
   );
 }

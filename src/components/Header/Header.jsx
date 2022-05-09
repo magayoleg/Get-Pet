@@ -1,24 +1,26 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+
+import { signOut } from '../../redux/actions/userAction';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faChevronDown,
   faBookmark,
   faHandHoldingHeart,
 } from '@fortawesome/free-solid-svg-icons';
-import { setUser } from '../../redux/actions/userAction';
 import './Header.sass';
 
 const Header = () => {
   const [breedsStyle, setBreedsStyle] = useState({ condition: false });
   const [resourcesStyle, setResourcesStyle] = useState({ condition: false });
 
-  const user = useSelector((state) => state.user);
+  const user = useSelector((store) => store.user);
   const dispatch = useDispatch();
 
-  const logoutHandler = () => {
-    dispatch(setUser(null));
+  const logoutHandler = async () => {
+    dispatch(signOut());
   };
 
   const breedsStyleChange = () => {
@@ -125,7 +127,7 @@ const Header = () => {
         </div>
 
         <div className="header__add-advertisement">
-          <NavLink to="/addAdvert">
+          <NavLink to={user ? "/addAdvert" : '/auth/signin'}>
             <button>Добавить объявление</button>
           </NavLink>
         </div>

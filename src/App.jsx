@@ -43,17 +43,13 @@ function App() {
       <div className="container">
         <Routes>
           <Route path="/" element={<Main />} />
-          <Route
-            path="/users/:id"
-            element={
+          <Route path="/users/:id" element={
               <PrivateRoute>
                 <UserDetail />
               </PrivateRoute>
             }
           />
-          <Route
-            path="/user/edit"
-            element={
+          <Route path="/user/edit" element={
               <PrivateRoute>
                 <UserEdit />
               </PrivateRoute>

@@ -11,4 +11,6 @@ export const getUser = (id) => `${host}/users/${id}`;
 
 export const addAdvert = () => `${host}/posts`;
 
+// export const getAllSpecies = () => `${host}/species`;
+
 export const getAllPets = (animal) => `${host}/posts/?species=${animal}`;

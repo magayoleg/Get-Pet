@@ -1,0 +1,59 @@
+@import ../../_variables
+
+.chat
+  display: flex
+  padding: 50px 0px
+  height: 80vh
+  &__rooms
+    width: 30%
+    list-style: none
+    padding: 0
+  &__area
+    width: 70%
+    background-color: white
+    border-radius: 10px
+    display: flex
+    flex-direction: column
+    margin-left: 20px
+    @include boxShadowInner
+  &__messages
+    height: 80vh
+
+.messages-area
+  @include primaryFont
+  &__list
+    list-style: none
+    padding: 30px 70px
+    li
+      padding: 20px 0px
+  &__left
+    text-align: start
+  &__right
+    text-align: end
+
+.chat-form
+  display: flex
+  justify-content: space-around
+  background-color: white
+  border-bottom-left-radius: 15px
+  border-bottom-right-radius: 15px
+  box-shadow: rgba(5, 4, 4, 0.3) 0px -3px 5px -3px
+  &__input
+    width: 95%
+    border: none
+    border-bottom-left-radius: 15px
+    padding: 10px 30px
+    @include primaryFont
+    font-size: $h4
+  &__submit
+    border: none
+    padding: 0
+    border-bottom-right-radius: 10px
+    cursor: pointer
+    svg
+      width: 40px
+      height: 40px
+      padding: 10px
+      background-color: $primaryColor
+      border-bottom-right-radius: 10px
+      color: white
