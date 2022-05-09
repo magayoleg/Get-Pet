@@ -1,38 +1,39 @@
-import { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { getOneAdvertThunk } from '../../redux/thunks/getOneAdvertThunk';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper';
-import * as endPoints from '../../config/endPoints';
-import './DescriptAdvert.sass';
-import { Chat } from '../Chat/Chat';
+import { useEffect, useState } from 'react'
+import { NavLink, useParams } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { getOneAdvertThunk } from '../../redux/thunks/getOneAdvertThunk'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Pagination } from 'swiper'
+import * as endPoints from '../../config/endPoints'
+import './DescriptAdvert.sass'
+import { Chat } from '../Chat/Chat'
+import AdMap from '../../components/AdMap/AdMap'
 
 const DescriptAdvert = () => {
   const [positionChat, setPositionChat] = useState('chat__disable')
-
-  let params = useParams();
-  const dispatch = useDispatch();
-
+  
+  let params = useParams()
+  const dispatch = useDispatch()
+  
   useEffect(() => {
-    dispatch(getOneAdvertThunk(params.id));
-  }, []);
-  const dataAdvert = useSelector((state) => state.getOneAdvert);
-
+    dispatch(getOneAdvertThunk(params.id))
+  }, [])
+  const dataAdvert = useSelector((state) => state.getOneAdvert)
+  
   const styleChat = () => {
     if (positionChat === 'chat__disable') {
-      setPositionChat('chat__enable');
+      setPositionChat('chat__enable')
     } else {
-      setPositionChat('chat__disable');
+      setPositionChat('chat__disable')
     }
   }
-
+  
   return (
+    
     <div className="descript">
-
+      
       <Chat style={positionChat} changeStyle={styleChat}/>
-
+      
       <div className="advert">
         <div className="advert__title title">
           <div className="title__navigate">
@@ -63,9 +64,9 @@ const DescriptAdvert = () => {
               {dataAdvert.images?.map((img, index) => {
                 return (
                   <SwiperSlide key={'keyAdvert' + index}>
-                    <img src={endPoints.getImagePet(img)} alt="img" />
+                    <img src={endPoints.getImagePet(img)} alt="img"/>
                   </SwiperSlide>
-                );
+                )
               })}
             </Swiper>
           </div>
@@ -94,8 +95,10 @@ const DescriptAdvert = () => {
           </ul>
         </div>
       </div>
+      
+      <AdMap/>
     </div>
-  );
-};
+  )
+}
 
-export default DescriptAdvert;
+export default DescriptAdvert
