@@ -3,6 +3,8 @@ import { useSearchParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import CardAdvert from './CardAdvert/CardAdvert';
 import { getAllSpeciesPetsThunk } from '../../redux/thunks/getAllSpeciesPetsThunk';
+import { getAllPetsThunk } from '../../redux/thunks/getAllPetsThunk';
+
 
 import './Advertisements.sass';
 
@@ -11,16 +13,28 @@ const Advertisements = () => {
 
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getAllSpeciesPetsThunk(searchParams.get("species")));
+    if (searchParams.get("species")) {
+      dispatch(getAllSpeciesPetsThunk(searchParams.get("species")));
+
+    } else {
+      dispatch(getAllPetsThunk());
+    }
   }, []);
-  const cards = useSelector((state) => state.getAllSpeciesPets);
   
+  let cards;
+  if (searchParams.get("species")) {
+    cards = useSelector((state) => state.getAllSpeciesPets);
+  } else {
+    cards = useSelector((state) => state.getAllPets)
+  }
+
   return (
     <section className="container advertisement cards-pet">
       <div className="cards-pet__filter">
         <div className="cards-pet__species cards-pet__input">
           <span>Тип животного:</span>
           <select>
+            <option value=""></option>
             <option value="dog">Собаки</option>
             <option value="cat">Кошки</option>
             <option value="small&furry">Мелкие грызуны</option>
@@ -38,7 +52,7 @@ const Advertisements = () => {
           <input type="text" />
         </div>
 
-        <div className="cards-pet__species cards-pet__input">
+        {/* <div className="cards-pet__species cards-pet__input">
           <span>Возраст животного:</span>
           <select>
             <option value="dog">Собаки</option>
@@ -51,11 +65,12 @@ const Advertisements = () => {
             <option value="bugs">Жуки, пауки</option>
             <option value="barnyard">Скотный двор</option>
           </select>
-        </div>
+        </div> */}
 
         <div className="cards-pet__species cards-pet__input">
           <span>Город:</span>
           <select>
+            <option value="city0"></option>
             <option value="city1">Москва</option>
             <option value="city2">Санкт-Петербург</option>
             <option value="city3">Новосибирск</option>
@@ -89,9 +104,10 @@ const Advertisements = () => {
         </div>
 
         <div className="cards-pet__row">
-          {cards?.map((card, index) => {
+          {cards?.map((card) => {
             return <CardAdvert
-              key={`card-${index}`}
+              id={card.id}
+              key={`card-${card.id}`}
               name={card.title}
               description={card.animalDescription}
               price={card.price}

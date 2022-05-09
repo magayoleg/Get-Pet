@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -7,8 +7,11 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper';
 import * as endPoints from '../../config/endPoints';
 import './DescriptAdvert.sass';
+import { Chat } from '../Chat/Chat';
 
 const DescriptAdvert = () => {
+  const [positionChat, setPositionChat] = useState('chat__disable')
+
   let params = useParams();
   const dispatch = useDispatch();
 
@@ -16,16 +19,20 @@ const DescriptAdvert = () => {
     dispatch(getOneAdvertThunk(params.id));
   }, []);
   const dataAdvert = useSelector((state) => state.getOneAdvert);
-  console.log(dataAdvert);
-  console.log(
-    new Date(dataAdvert.created).toLocaleDateString('ru-RU', {
-      day: '2-digit',
-      month: 'long',
-      year: 'numeric',
-    })
-  );
+
+  const styleChat = () => {
+    if (positionChat === 'chat__disable') {
+      setPositionChat('chat__enable');
+    } else {
+      setPositionChat('chat__disable');
+    }
+  }
+
   return (
-    <div className="container">
+    <div className="descript">
+
+      <Chat style={positionChat} changeStyle={styleChat}/>
+
       <div className="advert">
         <div className="advert__title title">
           <div className="title__navigate">
@@ -80,6 +87,9 @@ const DescriptAdvert = () => {
             </li>
             <li className="content__phone">
               Контактный телефон: {dataAdvert.phoneNumber}
+            </li>
+            <li>
+              <button onClick={styleChat}>Написать сообщение</button>
             </li>
           </ul>
         </div>

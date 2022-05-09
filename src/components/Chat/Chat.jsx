@@ -1,15 +1,15 @@
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleChevronRight, faCircleXmark } from '@fortawesome/free-solid-svg-icons';
+import { faCircleChevronRight } from '@fortawesome/free-solid-svg-icons';
 import ChatRoom from './ChatRoom/ChatRoom';
 
 import './Chat.sass';
 
-export function Chat({style, changeStyle}) {
+export function Chat() {
   const [activeRoom, setActiveRoom] = useState({});
   return (
-    <div className={style}>
-      {/* <ul className="chat__rooms">
+    <div className="chat">
+      <ul className="chat__rooms">
         <li>
           <ChatRoom name="Иванов Дмитрий" />
         </li>
@@ -19,14 +19,11 @@ export function Chat({style, changeStyle}) {
         <li>
           <ChatRoom name="Кузнецов Олег" />
         </li>
-      </ul> */}
+      </ul>
 
       <div className="chat__area">
         <div className="chat__messages messages-area">
-          <ChatRoom name="Иванов Дмитрий" style={{ margin: '0px', boxShadow: 'none', boxShadow: '0 5px 5px -5px rgba(5, 4, 4, 0.2)' }} />
-          <button className='chat-form__close' onClick={changeStyle}>
-            <FontAwesomeIcon icon={faCircleXmark} />
-          </button>
+          <ChatRoom name="Иванов Дмитрий" style={{margin: '0px', boxShadow: 'none', boxShadow: '0 5px 5px -5px rgba(5, 4, 4, 0.2)'}} />
           <ul className='messages-area__list'>
             <li className='messages-area__left'>
               Привет

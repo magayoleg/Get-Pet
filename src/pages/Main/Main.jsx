@@ -31,6 +31,7 @@ const randomIndexArray = (array, quantityNumbers) => {
   }
   return arrayNumbers;
 };
+const randomIndex = randomIndexArray(10, 5);
 
 function Main() {
   const [otherStyle, setOthersStyle] = useState({ condition: false });
@@ -209,7 +210,7 @@ function Main() {
             className="mySwiper"
           >
             {cards?.map((card, index) => {
-              if (randomIndexArray(10, 4).includes(index)) {
+              if (randomIndex.includes(index)) {
                 return (
                   <SwiperSlide key={'key' + card.id}>
                     <AdoptionCard
@@ -254,7 +255,7 @@ function Main() {
             className="mySwiper"
           >
             {tips.map((item, index) => {
-              if (randomIndexArray(10, 5).includes(index)) {
+              if (randomIndex.includes(index)) {
                 return (
                   <SwiperSlide key={'key' + item.id}>
                     <AdviceCard

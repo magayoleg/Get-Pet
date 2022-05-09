@@ -72,7 +72,7 @@ function App() {
           <Route path="/cat-breeds" element={<CatBreeds />} />
           <Route path="/chat" element={<Chat />} />
           <Route path="/userprofile" element={<UserProfile />} />
-          <Route path="/pets-tips" element={<PetsTips />} />
+          <Route path="/tips" element={<PetsTips />} />
           <Route path="/posts/:id" element={<DescriptAdvert />} />
         </Routes>
       </div>

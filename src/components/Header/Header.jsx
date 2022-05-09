@@ -68,14 +68,14 @@ const Header = () => {
             >
               <ul>
                 <li>
-                  <NavLink to="/dog-breeds">
+                  <NavLink to="/advertisements/?species=Собаки">
                     <img src="/icons/animals/dog-white.svg" alt="dog-white" />
                     ПОРОДЫ СОБАК
                   </NavLink>
                 </li>
                 <li></li>
                 <li>
-                  <NavLink to="/cat-breeds">
+                  <NavLink to="/advertisements/?species=Кошки">
                     <img src="/icons/animals/cat-white.svg" alt="cat-white" />
                     ПОРОДЫ КОТОВ
                   </NavLink>

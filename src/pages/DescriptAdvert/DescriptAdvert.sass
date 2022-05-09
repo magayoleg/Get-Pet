@@ -1,6 +1,11 @@
 @import ../../_variables
   
+.descript
+  position: relative
+  min-height: 600px
+  overflow: hidden
 .advert
+  @include primaryFont
   padding-top: 30px
   &__wrapper
     display: flex
@@ -35,3 +40,20 @@
     padding: 15px
     border-radius: 5px
     @include boxShadow($iconColor)
+  li:last-child
+    margin-top: 30px
+    border: none
+    box-shadow: none
+    button
+      @include primaryFont
+      font-size: 18px
+      display: block
+      border-radius: 10px
+      border: 2px solid $primaryColor
+      cursor: pointer
+      margin: 0 auto
+      width: 300px
+      height: 60px
+      &:hover
+        background-color: $primaryColor
+        color: white

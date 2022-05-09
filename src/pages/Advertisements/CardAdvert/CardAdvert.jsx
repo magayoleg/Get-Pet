@@ -5,7 +5,7 @@ import 'swiper/css/pagination';
 import * as endPoints from '../../../config/endPoints';
 import './CardAdvert.sass';
 
-const CardAdvert = ({ name, description, price, images }) => {
+const CardAdvert = ({ id, name, description, price, images }) => {
 
   return (
     <div className="cards-pet__card card-advert">
@@ -34,11 +34,11 @@ const CardAdvert = ({ name, description, price, images }) => {
           <span>Описание:</span> {description}
         </li>
         <li>
-          <span>Цена:</span> {price}
+          <span>{price ? `Цена: ${price}` : 'Бесплатно'}</span> 
         </li>
         <li>
           <button>
-            <a href="/">ПОДРОБНЕЕ</a>
+            <a href={`/posts/${id}`}>ПОДРОБНЕЕ</a>
           </button>
         </li>
       </ul>
