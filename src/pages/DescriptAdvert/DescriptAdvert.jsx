@@ -16,13 +16,19 @@ const DescriptAdvert = () => {
     dispatch(getOneAdvertThunk(params.id));
   }, []);
   const dataAdvert = useSelector((state) => state.getOneAdvert);
-
   console.log(dataAdvert);
+  console.log(
+    new Date(dataAdvert.created).toLocaleDateString('ru-RU', {
+      day: '2-digit',
+      month: 'long',
+      year: 'numeric',
+    })
+  );
   return (
     <div className="container">
       <div className="advert">
         <div className="advert__title title">
-          <div className='title__navigate'>
+          <div className="title__navigate">
             <NavLink to="/">
               <span>Главная</span>
             </NavLink>
@@ -31,7 +37,7 @@ const DescriptAdvert = () => {
               <span>{dataAdvert.species}</span>
             </NavLink>
           </div>
-          <dir className='title__text'>{dataAdvert.title}</dir>
+          <dir className="title__text">{dataAdvert.title}</dir>
         </div>
         <div className="advert__wrapper">
           <div className="advert__slider">
@@ -56,15 +62,26 @@ const DescriptAdvert = () => {
               })}
             </Swiper>
           </div>
-          <div className="advert__content">
-            <div className="advert__date">
-              Дата объявления: {dataAdvert.created}
-            </div>
-            <div className="advert__price">Цена: {dataAdvert.price}</div>
-            <div className="advert__price">
+          <ul className="advert__content content">
+            <li className="content__date">
+              Дата объявления:{' '}
+              {new Date(dataAdvert.created).toLocaleDateString('ru-RU', {
+                day: '2-digit',
+                month: 'long',
+                year: 'numeric',
+              })}
+            </li>
+            <li>
+              Описание:
+              {dataAdvert.description}
+            </li>
+            <li className="content__price">
+              {dataAdvert.price ? `Цена: ${dataAdvert.price}` : 'Бесплатно'}
+            </li>
+            <li className="content__phone">
               Контактный телефон: {dataAdvert.phoneNumber}
-            </div>
-          </div>
+            </li>
+          </ul>
         </div>
       </div>
     </div>

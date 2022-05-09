@@ -11,6 +11,7 @@ const CardAdvert = ({ name, description, price, images }) => {
     <div className="cards-pet__card card-advert">
       <div className="card-advert__slider">
         <Swiper
+          centeredSlides={true}
           spaceBetween={30}
           pagination={{
             clickable: true,

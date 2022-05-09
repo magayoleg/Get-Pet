@@ -3,8 +3,9 @@ import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { getAllPetsThunk } from '../../redux/thunks/getAllPetsThunk';
+import { getAllTipsThunk } from '../../redux/thunks/getAllTipsThunk';
 import AdoptionCard from './AdoptionCard/AdoptionCard';
-import AdviceCard from '../../components/AdviceCard/AdviceCard';
+import AdviceCard from './AdviceCard/AdviceCard';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -20,7 +21,16 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-import { dbAdoption, dbAdvice } from './dbTest';
+const randomIndexArray = (array, quantityNumbers) => {
+  const arrayNumbers = [];
+  while (arrayNumbers.length <= quantityNumbers) {
+    const randomNumber = Math.floor(Math.random() * array);
+    if (!arrayNumbers.includes(randomNumber)) {
+      arrayNumbers.push(randomNumber);
+    }
+  }
+  return arrayNumbers;
+};
 
 function Main() {
   const [otherStyle, setOthersStyle] = useState({ condition: false });
@@ -33,22 +43,12 @@ function Main() {
 
   useEffect(() => {
     dispatch(getAllPetsThunk());
+    dispatch(getAllTipsThunk());
   }, []);
 
   const cards = useSelector((state) => state.getAllPets);
+  const tips = useSelector((state) => state.getAllTips);
 
-  const randomIndexArray = (array, quantityNumbers) => {
-    const arrayNumbers = [];
-    while (arrayNumbers.length < quantityNumbers) {
-      const randomNumber = Math.floor(Math.random() * array);
-      if (!arrayNumbers.includes(randomNumber)) {
-        arrayNumbers.push(randomNumber);
-      }
-    }
-    return arrayNumbers;
-  };
-
-  const randomNumber = randomIndexArray(10, 5);
   return (
     <main className="main">
       <div className="main__bg"></div>
@@ -209,7 +209,7 @@ function Main() {
             className="mySwiper"
           >
             {cards?.map((card, index) => {
-              if (randomNumber.includes(index)) {
+              if (randomIndexArray(10, 4).includes(index)) {
                 return (
                   <SwiperSlide key={'key' + card.id}>
                     <AdoptionCard
@@ -253,16 +253,19 @@ function Main() {
             modules={[Pagination, Navigation]}
             className="mySwiper"
           >
-            {dbAdvice.map((item) => {
-              return (
-                <SwiperSlide key={'key' + item.id}>
-                  <AdviceCard
-                    id={item.id}
-                    title={item.title}
-                    content={item.content}
-                  />
-                </SwiperSlide>
-              );
+            {tips.map((item, index) => {
+              if (randomIndexArray(10, 5).includes(index)) {
+                return (
+                  <SwiperSlide key={'key' + item.id}>
+                    <AdviceCard
+                      id={item.id}
+                      title={item.title}
+                      content={item.tipText}
+                      link={item.webSite}
+                    />
+                  </SwiperSlide>
+                );
+              };
             })}
           </Swiper>
         </div>

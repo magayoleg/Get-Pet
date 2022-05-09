@@ -1,8 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useGetUser } from '../../lib/hooks/useGetUser';
 
-import { Button } from '../../components/Button';
-
 import './userprofile.css';
 
 export function UserProfile() {
@@ -45,8 +43,6 @@ export function UserProfile() {
           </div>
         </div>
         <div className='userprofile__button'>
-          <Button name={'Edit'}/>
-          <Button name={'Delete'}/>
         </div>
       </div>
 
