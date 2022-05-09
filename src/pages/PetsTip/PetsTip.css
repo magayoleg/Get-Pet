@@ -26,7 +26,7 @@
 }
 
 .PetsTip__icons_wrapper > * {
-  transform: translateY(20px);
+  transform: translateY(25px);
   transition: transform 0.25s;
 }
 
@@ -37,8 +37,9 @@
 .PetsTip__svg {
   fill: white;
   height: 30px;
-  margin: 0 0 20px 20px;
+  margin: 0 0 25px 30px;
   transition: 0.3s;
+  cursor: pointer;
 }
 
 .PetsTip__svg:hover {
@@ -47,6 +48,10 @@
 
 .PetsTip__svg:active {
   fill: #283347;
+}
+
+.liked {
+  fill: white;
 }
 
 .PetsTip__content_wrapper {

@@ -12,6 +12,7 @@ import { checkAuth } from './redux/actions/userAction';
 import AddAdvertisement from './components/Forms/AddAdvertisement/AddAdvertisement';
 import Main from './components/Main/Main';
 import Footer from './components/Footer/Footer';
+import { ModalFeedback } from './components/ModalFeedback/ModalFeedback';
 
 import Advertisements from './pages/Advertisements/Advertisements';
 import { AboutHelpAdoption } from './pages/AboutHelpAdoption/AboutHelpAdoption';
@@ -77,6 +78,7 @@ function App() {
         </Routes>
       </div>
       <Footer />
+      <ModalFeedback />
     </>
   );
 }
