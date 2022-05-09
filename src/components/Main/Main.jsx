@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 import AdoptionCard from '../AdoptionCard/AdoptionCard';
 import AdviceCard from '../AdviceCard/AdviceCard';
@@ -22,9 +22,15 @@ import { dbAdoption, dbAdvice } from './dbTest';
 
 function Main() {
   const [otherStyle, setOthersStyle] = useState({ condition: false });
-
+  const [species, setSpecies] = useState('Собаки');
+  const [city, setCity] = useState('Москва');
+  const navigate = useNavigate();
   const otherStyleChange = () => {
     setOthersStyle({ condition: !otherStyle.condition });
+  };
+
+  const handleSearch = () => {
+    navigate(`/advertisements?species=${species}&city=${city}`);
   };
 
   return (
@@ -33,38 +39,38 @@ function Main() {
       <section className="container main__wrapper">
         <div className="main__search">
           <div className="cards-pet__species cards-pet__input">
-            <select>
-              <option value="dog">Собаки</option>
-              <option value="cat">Кошки</option>
-              <option value="small&furry">Мелкие грызуны</option>
-              <option value="rabbits">Кролики</option>
-              <option value="lizard">Ящерицы, змеи</option>
-              <option value="pisces">Рыбы</option>
-              <option value="birds">Птицы</option>
-              <option value="bugs">Жуки, пауки</option>
-              <option value="barnyard">Скотный двор</option>
+            <select onChange={(e) => setSpecies(e.target.value)}>
+              <option value="Собаки">Собаки</option>
+              <option value="Кошки">Кошки</option>
+              <option value="Мелкие грызуны">Мелкие грызуны</option>
+              <option value="Кролики">Кролики</option>
+              <option value="Ящерицы">Ящерицы</option>
+              <option value="Рыбы">Рыбы</option>
+              <option value="Птицы">Птицы</option>
+              <option value="Насекомые">Насекомые</option>
+              <option value="Скотный двор">Скотный двор</option>
             </select>
           </div>
           <div className="cards-pet__city cards-pet__input">
-            <select>
-              <option value="city1">Москва</option>
-              <option value="city2">Санкт-Петербург</option>
-              <option value="city3">Новосибирск</option>
-              <option value="city4">Екатеринбург</option>
-              <option value="city5">Казань</option>
-              <option value="city6">Нижний Новгород</option>
-              <option value="city7">Челябинск</option>
-              <option value="city8">Самара</option>
-              <option value="city9">Ростов-на-Дону</option>
-              <option value="city10">Уфа</option>
-              <option value="city11">Омск</option>
-              <option value="city12">Красноярск</option>
-              <option value="city13">Воронеж</option>
-              <option value="city14">Пермь</option>
-              <option value="city15">Волгоград</option>
+            <select onChange={(e) => setCity(e.target.value)}>
+              <option value="Москва">Москва</option>
+              <option value="Санкт-Петербург">Санкт-Петербург</option>
+              <option value="Новосибирск">Новосибирск</option>
+              <option value="Екатеринбург">Екатеринбург</option>
+              <option value="Казань">Казань</option>
+              <option value="Нижний Новгород">Нижний Новгород</option>
+              <option value="Челябинск">Челябинск</option>
+              <option value="Самара">Самара</option>
+              <option value="Ростов-на-Дону">Ростов-на-Дону</option>
+              <option value="Уфа">Уфа</option>
+              <option value="Омск">Омск</option>
+              <option value="Красноярск">Красноярск</option>
+              <option value="Воронеж">Воронеж</option>
+              <option value="Пермь">Пермь</option>
+              <option value="Волгоград">Волгоград</option>
             </select>
           </div>
-          <button className="main__search-btn">
+          <button onClick={handleSearch} className="main__search-btn">
             <img
               src="./icons/navigate/search.png"
               alt="search"

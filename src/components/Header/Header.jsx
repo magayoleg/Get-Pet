@@ -128,12 +128,12 @@ const Header = () => {
 
         <div className="header__add-advertisement">
           <NavLink to={user ? "/addAdvert" : '/auth/signin'}>
-            <button>Добавить объявление</button>
+            <button className='header__add-post-btn'>Добавить объявление</button>
           </NavLink>
         </div>
 
         <div className="header__shelters">
-          <NavLink to="/">
+          <NavLink to="/shelters">
             ПРИЮТЫ ДЛЯ ЖИВОТНЫХ
             <FontAwesomeIcon icon={faHandHoldingHeart} />
           </NavLink>
@@ -159,7 +159,9 @@ const Header = () => {
             {user ? (
               <>
                 <li>
-                  <span>{user.name}</span>
+                  <NavLink to={`/userprofile/${user.id}`}>
+                    <span className='header__user-name'>{user.name}</span>
+                  </NavLink>
                 </li>
                 <li>
                   <NavLink to="/" onClick={logoutHandler}>
