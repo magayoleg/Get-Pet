@@ -23,13 +23,14 @@ import { HelpingPets } from './pages/HelpingPets/HelpingPets';
 import { Shelters } from './pages/Shelters/Shelters';
 import { DogBreeds } from './pages/DogBreeds/DogBreeds';
 import { CatBreeds } from './pages/CatBreeds/CatBreeds';
-import { Chat } from './pages/Chat/Chat';
+// import { Chat } from './pages/Chat/Chat';
 import { UserProfile } from './pages/UserProfile/UserProfile';
 import { PetsTips } from './pages/PetsTips/PetsTips';
-import DescriptAdvert from './pages/DescriptAdvert/DescriptAdvert';
+import { PetsTip } from './pages/PetsTip/PetsTip';
+import { DescriptAdvert } from './pages/DescriptAdvert/DescriptAdvert';
 
 import './App.sass';
-// import MapPage from './pages/MapPage/MapPage';
+import MapPage from './pages/MapPage/MapPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -44,13 +45,17 @@ function App() {
       <div className="container">
         <Routes>
           <Route path="/" element={<Main />} />
-          <Route path="/users/:id" element={
+          <Route
+            path="/users/:id"
+            element={
               <PrivateRoute>
                 <UserDetail />
               </PrivateRoute>
             }
           />
-          <Route path="/user/edit" element={
+          <Route
+            path="/user/edit"
+            element={
               <PrivateRoute>
                 <UserEdit />
               </PrivateRoute>
@@ -68,10 +73,12 @@ function App() {
           <Route path="/shelters" element={<Shelters />} />
           <Route path="/dog-breeds" element={<DogBreeds />} />
           <Route path="/cat-breeds" element={<CatBreeds />} />
-          <Route path="/chat" element={<Chat />} />
+          {/* <Route path="/chat" element={<Chat />} /> */}
           <Route path="/userprofile/:id" element={<UserProfile />} />
           <Route path="/pets-tips" element={<PetsTips />} />
           <Route path="/pets-tip/:id" element={<PetsTip />} />
+          <Route path="/posts/:id" element={<DescriptAdvert />} />
+          <Route path="/maps" element={<MapPage />} />
         </Routes>
       </div>
       <Footer />

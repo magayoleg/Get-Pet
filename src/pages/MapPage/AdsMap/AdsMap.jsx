@@ -13,6 +13,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import './style.css'
 import { getAllPetsThunk } from '../../../redux/thunks/getAllPetsThunk'
 import { assignAdLabel } from '../../../helpers/assignAdLabel'
+import * as endPoints from '../../../config/endPoints';
 
 function AdsMap () {
   const [, setCluster] = useState(null)
@@ -21,9 +22,8 @@ function AdsMap () {
   const [allSpecies, setAllSpecies] = useState([])
   
   const sortedMarks = (species) => { setAdsSpecies(species) }
-  
   useEffect(() => {
-    fetch('http://localhost:3000/posts/species')
+    fetch(endPoints.getAllSpeciesForMap())
       .then((response) => response.json())
       .then((data) => setAllSpecies(data))
   }, [])

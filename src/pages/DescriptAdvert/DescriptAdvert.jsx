@@ -1,15 +1,17 @@
 import { useEffect, useState } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { getOneAdvertThunk } from '../../redux/thunks/getOneAdvertThunk';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper';
 import * as endPoints from '../../config/endPoints';
 import './DescriptAdvert.sass';
 import { Chat } from '../Chat/Chat';
-// import AdMap from '../../components/AdMap/AdMap';
+import AdMap from '../../components/AdMap/AdMap';
 
-const DescriptAdvert = () => {
+export const DescriptAdvert = () => {
   const [positionChat, setPositionChat] = useState('chat__disable');
 
   let params = useParams();
@@ -19,7 +21,7 @@ const DescriptAdvert = () => {
     dispatch(getOneAdvertThunk(params.id));
   }, []);
   const dataAdvert = useSelector((state) => state.getOneAdvert);
-
+  console.log(dataAdvert);
   const styleChat = () => {
     if (positionChat === 'chat__disable') {
       setPositionChat('chat__enable');
@@ -68,35 +70,52 @@ const DescriptAdvert = () => {
               })}
             </Swiper>
           </div>
-          <ul className="advert__content content">
-            <li className="content__date">
-              Дата объявления:{' '}
-              {new Date(dataAdvert.created).toLocaleDateString('ru-RU', {
-                day: '2-digit',
-                month: 'long',
-                year: 'numeric',
-              })}
-            </li>
-            <li>
-              Описание:
-              {dataAdvert.description}
-            </li>
-            <li className="content__price">
-              {dataAdvert.price ? `Цена: ${dataAdvert.price}` : 'Бесплатно'}
-            </li>
-            <li className="content__phone">
-              Контактный телефон: {dataAdvert.phoneNumber}
-            </li>
-            <li>
+          <div className="advert__content content">
+            <div className='content__user-wrapper'>
+              <div className="chat-room content__user">
+                <input type="checkbox" />
+                <div className="chat-room__wrapper">
+                  <div className="chat-room__photo">
+                    <FontAwesomeIcon icon={faUser} />
+                  </div>
+                  <div className="chat-room__title">{dataAdvert.userName}</div>
+                </div>
+              </div>
               <button onClick={styleChat}>Написать сообщение</button>
-            </li>
-          </ul>
+            </div>
+            <ul>
+              <li className="content__date">
+                <p>Дата объявления:</p>
+                {new Date(dataAdvert.created).toLocaleDateString('ru-RU', {
+                  day: '2-digit',
+                  month: 'long',
+                  year: 'numeric',
+                })}
+              </li>
+              <li>
+                <p>Описание:</p>
+                {dataAdvert.animalDescription}
+              </li>
+              <li>
+                <p>Город:</p>
+                {dataAdvert.city}
+              </li>
+              <li>
+                <p>Адрес:</p>
+                {dataAdvert.address}
+              </li>
+              <li className="content__price">
+                {dataAdvert.price ? `Цена: ${dataAdvert.price}` : 'Бесплатно'}
+              </li>
+              <li className="content__phone">
+                <p>Контактный телефон:</p> {dataAdvert.phoneNumber}
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
 
-      {/* <AdMap /> */}
+      <AdMap />
     </div>
   );
 };
-
-export default DescriptAdvert;

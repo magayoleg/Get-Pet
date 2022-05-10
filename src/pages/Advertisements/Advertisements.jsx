@@ -15,7 +15,6 @@ const Advertisements = () => {
   useEffect(() => {
     if (searchParams.get("species")) {
       dispatch(getAllSpeciesPetsThunk(searchParams.get("species")));
-
     } else {
       dispatch(getAllPetsThunk());
     }

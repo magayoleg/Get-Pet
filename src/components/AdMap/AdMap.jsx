@@ -21,9 +21,7 @@ function AdMap () {
   return (
     <YMaps>
       <div className="admap">
-        {/* необходим дизайн? */}
-        <Map defaultState={{ center: theAdCoordinates, zoom: 14 }} width="70%" height="500px">
-          {/* необходим дизайн? */}
+        <Map defaultState={{ center: theAdCoordinates, zoom: 14 }} width="100%" height="100%">
           <Placemark
             key={Number(id.id)}
             modules={['geoObject.addon.balloon']}
