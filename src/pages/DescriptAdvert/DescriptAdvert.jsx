@@ -20,11 +20,17 @@ export const DescriptAdvert = () => {
   useEffect(() => {
     dispatch(getOneAdvertThunk(params.id));
   }, []);
+
   const dataAdvert = useSelector((state) => state.getOneAdvert);
-  console.log(dataAdvert);
-  const styleChat = () => {
+
+  const styleChat = async () => {
     if (positionChat === 'chat__disable') {
       setPositionChat('chat__enable');
+      
+      // const url = `http://localhost:3000/messages?receiverId=${dataAdvert.userId}`;
+      // const r = await fetch(url, {credentials: 'include'});
+      // const result = await r.json();
+      // console.log('-----result------', result)
     } else {
       setPositionChat('chat__disable');
     }
@@ -32,7 +38,7 @@ export const DescriptAdvert = () => {
 
   return (
     <div className="descript">
-      <Chat style={positionChat} changeStyle={styleChat} />
+      <Chat postData={dataAdvert} style={positionChat} changeStyle={styleChat} />
 
       <div className="advert">
         <div className="advert__title title">
