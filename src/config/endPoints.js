@@ -16,13 +16,15 @@ export const getAllSpeciesPets = (species, city) =>
 export const getImagePet = (img) => `${host}${img}`;
 export const getAllPets = () => `${host}/posts/`;
 export const getAllSpeciesForMap = () => `${host}/posts/species`;
-// export const getAllSpeciesPetsCity = ({species, city}) => `${host}/posts/?species=${species}&city=${city}`;
+
 
 export const getAllFavourites = () => `${host}/posts/favorites`;
 
 export const getAllTips = () => `${host}/tips/`;
 
 export const getOneAdvert = (id) => `${host}/posts/${id}`;
+
+export const addToFavoriteAdvert = (id) => `${host}/posts/favorites/${id}`;
 
 export const ws = () => `${socet}`;
 export const chatReceiver = (userId) => `${host}/messages?receiverId=${userId}`;

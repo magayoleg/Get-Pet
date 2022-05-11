@@ -119,9 +119,9 @@ const Header = () => {
                     СТАТЬИ О ЖИВОТНЫХ
                   </NavLink>
                 </li>
-                <li>
+                {/* <li>
                   <NavLink to="/shelters">ПРИЮТЫ</NavLink>
-                </li>
+                </li> */}
                 <li>
                   <NavLink to="/helping-pets">
                     ПОМОЩЬ ДОМАШНИМ ЖИВОТНЫМИ

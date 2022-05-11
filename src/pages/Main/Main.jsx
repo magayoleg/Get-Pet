@@ -223,7 +223,7 @@ function Main() {
             {cards?.map((card, index) => {
               if (randomIndex.includes(index)) {
                 return (
-                  <SwiperSlide key={'key' + card.id}>
+                  <SwiperSlide key={`cards-${index}`}>
                     <AdoptionCard
                       id={card.id}
                       name={card.title}
@@ -268,7 +268,7 @@ function Main() {
             {tips.map((item, index) => {
               if (randomIndex.includes(index)) {
                 return (
-                  <SwiperSlide key={'key' + item.id}>
+                  <SwiperSlide key={`tips-${index}`}>
                     <AdviceCard
                       id={item.id}
                       title={item.title}

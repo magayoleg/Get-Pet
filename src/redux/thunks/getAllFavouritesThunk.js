@@ -6,9 +6,7 @@ export const getAllFavouritesThunk = () => async (dispatch) => {
     const response = await fetch(endPoints.getAllFavourites(), {
       credentials: 'include',
     });
-    console.log('=====', response);
     const result = await response.json();
-    console.log('+++++', result);
     dispatch(getAllFavouritesAction(result));
   } catch (error) {
     console.log(error);

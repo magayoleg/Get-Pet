@@ -28,7 +28,7 @@ const Advertisements = () => {
   const filterSelects = (data) => {
     setFilter({ ...filter, ...data });
   };
-  console.log(filter);
+  
   return (
     <section className="container advertisement cards-pet">
       <div className="cards-pet__filter">
