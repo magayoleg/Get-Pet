@@ -62,7 +62,7 @@ function Main() {
             <select
               onChange={(e) => filterSelects({ species: e.target.value })}
             >
-              <option value=""></option>
+              <option value="">Тип животного</option>
               <option value="Собаки">Собаки</option>
               <option value="Кошки">Кошки</option>
               <option value="Грызуны">Мелкие грызуны</option>
@@ -76,7 +76,7 @@ function Main() {
           </div>
           <div className="cards-pet__city cards-pet__input">
             <select onChange={(e) => filterSelects({ city: e.target.value })}>
-              <option value=""></option>
+              <option value="">Город поиска</option>
               <option value="Москва">Москва</option>
               <option value="Санкт-Петербург">Санкт-Петербург</option>
               <option value="Новосибирск">Новосибирск</option>

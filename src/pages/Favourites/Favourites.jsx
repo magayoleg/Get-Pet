@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import CardAdvert from '../../components/CardAdvert/CardAdvert';
 import { getAllFavouritesThunk } from '../../redux/thunks/getAllFavouritesThunk';
@@ -10,8 +9,8 @@ const Favourites = () => {
   useEffect(() => {
     dispatch(getAllFavouritesThunk());
   }, []);
-  let cards= useSelector((state) => state.getAllFavourites);
-
+  const cards= useSelector((state) => state.getAllFavourites);
+  console.log(cards);
   return (
     <section className="container advertisement cards-pet">
       <div className="cards-pet__cards">

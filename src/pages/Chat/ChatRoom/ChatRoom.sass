@@ -6,6 +6,7 @@
   margin: 10px
   border: none
   border-radius: 10px
+  font-size: $h4
   &__wrapper
     display: flex
     align-items: center
@@ -22,6 +23,10 @@
 
 .chat-room
   position: relative
+  &:hover
+    background-color: $bgColor
+    border-radius: 10px
+    cursor: pointer
   input
     position: absolute
     max-width: 300px
@@ -31,9 +36,6 @@
     cursor: pointer
     top: 50%
     transform: translateY(-50%)
-    &:hover ~ .chat-room__wrapper
-      background-color: $bgColor
-      border-radius: 10px
   input[type=checkbox]:checked 
     ~ .chat-room__wrapper
       background-color: $primaryColor

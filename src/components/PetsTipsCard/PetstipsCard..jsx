@@ -4,10 +4,11 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
+import * as endPoints from '../../config/endPoints';
 
 import './PetstipsCard.sass';
 
-export function PetsTipsCard() {
+export function PetsTipsCard({ id, image, title, tipText, webSite }) {
   return (
     <div className="PetsTipsCard__container">
       <Card
@@ -17,32 +18,34 @@ export function PetsTipsCard() {
         <CardContent className="PetsTipsCard__content">
           <CardMedia
             component="img"
-            alt="green iguana"
+            alt={image}
             height="140"
-            image="./images/animals/1.jpg"
+            image={endPoints.getImagePet(image)}
           />
           <div className="PetsTipsCard__article">
             <Typography gutterBottom variant="h5" component="div">
-              Lizard
+              {title}
             </Typography>
-            <Typography variant="body2" color="text.secondary" className='PetsTipsCard__text'>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error,
-              quisquam. Asperiores rem voluptas laborum facilis, optio
-              necessitatibus! Odio delectus perspiciatis quod minus et nulla
-              provident hic alias, recusandae soluta beatae? Lorem ipsum, dolor
-              sit amet consectetur adipisicing elit. Error, quisquam. Asperiores
-              rem voluptas laborum facilis, optio necessitatibus! Odio delectus
-              perspiciatis quod minus et nulla provident hic alias, recusandae
-              soluta beatae? Lorem ipsum, dolor sit amet consectetur adipisicing
-              elit. Error, quisquam. Asperiores rem voluptas laborum facilis,
-              optio necessitatibus! Odio delectus perspiciatis quod minus et
-              nulla provident hic alias, recusandae soluta beatae? Lorem ipsum,
-              dolor sit amet consectetur adipisicing elit. Error, quisquam.
-              Asperiores rem voluptas laborum facilis, optio necessitatibus!
-              Odio delectus perspiciatis quod minus et nulla provident hic
-              alias, recusandae soluta beatae?
+            <Typography
+              variant="body2"
+              color="text.secondary"
+              className="PetsTipsCard__text"
+            >
+              {tipText}
             </Typography>
-              <Button size="small" sx={{ position: 'absolute', bottom: 0, right: 50}}className='PetsTipsCard__btn'>Подробнее...</Button>
+            <Button
+              size="small"
+              sx={{ position: 'absolute', bottom: 0, right: 50 }}
+              className="PetsTipsCard__btn"
+            >
+              <a
+                id={id}
+                href={webSite}
+                target="_blank"
+              >
+                ПОДРОБНЕЕ
+              </a>
+            </Button>
           </div>
         </CardContent>
       </Card>

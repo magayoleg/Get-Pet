@@ -104,19 +104,19 @@ const Header = () => {
             >
               <ul>
                 <li>
-                  <NavLink to="/about-help-adoption">
-                    О ПРИНЯТИИ ДОМАШНИХ ЖИВОТНЫХ
+                  <NavLink to="/maps">
+                    КАРТА ВСЕХ ОБЪЯВЛЕНИЙ
                   </NavLink>
                 </li>
-                <li>
+                {/* <li>
                   <NavLink to="/dog-care">УХОД ЗА СОБАКОЙ</NavLink>
                 </li>
                 <li>
                   <NavLink to="/cat-care">УХОД ЗА КОШКОЙ</NavLink>
-                </li>
+                </li> */}
                 <li>
-                  <NavLink to="/all-pets-care">
-                    ВСЕ ДЛЯ УХОДА ЗА ЖИВОТНЫМИ
+                  <NavLink to="/pets-tips">
+                    СТАТЬИ О ЖИВОТНЫХ
                   </NavLink>
                 </li>
                 <li>

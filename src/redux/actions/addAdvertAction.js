@@ -7,7 +7,6 @@ export const addAdvertAction = (formData) => async (dispatch) => {
     body: formData,
     credentials: 'include',
   });
-  console.log(response);
   if (response.status === 200) {
     const newResponse = await response.json();
     dispatch({ type: ADD_ADVERTISEMENT, payload: newResponse });
