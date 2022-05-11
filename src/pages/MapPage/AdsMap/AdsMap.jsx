@@ -1,18 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import {
   Clusterer,
   FullscreenControl,
-  GeolocationControl,
   Map,
   Placemark,
   YMaps,
   ZoomControl,
-} from 'react-yandex-maps';
-import { useDispatch, useSelector } from 'react-redux';
-import { getAllPetsThunk } from '../../../redux/thunks/getAllPetsThunk';
-import { assignAdLabel } from '../../../helpers/assignAdLabel';
-import * as endPoints from '../../../config/endPoints';
-import './style.sass';
+} from "react-yandex-maps";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllPetsThunk } from "../../../redux/thunks/getAllPetsThunk";
+import { assignAdLabel } from "../../../helpers/assignAdLabel";
+import * as endPoints from "../../../config/endPoints";
+import "./style.sass";
 
 function AdsMap() {
   const [, setCluster] = useState(null);
@@ -33,11 +32,8 @@ function AdsMap() {
     dispatch(getAllPetsThunk());
   }, []);
   const DBO = useSelector((store) => store.getAllPets);
-  console.log('DBO', DBO);
   const mapState = { center: [59.629499, 62.800015], zoom: 4 };
-  // [55.76, 37.64], zoom: 6 };
   return (
-    // необходим дизайн?
     <div className="container">
       <div id="above map" className="breadcrumbs">
         <p> Карта всех объявлении </p>
@@ -45,35 +41,35 @@ function AdsMap() {
       <YMaps id="map">
         <div className="species_switcher">
           <button type="button" onClick={() => sortedMarks(null)}>
-            {' '}
+            {" "}
             Все
           </button>
           {allSpecies?.map((el) => (
             <button type="button" onClick={() => sortedMarks(el)}>
-              {' '}
-              {el}{' '}
+              {" "}
+              {el}{" "}
             </button>
           ))}
         </div>
-        <div className='main-map'>
+        <div className="main-map">
           <Map
             defaultState={mapState}
             width="100%"
             height="100%"
-            // необходим дизайн?
             instanceRef={(ref) => {
               if (ref) {
-                ref.events.add('click', () => {
+                ref.events.add("click", () => {
                   ref.balloon.close();
                 });
               }
             }}
           >
-            <GeolocationControl />
+            {/*            <SearchControl />
+            <GeolocationControl />*/}
             <FullscreenControl />
             <ZoomControl />
             <Clusterer
-              modules={['clusterer.addon.balloon']}
+              modules={["clusterer.addon.balloon"]}
               options={{}}
               instanceRef={(ref) => {
                 if (ref) {
@@ -89,7 +85,7 @@ function AdsMap() {
               })?.map((el) => (
                 <Placemark
                   key={el.id}
-                  modules={['geoObject.addon.balloon']}
+                  modules={["geoObject.addon.balloon"]}
                   geometry={[el.latitude, el.longitude]}
                   properties={{
                     balloonContentHeader: el.title,

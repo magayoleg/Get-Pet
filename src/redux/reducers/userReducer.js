@@ -1,11 +1,10 @@
 import { DELETE_USER, SET_USER } from '../types/userTypes';
-import initialState from '../initialState/initialState';
 
-const userReducer = (state = initialState, action) => {
-  const { type, payload } = action;
-  switch (type) {
+// eslint-disable-next-line default-param-last
+const userReducer = (state = null, action) => {
+  switch (action.type) {
     case SET_USER:
-      return payload;
+      return action.payload;
 
     case DELETE_USER:
       return null;

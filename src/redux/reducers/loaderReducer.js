@@ -1,7 +1,7 @@
 import { DISABLE_LOADER, ENABLE_LOADER } from '../types/loaderTypes';
-import initialState from '../initialState/initialState';
 
-const loaderReducer = (state = initialState, action) => {
+// eslint-disable-next-line default-param-last
+const loaderReducer = (state = false, action) => {
   switch (action.type) {
     case ENABLE_LOADER:
       return true;

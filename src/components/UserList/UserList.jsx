@@ -17,7 +17,7 @@ function UserList() {
     fetch(endPoints.getAllUsers(), { credentials: 'include' })
       .then((response) => response.json())
       .then((users) => setList(users))
-      .catch((error) => console.error('>>>>>>>>>', error))// переписать? 
+      .catch((e) => console.error('>>>>>>>>>', e))
       .finally(() => {
         dispatch(disableLoader());
       });
