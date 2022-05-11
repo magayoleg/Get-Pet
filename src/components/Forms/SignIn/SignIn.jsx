@@ -63,7 +63,7 @@ function SignIn() {
         </div>
 
         <button type="submit" className="signForm__submit">
-          SIGN IN
+          Войти
         </button>
       </form>
     </div>

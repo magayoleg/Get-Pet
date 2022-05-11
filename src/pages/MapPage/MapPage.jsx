@@ -1,10 +1,10 @@
-import React from 'react';
-import AdsMap from '../../components/AdsMap/AdsMap';
+import React from 'react'
+import AdsMap from './AdsMap/AdsMap'
 
-function MapPage() {
+function MapPage () {
   return (
-    <AdsMap />
-  );
+    <AdsMap/>
+  )
 }
 
-export default MapPage;
+export default MapPage

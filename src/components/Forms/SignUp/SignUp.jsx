@@ -77,7 +77,7 @@ function SignUp() {
         </div>
 
         <button type="submit" className="signForm__submit">
-          SIGN UP
+          Зарегистрироваться
         </button>
       </form>
     </div>

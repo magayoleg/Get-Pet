@@ -1,0 +1,93 @@
+@import ../../_variables
+
+.chat
+  &__area
+    width: 300px
+    background-color: white
+    border-radius: 10px
+    display: flex
+    flex-direction: column
+    margin-left: 20px
+    opacity: 0.95
+    @include boxShadowInner
+    position: relative
+  &-info
+    // position: fixed
+    // width: 300px
+    &__close
+      position: absolute
+      border: none
+      padding: 0
+      cursor: pointer
+      top: 15px
+      right: 10px
+      background: none
+      svg
+        width: 40px
+        height: 40px
+        border-bottom-right-radius: 10px
+        color: $primaryColor
+  &__enable
+    display: flex
+    padding: 50px 0px
+    height: 60vh
+    position: absolute
+    z-index: 20
+    right: 3%
+    transition: all 500ms
+  &__disable
+    display: flex
+    padding: 50px 0px
+    height: 60vh
+    position: absolute
+    z-index: 20
+    right: -50%
+    transition: all 500ms
+  &__rooms
+    width: 30%
+    list-style: none
+    padding: 0
+  &__messages
+    height: 80vh
+
+.messages-area
+  @include primaryFont
+  position: relative
+  &__list
+    height: 400px
+    overflow-y: scroll
+    list-style: none
+    padding: 20px 30px
+    li
+      padding: 15px 0px
+  &__left
+    text-align: start
+  &__right
+    text-align: end
+
+.chat-form
+  display: flex
+  justify-content: space-around
+  background-color: white
+  border-bottom-left-radius: 15px
+  border-bottom-right-radius: 15px
+  box-shadow: rgba(5, 4, 4, 0.3) 0px -3px 5px -3px
+  &__input
+    width: 95%
+    border: none
+    border-bottom-left-radius: 15px
+    padding: 10px 30px
+    @include primaryFont
+    font-size: $h4
+  &__submit
+    border: none
+    padding: 0
+    border-bottom-right-radius: 10px
+    cursor: pointer
+    svg
+      width: 40px
+      height: 40px
+      padding: 10px
+      background-color: $primaryColor
+      border-bottom-right-radius: 10px
+      color: white
