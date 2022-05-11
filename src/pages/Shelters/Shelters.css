@@ -1,0 +1,57 @@
+.Shelters__image_wrapper {
+  margin-top: 70px;
+}
+
+.Shelters__image {
+  max-width: 1320px;
+  opacity: 0.6;
+}
+
+.Shelters__content_wrapper {
+  margin-top: 30px;
+}
+
+h1 {
+  color: #283347;
+}
+
+.Shelters__shelters_list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Shelters__shelter {
+  margin-top: 13px;
+}
+
+.Shelters__shelter > * {
+  margin-left: 10px;
+}
+
+.Shelters__shelter > span {
+  font-size: 23px;
+}
+
+.Shelters__show_phone_btn, .Shelters__link_btn {
+  height: 35px;
+  width: 160px;
+  line-height: 35px;
+  display: inline-block;
+  text-align: center;
+  transition: 0.25s;
+}
+
+.Shelters__show_phone_btn:hover, .Shelters__link_btn:hover {
+  background-color: #283347;
+  color: white;
+  cursor: pointer;
+}
+
+.Shelters__show_phone_btn:active, .Shelters__link_btn:active {
+  background-color: #5773a8;
+}
+
+.advice-card__link {
+  margin-top: 0;
+}

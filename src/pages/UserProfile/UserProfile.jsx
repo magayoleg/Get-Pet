@@ -31,14 +31,14 @@ export function UserProfile() {
               src={
                 user.avatarPath
                   ? host + user.avatarPath
-                  : "images/defaultAvatar.jpg"
+                  : "/images/defaultAvatar.jpg"
               }
             ></img>
           </div>
           <div className="userprofile__info">
-            <p>{user?.name}</p>
-            <p>e-mail: {user?.email}</p>
-            <p>телефон: {user?.phoneNumber}</p>
+            <p>Имя: {user?.name}</p>
+            <p>E-mail: {user?.email}</p>
+            <p>Телефон: {user?.phoneNumber || 'Не указан'}</p>
           </div>
         </div>
         <div className="userprofile__button"></div>
