@@ -9,7 +9,7 @@ export const getAllUsers = () => `${host}/users`;
 export const editUser = (id) => `${host}/users/${id}`;
 export const getUser = (id) => `${host}/users/${id}`;
 
-export const addAdvert = () => `${host}/posts`;
+export const addAdvert = () => `${host}/posts/`;
 
 export const getAllSpeciesPets = (species, city) =>
   `${host}/posts/?species=${species}&city=${city}`;

@@ -44,7 +44,6 @@ export function Chat({
         type,
         payload: { owner, message },
       } = JSON.parse(messageData.data);
-      console.log('999');
       setMessages((prev) => [...prev, message]);
     };
   }, [webSocket]);
