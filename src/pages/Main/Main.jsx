@@ -34,6 +34,7 @@ const randomIndexArray = (array, quantityNumbers) => {
 const randomIndex = randomIndexArray(10, 5);
 
 function Main() {
+  const [filter, setFilter] = useState({ species: '', city: '' });
   const [otherStyle, setOthersStyle] = useState({ condition: false });
 
   const otherStyleChange = () => {
@@ -49,51 +50,61 @@ function Main() {
 
   const cards = useSelector((state) => state.getAllPets);
   const tips = useSelector((state) => state.getAllTips);
-
+  const filterSelects = (data) => {
+    setFilter({ ...filter, ...data });
+  };
   return (
     <main className="main">
       <div className="main__bg"></div>
       <section className="container main__wrapper">
         <div className="main__search">
           <div className="cards-pet__species cards-pet__input">
-            <select>
-              <option value="dog">Собаки</option>
-              <option value="cat">Кошки</option>
-              <option value="small&furry">Мелкие грызуны</option>
-              <option value="rabbits">Кролики</option>
-              <option value="lizard">Ящерицы, змеи</option>
-              <option value="pisces">Рыбы</option>
-              <option value="birds">Птицы</option>
-              <option value="bugs">Жуки, пауки</option>
-              <option value="barnyard">Скотный двор</option>
+            <select
+              onChange={(e) => filterSelects({ species: e.target.value })}
+            >
+              <option value=""></option>
+              <option value="Собаки">Собаки</option>
+              <option value="Кошки">Кошки</option>
+              <option value="Грызуны">Мелкие грызуны</option>
+              <option value="Кролики">Кролики</option>
+              <option value="Ящерицы">Ящерицы</option>
+              <option value="Рыбы">Рыбы</option>
+              <option value="Птицы">Птицы</option>
+              <option value="Насекомые">Насекомые</option>
+              <option value="Скотный двор">Скотный двор</option>
             </select>
           </div>
           <div className="cards-pet__city cards-pet__input">
-            <select>
-              <option value="city1">Москва</option>
-              <option value="city2">Санкт-Петербург</option>
-              <option value="city3">Новосибирск</option>
-              <option value="city4">Екатеринбург</option>
-              <option value="city5">Казань</option>
-              <option value="city6">Нижний Новгород</option>
-              <option value="city7">Челябинск</option>
-              <option value="city8">Самара</option>
-              <option value="city9">Ростов-на-Дону</option>
-              <option value="city10">Уфа</option>
-              <option value="city11">Омск</option>
-              <option value="city12">Красноярск</option>
-              <option value="city13">Воронеж</option>
-              <option value="city14">Пермь</option>
-              <option value="city15">Волгоград</option>
+            <select onChange={(e) => filterSelects({ city: e.target.value })}>
+              <option value=""></option>
+              <option value="Москва">Москва</option>
+              <option value="Санкт-Петербург">Санкт-Петербург</option>
+              <option value="Новосибирск">Новосибирск</option>
+              <option value="Екатеринбург">Екатеринбург</option>
+              <option value="Казань">Казань</option>
+              <option value="Нижний Новгород">Нижний Новгород</option>
+              <option value="Челябинск">Челябинск</option>
+              <option value="Самара">Самара</option>
+              <option value="Ростов-на-Дону">Ростов-на-Дону</option>
+              <option value="Уфа">Уфа</option>
+              <option value="Омск">Омск</option>
+              <option value="Красноярск">Красноярск</option>
+              <option value="Воронеж">Воронеж</option>
+              <option value="Пермь">Пермь</option>
+              <option value="Волгоград">Волгоград</option>
             </select>
           </div>
-          <button className="main__search-btn">
-            <img
-              src="./icons/navigate/search.png"
-              alt="search"
-              className="main__search-img"
-            />
-          </button>
+          <NavLink
+            to={`/advertisements/?species=${filter.species}&city=${filter.city}`}
+          >
+            <button className="main__search-btn">
+              <img
+                src="./icons/navigate/search.png"
+                alt="search"
+                className="main__search-img"
+              />
+            </button>
+          </NavLink>
         </div>
         <div className="main__slogan">
           Найди своего нового друга с
@@ -102,19 +113,19 @@ function Main() {
         <div className="main__category">
           <ul>
             <li>
-              <NavLink to="/advertisements/?species=Собаки">
+              <NavLink to="/advertisements/?species=Собаки&city=">
                 <img src="./icons/animals/dog.svg" alt="dog" />
                 <span>Собаки</span>
               </NavLink>
             </li>
             <li>
-              <NavLink to="/advertisements/?species=Кошки">
+              <NavLink to="/advertisements/?species=Кошки&city=">
                 <img src="./icons/animals/cat.svg" alt="cat" />
                 <span>Кошки</span>
               </NavLink>
             </li>
             <li>
-              <NavLink to="/advertisements/?species=Грызуны">
+              <NavLink to="/advertisements/?species=Грызуны&city=">
                 <img src="./icons/animals/hamster.svg" alt="hamster" />
                 <span>Мелкие грызуны</span>
               </NavLink>
@@ -143,37 +154,37 @@ function Main() {
           </div>
           <ul>
             <li>
-              <NavLink to="/advertisements/?species=Кролики">
+              <NavLink to="/advertisements/?species=Кролики&city=">
                 <img src="./icons/animals/rabbit.svg" alt="rabbit" />
                 <span>Кролики</span>
               </NavLink>
             </li>
             <li>
-              <NavLink to="/advertisements/?species=Ящерицы">
+              <NavLink to="/advertisements/?species=Ящерицы&city=">
                 <img src="./icons/animals/lizard.svg" alt="lizard" />
                 <span>Ящерицы, змеи</span>
               </NavLink>
             </li>
             <li>
-              <NavLink to="/advertisements/?species=Рыбы">
+              <NavLink to="/advertisements/?species=Рыбы&city=">
                 <img src="./icons/animals/fish.svg" alt="fish" />
                 <span>Рыбы</span>
               </NavLink>
             </li>
             <li>
-              <NavLink to="/advertisements/?species=Птицы">
+              <NavLink to="/advertisements/?species=Птицы&city=">
                 <img src="./icons/animals/bird.svg" alt="bird" />
                 <span>Птицы</span>
               </NavLink>
             </li>
             <li>
-              <NavLink to="/advertisements/?species=Насекомые">
+              <NavLink to="/advertisements/?species=Насекомые&city=">
                 <img src="./icons/animals/bug.svg" alt="bug" />
                 <span>Жуки, пауки</span>
               </NavLink>
             </li>
             <li>
-              <NavLink to="/advertisements/?species=Скотный двор">
+              <NavLink to="/advertisements/?species=Скотный двор&city=">
                 <img src="./icons/animals/cow.svg" alt="cow" />
                 <span>Скотный двор</span>
               </NavLink>
@@ -266,7 +277,7 @@ function Main() {
                     />
                   </SwiperSlide>
                 );
-              };
+              }
             })}
           </Swiper>
         </div>

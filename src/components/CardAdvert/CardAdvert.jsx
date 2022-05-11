@@ -3,11 +3,10 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import * as endPoints from '../../../config/endPoints';
+import * as endPoints from '../../config/endPoints';
 import './CardAdvert.sass';
 
 const CardAdvert = ({ id, name, description, price, images }) => {
-
   return (
     <div className="cards-pet__card card-advert">
       <div className="card-advert__slider">
@@ -19,7 +18,7 @@ const CardAdvert = ({ id, name, description, price, images }) => {
           }}
           modules={[Pagination]}
           className="card-advert__swiper"
-        > 
+        >
           {images?.map((img, index) => {
             return (
               <SwiperSlide key={`img${index}`}>
@@ -35,12 +34,12 @@ const CardAdvert = ({ id, name, description, price, images }) => {
           <span>Описание:</span> {description}
         </li>
         <li>
-          <span>{price ? `Цена: ${price}` : 'Бесплатно'}</span> 
+          <span>{price ? `Цена: ${price}` : 'Бесплатно'}</span>
         </li>
         <li>
-          <button>
-            <Link to={`/posts/${id}`}>ПОДРОБНЕЕ</Link>
-          </button>
+          <Link to={`/posts/${id}`}>
+            <button>ПОДРОБНЕЕ</button>
+          </Link>
         </li>
       </ul>
     </div>

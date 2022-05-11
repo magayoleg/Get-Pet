@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { getOneAdvertThunk } from '../../redux/thunks/getOneAdvertThunk';
+import { getAllMessagesThunk } from '../../redux/thunks/getAllMessagesThunk';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper';
 import * as endPoints from '../../config/endPoints';
@@ -21,8 +22,8 @@ export const DescriptAdvert = () => {
     dispatch(getOneAdvertThunk(params.id));
   }, []);
   const dataAdvert = useSelector((state) => state.getOneAdvert);
-  console.log(dataAdvert);
-  const styleChat = () => {
+
+  const switchChat = async () => {
     if (positionChat === 'chat__disable') {
       setPositionChat('chat__enable');
     } else {
@@ -30,9 +31,21 @@ export const DescriptAdvert = () => {
     }
   };
 
+  const getNewAllMessage = () => {
+    dispatch(getAllMessagesThunk(dataAdvert.userId));
+  };
+
+  const allMessages = useSelector((state) => state.getAllMessages);
+
   return (
     <div className="descript">
-      <Chat style={positionChat} changeStyle={styleChat} />
+      <Chat
+        userInfo={dataAdvert}
+        allMessages={allMessages}
+        style={positionChat}
+        switchChat={switchChat}
+        getNewAllMessage={getNewAllMessage}
+      />
 
       <div className="advert">
         <div className="advert__title title">
@@ -71,7 +84,7 @@ export const DescriptAdvert = () => {
             </Swiper>
           </div>
           <div className="advert__content content">
-            <div className='content__user-wrapper'>
+            <div className="content__user-wrapper">
               <div className="chat-room content__user">
                 <input type="checkbox" />
                 <div className="chat-room__wrapper">
@@ -81,7 +94,14 @@ export const DescriptAdvert = () => {
                   <div className="chat-room__title">{dataAdvert.userName}</div>
                 </div>
               </div>
-              <button onClick={styleChat}>Написать сообщение</button>
+              <button
+                onClick={() => {
+                  switchChat();
+                  getNewAllMessage();
+                }}
+              >
+                Написать сообщение
+              </button>
             </div>
             <ul>
               <li className="content__date">

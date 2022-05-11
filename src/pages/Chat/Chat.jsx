@@ -1,16 +1,53 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleChevronRight, faCircleXmark } from '@fortawesome/free-solid-svg-icons';
+import {
+  faCircleChevronRight,
+  faCircleXmark,
+} from '@fortawesome/free-solid-svg-icons';
+import { getAllMessagesThunk } from '../../redux/thunks/getAllMessagesThunk';
+import * as endPoints from '../../config/endPoints';
 import ChatRoom from './ChatRoom/ChatRoom';
-import socket from './socket';
 import './Chat.sass';
 
-export function Chat({style, changeStyle}) {
-  const [activeRoom, setActiveRoom] = useState({});
-  
-  const wbSocket = () => {
-    socket('text')
-  }
+export function Chat({
+  userInfo,
+  style,
+  switchChat,
+  getNewAllMessage,
+  allMessages,
+}) {
+  const [message, setMessage] = useState('');
+  const [messages, setMessages] = useState([]);
+  const webSocket = useRef(null);
+
+  const handleSendMessage = async () => {
+    webSocket.current.send(
+      JSON.stringify({
+        type: 'NEW_MESSAGE',
+        payload: {
+          message: { message },
+          receiver: userInfo.userId,
+        },
+      })
+    );
+  };
+
+  useEffect(() => {
+    webSocket.current = new WebSocket(endPoints.ws());
+    return () => webSocket.current.close();
+  }, []);
+
+  useEffect(() => {
+    webSocket.current.onmessage = (messageData) => {
+      const {
+        type,
+        payload: { owner, message },
+      } = JSON.parse(messageData.data);
+      console.log('999');
+      setMessages((prev) => [...prev, message]);
+    };
+  }, [webSocket]);
 
   return (
     <div className={style}>
@@ -28,25 +65,52 @@ export function Chat({style, changeStyle}) {
 
       <div className="chat__area">
         <div className="chat__messages messages-area">
-          <ChatRoom name="Иванов Дмитрий" style={{ margin: '0px', boxShadow: 'none', boxShadow: '0 5px 5px -5px rgba(5, 4, 4, 0.2)' }} />
-          <button className='chat-form__close' onClick={changeStyle}>
-            <FontAwesomeIcon icon={faCircleXmark} />
-          </button>
-          <ul className='messages-area__list'>
-            <li className='messages-area__left'>
-              Привет
-            </li>
-            <li className='messages-area__right'>
-              Привет!
-            </li>
+          <div className='chat-info'>
+            <ChatRoom
+              name={userInfo.userName}
+              style={{
+                margin: '0px',
+                boxShadow: 'none',
+                boxShadow: '0 5px 5px -5px rgba(5, 4, 4, 0.2)',
+              }}
+            />
+            <button className="chat-info__close" onClick={switchChat}>
+              <FontAwesomeIcon icon={faCircleXmark} />
+            </button>
+          </div>
+          <ul className="messages-area__list">
+            {allMessages?.map((el, index) => {
+              if (el.owner) {
+                return (
+                  <li key={`message-${index}`} className="messages-area__right">
+                    {el.message}
+                  </li>
+                );
+              } else {
+                return (
+                  <li key={`message-${index}`} className="messages-area__left">
+                    {el.message}
+                  </li>
+                );
+              }
+            })}
           </ul>
         </div>
         <div className="chat-form">
           <input
+            value={message}
             className="chat-form__input"
             placeholder="Сообщение"
+            onChange={(e) => setMessage(e.target.value)}
           />
-          <button className='chat-form__submit' onClick={wbSocket}>
+          <button
+            className="chat-form__submit"
+            onClick={() => {
+              handleSendMessage();
+              getNewAllMessage();
+              setMessage('');
+            }}
+          >
             <FontAwesomeIcon icon={faCircleChevronRight} />
           </button>
         </div>

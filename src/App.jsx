@@ -2,18 +2,19 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 
+import { checkAuth } from './redux/actions/userAction';
+
 import PrivateRoute from './components/PrivateRouter/PrivateRouter';
 import UserDetail from './components/UserDetail/UserDetail';
 import UserEdit from './components/UserEdit/UserEdit';
 import Header from './components/Header/Header';
 import SignUp from './components/Forms/SignUp/SignUp';
 import SignIn from './components/Forms/SignIn/SignIn';
-import { checkAuth } from './redux/actions/userAction';
 import AddAdvertisement from './components/Forms/AddAdvertisement/AddAdvertisement';
-import Main from './pages/Main/Main';
 import Footer from './components/Footer/Footer';
 import { ModalFeedback } from './components/ModalFeedback/ModalFeedback';
 
+import Main from './pages/Main/Main';
 import Advertisements from './pages/Advertisements/Advertisements';
 import { AboutHelpAdoption } from './pages/AboutHelpAdoption/AboutHelpAdoption';
 import { AllPetsCare } from './pages/AllPetsCare/AllPetsCare';
@@ -28,9 +29,10 @@ import { UserProfile } from './pages/UserProfile/UserProfile';
 import { PetsTips } from './pages/PetsTips/PetsTips';
 import { PetsTip } from './pages/PetsTip/PetsTip';
 import { DescriptAdvert } from './pages/DescriptAdvert/DescriptAdvert';
+import MapPage from './pages/MapPage/MapPage';
+import Favourites from './pages/Favourites/Favourites';
 
 import './App.sass';
-import MapPage from './pages/MapPage/MapPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -79,6 +81,7 @@ function App() {
           <Route path="/pets-tip/:id" element={<PetsTip />} />
           <Route path="/posts/:id" element={<DescriptAdvert />} />
           <Route path="/maps" element={<MapPage />} />
+          <Route path="/posts/favourites" element={<Favourites />} />
         </Routes>
       </div>
       <Footer />
