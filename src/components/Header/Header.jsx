@@ -1,24 +1,26 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+
+import { signOut } from '../../redux/actions/userAction';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faChevronDown,
   faBookmark,
   faHandHoldingHeart,
 } from '@fortawesome/free-solid-svg-icons';
-import { setUser } from '../../redux/actions/userAction';
 import './Header.sass';
 
 const Header = () => {
   const [breedsStyle, setBreedsStyle] = useState({ condition: false });
   const [resourcesStyle, setResourcesStyle] = useState({ condition: false });
 
-  const user = useSelector((state) => state.user);
+  const user = useSelector((store) => store.user);
   const dispatch = useDispatch();
 
-  const logoutHandler = () => {
-    dispatch(setUser(null));
+  const logoutHandler = async () => {
+    dispatch(signOut());
   };
 
   const breedsStyleChange = () => {
@@ -68,14 +70,14 @@ const Header = () => {
             >
               <ul>
                 <li>
-                  <NavLink to="/dog-breeds">
+                  <NavLink to="/advertisements/?species=Собаки&city=">
                     <img src="/icons/animals/dog-white.svg" alt="dog-white" />
                     ПОРОДЫ СОБАК
                   </NavLink>
                 </li>
                 <li></li>
                 <li>
-                  <NavLink to="/cat-breeds">
+                  <NavLink to="/advertisements/?species=Кошки&city=">
                     <img src="/icons/animals/cat-white.svg" alt="cat-white" />
                     ПОРОДЫ КОТОВ
                   </NavLink>
@@ -84,7 +86,7 @@ const Header = () => {
             </div>
           </nav>
           <nav className="header__nav nav__resources">
-            <button onClick={resourcesStyleChange}>РЕСУРСЫ</button>
+            <button onClick={resourcesStyleChange}>РЕСУРСЫ САЙТА</button>
             <FontAwesomeIcon
               icon={faChevronDown}
               className={
@@ -102,22 +104,28 @@ const Header = () => {
             >
               <ul>
                 <li>
-                  <NavLink to="/about-help-adoption">О ПРИНЯТИИ ДОМАШНИХ ЖИВОТНЫХ</NavLink>
+                  <NavLink to="/maps">
+                    КАРТА ВСЕХ ОБЪЯВЛЕНИЙ
+                  </NavLink>
                 </li>
-                <li>
+                {/* <li>
                   <NavLink to="/dog-care">УХОД ЗА СОБАКОЙ</NavLink>
                 </li>
                 <li>
                   <NavLink to="/cat-care">УХОД ЗА КОШКОЙ</NavLink>
-                </li>
+                </li> */}
                 <li>
-                  <NavLink to="/all-pets-care">ВСЕ ДЛЯ УХОДА ЗА ЖИВОТНЫМИ</NavLink>
+                  <NavLink to="/pets-tips">
+                    СТАТЬИ О ЖИВОТНЫХ
+                  </NavLink>
                 </li>
                 <li>
                   <NavLink to="/shelters">ПРИЮТЫ</NavLink>
                 </li>
                 <li>
-                  <NavLink to="/helping-pets">ПОМОЩЬ ДОМАШНИМ ЖИВОТНЫМИ</NavLink>
+                  <NavLink to="/helping-pets">
+                    ПОМОЩЬ ДОМАШНИМ ЖИВОТНЫМИ
+                  </NavLink>
                 </li>
               </ul>
             </div>
@@ -125,13 +133,15 @@ const Header = () => {
         </div>
 
         <div className="header__add-advertisement">
-          <NavLink to="/addAdvert">
-            <button>Добавить объявление</button>
+          <NavLink to={user ? '/addAdvert' : '/auth/signin'}>
+            <button className="header__add-post-btn">
+              Добавить объявление
+            </button>
           </NavLink>
         </div>
 
         <div className="header__shelters">
-          <NavLink to="/">
+          <NavLink to="/shelters">
             ПРИЮТЫ ДЛЯ ЖИВОТНЫХ
             <FontAwesomeIcon icon={faHandHoldingHeart} />
           </NavLink>
@@ -147,9 +157,11 @@ const Header = () => {
         </div>
 
         <div className="header__favourites">
-          <button>
-            <FontAwesomeIcon icon={faBookmark} />
-          </button>
+          <NavLink to='/posts/favourites'>
+            <button>
+              <FontAwesomeIcon icon={faBookmark} />
+            </button>
+          </NavLink>
         </div>
 
         <div className="header__auth">
@@ -157,7 +169,9 @@ const Header = () => {
             {user ? (
               <>
                 <li>
-                  <span>{user.name}</span>
+                  <NavLink to={`/userprofile/${user.id}`}>
+                    <span className="header__user-name">{user.name}</span>
+                  </NavLink>
                 </li>
                 <li>
                   <NavLink to="/" onClick={logoutHandler}>

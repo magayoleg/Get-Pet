@@ -1,0 +1,40 @@
+@import ../../../_variables.sass
+
+.advice-card
+  width: 250px
+  margin: 0 auto
+  text-align: center
+  display: flex
+  flex-direction: column
+  justify-content: center
+  &__title
+    font-family: $fontMedium
+    font-size: $h4
+    height: 50px
+    overflow: hidden
+  &__content
+    font-family: $fontRegular
+    font-size: $h6
+    margin-top: 20px
+    text-overflow: ellipsis
+    word-wrap: break-word
+    overflow: hidden
+    max-height: 100px
+    line-height: 20px
+
+  &__link
+    font-family: $fontMedium
+    font-size: $h4
+    text-decoration: none
+    color: $primaryColor
+    display: block
+    margin: 0 auto
+    margin-top: 50px
+    height: 50px
+    width: 200px
+    border: 2px solid $primaryColor
+    border-radius: 30px
+    line-height: 45px
+    background-color: $secondaryColor
+  a
+    margin-top: 40px

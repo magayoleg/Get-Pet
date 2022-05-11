@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { Routes, Route } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
+
+import { checkAuth } from './redux/actions/userAction';
 
 import PrivateRoute from './components/PrivateRouter/PrivateRouter';
 import UserDetail from './components/UserDetail/UserDetail';
@@ -8,11 +10,11 @@ import UserEdit from './components/UserEdit/UserEdit';
 import Header from './components/Header/Header';
 import SignUp from './components/Forms/SignUp/SignUp';
 import SignIn from './components/Forms/SignIn/SignIn';
-import { checkAuth } from './redux/actions/userAction';
 import AddAdvertisement from './components/Forms/AddAdvertisement/AddAdvertisement';
-import Main from './pages/Main/Main';
 import Footer from './components/Footer/Footer';
+import { ModalFeedback } from './components/ModalFeedback/ModalFeedback';
 
+import Main from './pages/Main/Main';
 import Advertisements from './pages/Advertisements/Advertisements';
 import { AboutHelpAdoption } from './pages/AboutHelpAdoption/AboutHelpAdoption';
 import { AllPetsCare } from './pages/AllPetsCare/AllPetsCare';
@@ -22,10 +24,13 @@ import { HelpingPets } from './pages/HelpingPets/HelpingPets';
 import { Shelters } from './pages/Shelters/Shelters';
 import { DogBreeds } from './pages/DogBreeds/DogBreeds';
 import { CatBreeds } from './pages/CatBreeds/CatBreeds';
-import { Chat } from './pages/Chat/Chat';
+// import { Chat } from './pages/Chat/Chat';
 import { UserProfile } from './pages/UserProfile/UserProfile';
 import { PetsTips } from './pages/PetsTips/PetsTips';
-import DescriptAdvert from './pages/DescriptAdvert/DescriptAdvert';
+import { PetsTip } from './pages/PetsTip/PetsTip';
+import { DescriptAdvert } from './pages/DescriptAdvert/DescriptAdvert';
+import MapPage from './pages/MapPage/MapPage';
+import Favourites from './pages/Favourites/Favourites';
 
 import './App.sass';
 
@@ -70,13 +75,17 @@ function App() {
           <Route path="/shelters" element={<Shelters />} />
           <Route path="/dog-breeds" element={<DogBreeds />} />
           <Route path="/cat-breeds" element={<CatBreeds />} />
-          <Route path="/chat" element={<Chat />} />
-          <Route path="/userprofile" element={<UserProfile />} />
+          {/* <Route path="/chat" element={<Chat />} /> */}
+          <Route path="/userprofile/:id" element={<UserProfile />} />
           <Route path="/pets-tips" element={<PetsTips />} />
-          <Route path="/advertisements/descriptadvert" element={<DescriptAdvert />} />
+          <Route path="/pets-tip/:id" element={<PetsTip />} />
+          <Route path="/posts/:id" element={<DescriptAdvert />} />
+          <Route path="/maps" element={<MapPage />} />
+          <Route path="/posts/favourites" element={<Favourites />} />
         </Routes>
       </div>
       <Footer />
+      <ModalFeedback />
     </>
   );
 }

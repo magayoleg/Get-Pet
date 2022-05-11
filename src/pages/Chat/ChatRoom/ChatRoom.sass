@@ -1,0 +1,45 @@
+@import ../../../_variables
+
+.chat-room
+  @include primaryFont
+  @include boxShadow($secondaryColor)
+  margin: 10px
+  border: none
+  border-radius: 10px
+  font-size: $h4
+  &__wrapper
+    display: flex
+    align-items: center
+  &__photo
+    padding: 10px
+    margin: 10px 15px
+    color: $secondaryColor
+    background-color: $primaryColor
+    border-radius: 10px
+    svg
+      width: 30px
+      height: 30px
+  &__title
+
+.chat-room
+  position: relative
+  &:hover
+    background-color: $bgColor
+    border-radius: 10px
+    cursor: pointer
+  input
+    position: absolute
+    max-width: 300px
+    width: 100%
+    height: 50px
+    opacity: 0
+    cursor: pointer
+    top: 50%
+    transform: translateY(-50%)
+  input[type=checkbox]:checked 
+    ~ .chat-room__wrapper
+      background-color: $primaryColor
+      border-radius: 10px
+      .chat-room__photo
+        color: $primaryColor
+        background-color: $secondaryColor

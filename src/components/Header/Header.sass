@@ -24,7 +24,7 @@
     align-items: center
     margin-right: 70px
   &__nav
-    width: 50%
+    width: 70%
     padding-right: 20px
     display: flex
     button
@@ -35,6 +35,9 @@
       position: relative
       padding: 0
       cursor: pointer
+  .nav__resources
+    button
+      width: 90px
   &__add-advertisement
     button
       height: 40px
@@ -45,20 +48,20 @@
       @include primaryFont
       font-size: $h5
   &__shelters
-    margin-left: 70px
+    margin-left: 50px
     a
       font-family: $fontBold
-      font-size: $h5
+      font-size: $h6
       position: relative
       padding: 20px 0
-      width: 170px
+      width: 200px
       display: block
       text-decoration: none
       color: black
       svg
         position: absolute
         z-index: 10
-        transform: translateY(-30%)
+        transform: translateY(-25%)
         width: 40px
         height: 40px
         right: 0
@@ -89,6 +92,20 @@
       a
         text-decoration: none
         color: black
+  &__user-name
+    font-weight: 600
+    color: #283347
+  &__user-name:hover
+    color: #3a4f76
+  &__add-post-btn
+    padding: 0 15px
+  &__add-post-btn:hover
+    color: white
+    background-color: #283347
+    transition: 0.25s
+  &__shelters > a:hover
+    color: #3a4f76
+    transition: 0.25s
 
 .nav
   &__breeds
