@@ -93,10 +93,6 @@ function AddAdvertisement() {
       <form
         name="addAdvertForm"
         className="addAdvert-wrapper__form"
-        // action="http://localhost:3002/posts"
-        // method="post"
-        // acceptCharset="utf-8"
-        // encType="multipart/form-data"
         onSubmit={submitHandler}
       >
         <legend>Добавить объявление</legend>

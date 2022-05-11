@@ -9,8 +9,8 @@ const Favourites = () => {
   useEffect(() => {
     dispatch(getAllFavouritesThunk());
   }, []);
-  const cards= useSelector((state) => state.getAllFavourites);
-  console.log(cards);
+  const cards = useSelector((state) => state.getAllFavourites);
+  
   return (
     <section className="container advertisement cards-pet">
       <div className="cards-pet__cards">

@@ -32,6 +32,25 @@
       color: $darkColor
   &__text
     padding: 15px 0px
+  .info-title
+    display: flex
+    justify-content: space-between
+    align-items: center
+    &__favourite
+      display: flex
+      cursor: pointer
+      span
+        align-self: center
+        font-size: $h5
+        margin-right: 15px
+      svg
+        font-size: 30px
+      &_out
+        svg
+          color: $iconColor
+      &_in
+        svg
+          color: $favourite
 
 .content
   display: flex
