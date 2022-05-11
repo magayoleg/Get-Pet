@@ -3,7 +3,6 @@
 .chat
   &__area
     width: 300px
-    background-color: white
     border-radius: 10px
     display: flex
     flex-direction: column
@@ -12,8 +11,7 @@
     @include boxShadowInner
     position: relative
   &-info
-    // position: fixed
-    // width: 300px
+    width: 300px
     &__close
       position: absolute
       border: none
@@ -54,10 +52,12 @@
   @include primaryFont
   position: relative
   &__list
+    background-color: white
     height: 400px
     overflow-y: scroll
     list-style: none
     padding: 20px 30px
+    border-bottom: 1px solid $darkColor
     li
       padding: 15px 0px
   &__left

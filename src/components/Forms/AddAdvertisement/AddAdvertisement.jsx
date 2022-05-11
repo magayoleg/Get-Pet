@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import { addAdvertAction } from '../../../redux/actions/addAdvertAction';
 import { cities } from '../../../data/cities';
-
 import Input from '../Input/Input';
 import { Select } from '../Select/Select';
 
@@ -57,7 +56,7 @@ function AddAdvertisement() {
   const [addAdvert, setAddAdvert] = useState({
     title: '',
     animalDescription: '',
-    species: '',
+    speciesId: '',
     breed: '',
     price: '',
     age: '',
@@ -80,13 +79,13 @@ function AddAdvertisement() {
     const { addAdvertForm } = document.forms;
     const formData = new FormData(addAdvertForm);
 
-    let payload = Object.entries(addAdvert).filter((el) =>
-      el[1] ? el[1].trim() : el[1]
-    );
-    if (payload.length) {
-      payload = Object.fromEntries(payload);
+    // let payload = Object.entries(addAdvert).filter((el) =>
+    //   el[1] ? el[1].trim() : el[1]
+    // );
+    // if (payload.length) {
+    //   payload = Object.fromEntries(payload);
       dispatch(addAdvertAction(formData));
-    }
+    // }
   };
 
   return (
@@ -94,10 +93,10 @@ function AddAdvertisement() {
       <form
         name="addAdvertForm"
         className="addAdvert-wrapper__form"
-        action="http://localhost:3002/posts"
-        method="post"
-        acceptCharset="utf-8"
-        encType="multipart/form-data"
+        // action="http://localhost:3002/posts"
+        // method="post"
+        // acceptCharset="utf-8"
+        // encType="multipart/form-data"
         onSubmit={submitHandler}
       >
         <legend>Добавить объявление</legend>
@@ -146,12 +145,12 @@ function AddAdvertisement() {
           name="animalDescription"
         />
         <div className="mb-3 signForm__box">
-          <label htmlFor={'image'} className="signForm__lable"></label>
+          <label htmlFor='file' className="signForm__lable"></label>
           <input
             onChange={changeHandler}
             className="signForm__input"
             type="file"
-            name="image"
+            name="file"
             id={'image'}
             // multiple
           />
