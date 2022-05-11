@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import {
   Clusterer,
   FullscreenControl,
+  GeolocationControl,
   Map,
   Placemark,
+  SearchControl,
   YMaps,
   ZoomControl,
 } from "react-yandex-maps";
@@ -64,8 +66,8 @@ function AdsMap() {
               }
             }}
           >
-            {/*            <SearchControl />
-            <GeolocationControl />*/}
+            <SearchControl />
+            <GeolocationControl />
             <FullscreenControl />
             <ZoomControl />
             <Clusterer

@@ -1,5 +1,11 @@
 import React, { useEffect } from "react";
-import { FullscreenControl, Map, Placemark, YMaps } from "react-yandex-maps";
+import {
+  FullscreenControl,
+  Map,
+  Placemark,
+  RoutePanel,
+  YMaps,
+} from "react-yandex-maps";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { assignAdLabel } from "../../helpers/assignAdLabel";
@@ -40,11 +46,17 @@ function AdMap() {
             }}
           />
           <FullscreenControl />
-          {/*          <RoutePanel
-            state={{
-              toEnabled: false,
-              to: theAdCity + ", " + theAdAddress,
-              type: "auto",}}/>*/}
+          <RoutePanel
+            instanceRef={(ref) => {
+              if (ref) {
+                ref.routePanel.state.set({
+                  toEnabled: false,
+                  to: theAdCity + ", " + theAdAddress,
+                  type: "auto",
+                });
+              }
+            }}
+          />
         </Map>
       </div>
     </YMaps>
