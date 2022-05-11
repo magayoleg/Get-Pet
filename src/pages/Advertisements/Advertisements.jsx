@@ -24,7 +24,7 @@ const Advertisements = () => {
   } else {
     cards = useSelector((state) => state.getAllPets);
   }
-
+  console.log(cards);
   const filterSelects = (data) => {
     setFilter({ ...filter, ...data });
   };
@@ -113,6 +113,7 @@ const Advertisements = () => {
                 id={card.id}
                 key={`card-${card.id}`}
                 name={card.title}
+                city={card.city}
                 description={card.animalDescription}
                 price={card.price}
                 images={card.images}
