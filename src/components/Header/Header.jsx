@@ -147,7 +147,7 @@ const Header = () => {
                 </li> */}
                 <li>
                   <NavLink to="/helping-pets">
-                    ПОМОЩЬ ДОМАШНИМ ЖИВОТНЫМИ
+                    ПОМОЩЬ ДОМАШНИМ ЖИВОТНЫМ
                   </NavLink>
                 </li>
               </ul>
@@ -170,14 +170,14 @@ const Header = () => {
           </NavLink>
         </div>
 
-        <div className="header__themes">
+        {/* <div className="header__themes">
           <div className="header__themes-change">
             <span>Light</span>
             <input type="checkbox" id="toggleTheme" />
             <label htmlFor="toggleTheme"></label>
             <span>Dark</span>
           </div>
-        </div>
+        </div> */}
 
         <div className="header__favourites">
           <NavLink to="/posts/favourites">

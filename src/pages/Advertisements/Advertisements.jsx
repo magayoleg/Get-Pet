@@ -13,9 +13,8 @@ const Advertisements = () => {
   const dispatch = useDispatch();
   const querySpecies = searchParams.get('species');
   const querycity = searchParams.get('city');
-
   useEffect(() => {
-    if (querySpecies) {
+    if (querySpecies || querycity) {
       dispatch(getAllSpeciesPetsThunk(querySpecies, querycity));
     } else {
       dispatch(getAllPetsThunk());
@@ -23,13 +22,12 @@ const Advertisements = () => {
   }, [querySpecies]);
 
   let cards;
-  if (searchParams.get('species')) {
+  if (querySpecies || querycity) {
     cards = useSelector((state) => state.getAllSpeciesPets);
   } else {
     cards = useSelector((state) => state.getAllPets);
   }
   
-  console.log(cards);
   const filterSelects = (data) => {
     setFilter({ ...filter, ...data });
   };
