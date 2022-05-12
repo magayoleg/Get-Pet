@@ -7,7 +7,6 @@ export const getAllTipsThunk = () => async (dispatch) => {
       credentials: 'include',
     });
     const result = await response.json();
-    console.log(result);
     dispatch(getAllTipsAction(result));
   } catch (error) {
     console.log(error);

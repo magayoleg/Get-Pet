@@ -163,7 +163,8 @@ export const DescriptAdvert = () => {
                 {dataAdvert.address}
               </li>
               <li className="content__price">
-                {dataAdvert.price ? `Цена: ${dataAdvert.price}` : 'Бесплатно'}
+                {dataAdvert.price ? <p>Цена:</p> : ''}
+                {dataAdvert.price ? dataAdvert.price : 'Бесплатно'}
               </li>
               <li className="content__phone">
                 <p>Контактный телефон:</p> {dataAdvert.phoneNumber}

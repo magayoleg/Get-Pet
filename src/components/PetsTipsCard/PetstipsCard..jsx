@@ -20,7 +20,7 @@ export function PetsTipsCard({ id, image, title, tipText, webSite }) {
             component="img"
             alt={image}
             height="140"
-            image={endPoints.getImagePet(image)}
+            image={id === 'PetsTips-Max' ? image : endPoints.getImagePet(image)}
           />
           <div className="PetsTipsCard__article">
             <Typography gutterBottom variant="h5" component="div">

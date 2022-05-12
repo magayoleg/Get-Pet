@@ -70,7 +70,6 @@ export function Chat({
               name={userInfo.userName}
               style={{
                 margin: '0px',
-                boxShadow: 'none',
                 boxShadow: '0 5px 5px -5px rgba(5, 4, 4, 0.2)',
               }}
             />
