@@ -19,6 +19,7 @@ const Favourites = () => {
             return (
               <CardAdvert
                 id={card.id}
+                city={card.city}
                 key={`card-${card.id}`}
                 name={card.title}
                 description={card.animalDescription}

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { addAdvertAction } from '../../../redux/actions/addAdvertAction';
 import { cities } from '../../../data/cities';
@@ -8,8 +8,6 @@ import { Select } from '../Select/Select';
 
 import './AddAdvertisement.sass';
 
-// TODO:гребаная заглушка, потому что не можем забрать с бэка данные по типам животных
-// так как нет ручки на это
 const options = [
   {
     id: 1,
@@ -52,7 +50,7 @@ const options = [
 function AddAdvertisement() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const user = useSelector(store => store.user);
+  const user = useSelector((store) => store.user);
   const [addAdvert, setAddAdvert] = useState({
     title: '',
     animalDescription: '',
@@ -65,7 +63,7 @@ function AddAdvertisement() {
     image: '',
     phoneNumber: '',
   });
-  
+
   useEffect(() => {
     if (!user) navigate('/auth/signin');
   }, []);
@@ -78,14 +76,8 @@ function AddAdvertisement() {
     e.preventDefault();
     const { addAdvertForm } = document.forms;
     const formData = new FormData(addAdvertForm);
-
-    // let payload = Object.entries(addAdvert).filter((el) =>
-    //   el[1] ? el[1].trim() : el[1]
-    // );
-    // if (payload.length) {
-    //   payload = Object.fromEntries(payload);
-      dispatch(addAdvertAction(formData));
-    // }
+    dispatch(addAdvertAction(formData));
+    navigate('/');
   };
 
   return (
@@ -108,7 +100,12 @@ function AddAdvertisement() {
           changeHandler={changeHandler}
           name="phoneNumber"
         />
-        <Select onChange={changeHandler} name="species" options={options} label="Тип животного" />
+        <Select
+          onChange={changeHandler}
+          name="species"
+          options={options}
+          label="Тип животного"
+        />
         <Input
           placeholder="Порода животного"
           value={addAdvert.breed}
@@ -127,7 +124,12 @@ function AddAdvertisement() {
           changeHandler={changeHandler}
           name="price"
         />
-        <Select onChange={changeHandler} name="city" options={cities} label="Город" />
+        <Select
+          onChange={changeHandler}
+          name="city"
+          options={cities}
+          label="Город"
+        />
         <Input
           placeholder="Адрес"
           value={addAdvert.address}
@@ -141,7 +143,7 @@ function AddAdvertisement() {
           name="animalDescription"
         />
         <div className="mb-3 signForm__box">
-          <label htmlFor='file' className="signForm__lable"></label>
+          <label htmlFor="file" className="signForm__lable"></label>
           <input
             onChange={changeHandler}
             className="signForm__input"
@@ -151,9 +153,9 @@ function AddAdvertisement() {
             // multiple
           />
         </div>
-        <button type="submit" className="signForm__submit">
-          ДОБАВИТЬ ОБЪЯВЛЕНИЕ
-        </button>
+          <button type="submit" className="signForm__submit">
+            ДОБАВИТЬ ОБЪЯВЛЕНИЕ
+          </button>
       </form>
     </div>
   );

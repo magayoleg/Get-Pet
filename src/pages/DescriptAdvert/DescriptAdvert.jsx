@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { NavLink, useParams } from 'react-router-dom';
+import { NavLink, useParams, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faBookmark } from '@fortawesome/free-solid-svg-icons';
@@ -32,10 +32,10 @@ export const DescriptAdvert = () => {
   useEffect(() => {
     getAllFavourites.forEach((favourite) => {
       if (favourite.id === Number(params.id)) {
-        setFavourite('info-title__favourite_in')
+        setFavourite('info-title__favourite_in');
       }
     });
-  }, [getAllFavourites])
+  }, [getAllFavourites]);
 
   const switchChat = async () => {
     if (positionChat === 'chat__disable') {
@@ -46,7 +46,9 @@ export const DescriptAdvert = () => {
   };
 
   const getNewAllMessage = () => {
-    dispatch(getAllMessagesThunk(dataAdvert.userId));
+    if (dataAdvert.userId) {
+      dispatch(getAllMessagesThunk(dataAdvert.userId));
+    }
   };
 
   const addFavourite = async () => {
