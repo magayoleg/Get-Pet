@@ -11,24 +11,29 @@ const Advertisements = () => {
   const [filter, setFilter] = useState({species: '', city: ''});
   const [searchParams, setSearchParams] = useSearchParams();
   const dispatch = useDispatch();
+  const querySpecies = searchParams.get('species');
+  const querycity = searchParams.get('city');
+
   useEffect(() => {
-    if (searchParams.get('species')) {
-      dispatch(getAllSpeciesPetsThunk(searchParams.get('species'), searchParams.get('city')));
+    if (querySpecies) {
+      dispatch(getAllSpeciesPetsThunk(querySpecies, querycity));
     } else {
       dispatch(getAllPetsThunk());
     }
-  }, []);
+  }, [querySpecies]);
+
   let cards;
   if (searchParams.get('species')) {
     cards = useSelector((state) => state.getAllSpeciesPets);
   } else {
     cards = useSelector((state) => state.getAllPets);
   }
-
+  
+  console.log(cards);
   const filterSelects = (data) => {
     setFilter({ ...filter, ...data });
   };
-  console.log(filter);
+  
   return (
     <section className="container advertisement cards-pet">
       <div className="cards-pet__filter">
@@ -113,6 +118,7 @@ const Advertisements = () => {
                 id={card.id}
                 key={`card-${card.id}`}
                 name={card.title}
+                city={card.city}
                 description={card.animalDescription}
                 price={card.price}
                 images={card.images}

@@ -52,15 +52,17 @@ const Header = () => {
 
         <div className="header__nav-wrapper">
           <nav className="header__nav nav__breeds">
-            <button onClick={breedsStyleChange}>ПОРОДЫ</button>
-            <FontAwesomeIcon
-              icon={faChevronDown}
-              className={
-                !breedsStyle.condition
-                  ? 'nav__arrow-breeds'
-                  : 'nav__arrow-breeds_active'
-              }
-            />
+            <button onClick={breedsStyleChange}>
+              <span>ВСЕ</span>
+              <FontAwesomeIcon
+                icon={faChevronDown}
+                className={
+                  !breedsStyle.condition
+                    ? 'nav__arrow-breeds'
+                    : 'nav__arrow-breeds_active'
+                }
+              />
+            </button>
             <div
               className={
                 !breedsStyle.condition
@@ -72,29 +74,54 @@ const Header = () => {
                 <li>
                   <NavLink to="/advertisements/?species=Собаки&city=">
                     <img src="/icons/animals/dog-white.svg" alt="dog-white" />
-                    ПОРОДЫ СОБАК
+                    СОБАКИ
                   </NavLink>
                 </li>
-                <li></li>
                 <li>
                   <NavLink to="/advertisements/?species=Кошки&city=">
                     <img src="/icons/animals/cat-white.svg" alt="cat-white" />
-                    ПОРОДЫ КОТОВ
+                    КОТЫ
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/advertisements/?species=Грызуны&city=">
+                    <img src="/icons/animals/hamster.svg" alt="hamster" />
+                    <span>МЕЛКИЕ ГРЫЗУНЫ</span>
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/advertisements/?species=Кролики&city=">
+                    <img src="/icons/animals/rabbit.svg" alt="rabbit" />
+                    <span>КРОЛИКИ</span>
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/advertisements/?species=Ящерицы&city=">
+                    <img src="/icons/animals/lizard.svg" alt="lizard" />
+                    <span>ЯЩЕРИЦЫ</span>
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/advertisements/?species=Рыбы&city=">
+                    <img src="/icons/animals/fish.svg" alt="fish" />
+                    <span>РЫБЫ</span>
                   </NavLink>
                 </li>
               </ul>
             </div>
           </nav>
           <nav className="header__nav nav__resources">
-            <button onClick={resourcesStyleChange}>РЕСУРСЫ САЙТА</button>
-            <FontAwesomeIcon
-              icon={faChevronDown}
-              className={
-                !resourcesStyle.condition
-                  ? 'nav__arrow-resources'
-                  : 'nav__arrow-resources_active'
-              }
-            />
+            <button onClick={resourcesStyleChange}>
+              <span>РЕСУРСЫ САЙТА</span>
+              <FontAwesomeIcon
+                icon={faChevronDown}
+                className={
+                  !resourcesStyle.condition
+                    ? 'nav__arrow-resources'
+                    : 'nav__arrow-resources_active'
+                }
+              />
+            </button>
             <div
               className={
                 !resourcesStyle.condition
@@ -104,24 +131,20 @@ const Header = () => {
             >
               <ul>
                 <li>
-                  <NavLink to="/about-help-adoption">
-                    О ПРИНЯТИИ ДОМАШНИХ ЖИВОТНЫХ
-                  </NavLink>
+                  <NavLink to="/maps">КАРТА ВСЕХ ОБЪЯВЛЕНИЙ</NavLink>
                 </li>
-                <li>
+                {/* <li>
                   <NavLink to="/dog-care">УХОД ЗА СОБАКОЙ</NavLink>
                 </li>
                 <li>
                   <NavLink to="/cat-care">УХОД ЗА КОШКОЙ</NavLink>
-                </li>
+                </li> */}
                 <li>
-                  <NavLink to="/all-pets-care">
-                    ВСЕ ДЛЯ УХОДА ЗА ЖИВОТНЫМИ
-                  </NavLink>
+                  <NavLink to="/pets-tips">СТАТЬИ О ЖИВОТНЫХ</NavLink>
                 </li>
-                <li>
+                {/* <li>
                   <NavLink to="/shelters">ПРИЮТЫ</NavLink>
-                </li>
+                </li> */}
                 <li>
                   <NavLink to="/helping-pets">
                     ПОМОЩЬ ДОМАШНИМ ЖИВОТНЫМИ
@@ -157,7 +180,7 @@ const Header = () => {
         </div>
 
         <div className="header__favourites">
-          <NavLink to='/posts/favourites'>
+          <NavLink to="/posts/favourites">
             <button>
               <FontAwesomeIcon icon={faBookmark} />
             </button>

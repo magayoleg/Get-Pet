@@ -2,7 +2,7 @@
 
 .card-advert
   max-width: 320px
-  height: 500px
+  height: 530px
   margin: 0 auto
   border-top-left-radius: 10px
   border-top-right-radius: 10px
@@ -10,15 +10,17 @@
   box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 4px 1px
   padding-bottom: 10px
   position: relative
+  z-index: 30
   &__swiper
-    max-height: 280px
+    height: 280px
+    width: 318px
+    overflow: hidden
+    border-top-right-radius: 10px
+    border-top-left-radius: 10px
     img
-      max-width: 320px
-      width: 100%
+      width: 370px
       display: block
       margin: 0 auto
-      border-top-left-radius: 10px
-      border-top-right-radius: 10px
   &__info
     list-style: none
     padding: 0px 15px 10px 15px
@@ -49,4 +51,3 @@
       overflow: hidden
       max-height: 80px
       line-height: 20px
-        

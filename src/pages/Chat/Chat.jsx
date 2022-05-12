@@ -35,7 +35,8 @@ export function Chat({
 
   useEffect(() => {
     webSocket.current = new WebSocket(endPoints.ws());
-    return () => webSocket.current.close();
+    // webSocket.current.close();
+    // return () => webSocket.current.close();
   }, []);
 
   useEffect(() => {

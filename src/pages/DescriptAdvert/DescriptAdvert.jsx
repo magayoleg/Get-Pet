@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import { NavLink, useParams } from 'react-router-dom';
+import { NavLink, useParams, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faBookmark } from '@fortawesome/free-solid-svg-icons';
 import { getOneAdvertThunk } from '../../redux/thunks/getOneAdvertThunk';
 import { getAllMessagesThunk } from '../../redux/thunks/getAllMessagesThunk';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -11,17 +11,31 @@ import * as endPoints from '../../config/endPoints';
 import './DescriptAdvert.sass';
 import { Chat } from '../Chat/Chat';
 import AdMap from '../../components/AdMap/AdMap';
+import { getAllFavouritesThunk } from '../../redux/thunks/getAllFavouritesThunk';
 
 export const DescriptAdvert = () => {
   const [positionChat, setPositionChat] = useState('chat__disable');
+  const [favourite, setFavourite] = useState('info-title__favourite_out');
 
   let params = useParams();
   const dispatch = useDispatch();
 
+  const dataAdvert = useSelector((state) => state.getOneAdvert);
+  const getAllFavourites = useSelector((state) => state.getAllFavourites);
+  const allMessages = useSelector((state) => state.getAllMessages);
+
   useEffect(() => {
     dispatch(getOneAdvertThunk(params.id));
+    dispatch(getAllFavouritesThunk());
   }, []);
-  const dataAdvert = useSelector((state) => state.getOneAdvert);
+
+  useEffect(() => {
+    getAllFavourites.forEach((favourite) => {
+      if (favourite.id === Number(params.id)) {
+        setFavourite('info-title__favourite_in');
+      }
+    });
+  }, [getAllFavourites]);
 
   const switchChat = async () => {
     if (positionChat === 'chat__disable') {
@@ -32,10 +46,16 @@ export const DescriptAdvert = () => {
   };
 
   const getNewAllMessage = () => {
-    dispatch(getAllMessagesThunk(dataAdvert.userId));
+    if (dataAdvert.userId) {
+      dispatch(getAllMessagesThunk(dataAdvert.userId));
+    }
   };
 
-  const allMessages = useSelector((state) => state.getAllMessages);
+  const addFavourite = async () => {
+    await fetch(endPoints.addToFavoriteAdvert(params.id), {
+      credentials: 'include',
+    });
+  };
 
   return (
     <div className="descript">
@@ -46,7 +66,6 @@ export const DescriptAdvert = () => {
         switchChat={switchChat}
         getNewAllMessage={getNewAllMessage}
       />
-
       <div className="advert">
         <div className="advert__title title">
           <div className="title__navigate">
@@ -54,12 +73,31 @@ export const DescriptAdvert = () => {
               <span>Главная</span>
             </NavLink>
             <span> {' > '} </span>
-            <NavLink to={`/advertisements/?species=${dataAdvert.species}`}>
+            <NavLink
+              to={`/advertisements/?species=${dataAdvert.species}&city=`}
+            >
               <span>{dataAdvert.species}</span>
             </NavLink>
           </div>
-          <dir className="title__text">{dataAdvert.title}</dir>
+          <div className="advert__info info-title">
+            <dir className="title__text">{dataAdvert.title}</dir>
+            <div
+              className={`info-title__favourite ${favourite}`}
+              onClick={() => {
+                addFavourite();
+                setFavourite('info-title__favourite_in');
+              }}
+            >
+              <span>
+                {favourite === 'info-title__favourite_in'
+                  ? 'В избранном'
+                  : 'Добавить в избранное'}{' '}
+              </span>
+              <FontAwesomeIcon icon={faBookmark} />
+            </div>
+          </div>
         </div>
+
         <div className="advert__wrapper">
           <div className="advert__slider">
             <Swiper

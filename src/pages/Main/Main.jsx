@@ -62,7 +62,7 @@ function Main() {
             <select
               onChange={(e) => filterSelects({ species: e.target.value })}
             >
-              <option value=""></option>
+              <option value="">Тип животного</option>
               <option value="Собаки">Собаки</option>
               <option value="Кошки">Кошки</option>
               <option value="Грызуны">Мелкие грызуны</option>
@@ -76,7 +76,7 @@ function Main() {
           </div>
           <div className="cards-pet__city cards-pet__input">
             <select onChange={(e) => filterSelects({ city: e.target.value })}>
-              <option value=""></option>
+              <option value="">Город поиска</option>
               <option value="Москва">Москва</option>
               <option value="Санкт-Петербург">Санкт-Петербург</option>
               <option value="Новосибирск">Новосибирск</option>
@@ -223,7 +223,7 @@ function Main() {
             {cards?.map((card, index) => {
               if (randomIndex.includes(index)) {
                 return (
-                  <SwiperSlide key={'key' + card.id}>
+                  <SwiperSlide key={`cards-${index}`}>
                     <AdoptionCard
                       id={card.id}
                       name={card.title}
@@ -268,7 +268,7 @@ function Main() {
             {tips.map((item, index) => {
               if (randomIndex.includes(index)) {
                 return (
-                  <SwiperSlide key={'key' + item.id}>
+                  <SwiperSlide key={`tips-${index}`}>
                     <AdviceCard
                       id={item.id}
                       title={item.title}
