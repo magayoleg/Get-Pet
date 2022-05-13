@@ -25,8 +25,9 @@ function AdMap() {
   const theAdTitle = theAd[0]?.title;
   const theAdCity = theAd[0]?.city;
   const theAdAddress = theAd[0]?.address;
+  const apikey = "6cb886ee-1e08-4c26-8fa6-376a834d2cd5";
   return (
-    <YMaps>
+    <YMaps query={{ apikey }}>
       <div className="admap">
         <Map
           defaultState={{ center: theAdCoordinates, zoom: 14 }}

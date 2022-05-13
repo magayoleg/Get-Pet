@@ -35,12 +35,14 @@ function AdsMap() {
   }, []);
   const DBO = useSelector((store) => store.getAllPets);
   const mapState = { center: [59.629499, 62.800015], zoom: 4 };
+  const apikey = "6cb886ee-1e08-4c26-8fa6-376a834d2cd5";
+
   return (
     <div className="container">
       <div id="above map" className="breadcrumbs">
         <p> Карта всех объявлении </p>
       </div>
-      <YMaps id="map">
+      <YMaps query={{ apikey }}>
         <div className="species_switcher">
           <button type="button" onClick={() => sortedMarks(null)}>
             {" "}
