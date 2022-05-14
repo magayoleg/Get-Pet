@@ -76,7 +76,7 @@ export const DescriptAdvert = () => {
             <NavLink
               to={`/advertisements/?species=${dataAdvert.species}&city=`}
             >
-              <span>{dataAdvert.species}</span>
+              <span>Мелкие грызуны</span>
             </NavLink>
           </div>
           <div className="advert__info info-title">
