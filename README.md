@@ -1,4 +1,4 @@
-getPet
+# **getPet**
 ____
 Данный сайт предназначен для удобного пойска покупателей домашних животных, а так же помогает людям найти себе домашниго питомца. 
 В данном проекте реализованная возможность регистрации, добавления объявления, фильтр объявления и чат для связи с продавцом. 
@@ -7,11 +7,11 @@ ____
 ____
 В данном проекте реализованны технологии: React + Redux, Sass, PostgreSQL, Express, WebSocket, API Яндекс Карты
 ____
-Installation
+### **Installation**
 Install getPet with npm
 
   npm install 
   npm start
 ____  
-Heroku project
+### **Heroku project**
 https://get-pet-app.herokuapp.com/
